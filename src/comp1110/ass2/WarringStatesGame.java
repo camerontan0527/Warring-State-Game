@@ -18,7 +18,7 @@ public class WarringStatesGame {
     static boolean isCardPlacementWellFormed(String cardPlacement) {
         // FIXME Task 2: determine whether a card placement is well-formed
         char[] arr = cardPlacement.toCharArray();
-        if (Character.isUpperCase(arr[2]) || (Character.isDigit(arr[2])))
+        if ((arr[2] >= 'A' && arr[2] <= 'Z')|| (arr[2] >= '0' && arr[2] <= '9'))
             if (arr[0] == 'a' && arr[1] >= '0' && arr[1] <= '7') {
                 return true;
             } else if (arr[0] == 'b' && arr[1] >= '0' && arr[1] <= '6') {
