@@ -17,8 +17,31 @@ public class WarringStatesGame {
      */
     static boolean isCardPlacementWellFormed(String cardPlacement) {
         // FIXME Task 2: determine whether a card placement is well-formed
-        return false;
-    }
+        char[] arr = cardPlacement.toCharArray();
+        if (Character.isUpperCase(arr[2]) || (Character.isDigit(arr[2])))
+            if (arr[0] == 'a' && arr[1] >= '0' && arr[1] <= '7') {
+                return true;
+            } else if (arr[0] == 'b' && arr[1] >= '0' && arr[1] <= '6') {
+                return true;
+            } else if (arr[0] == 'c' && arr[1] >= '0' && arr[1] <= '5') {
+                return true;
+            } else if (arr[0] == 'd' && arr[1] >= '0' && arr[1] <= '4') {
+                return true;
+            } else if (arr[0] == 'e' && arr[1] >= '0' && arr[1] <= '3') {
+                return true;
+            } else if (arr[0] == 'f' && arr[1] >= '0' && arr[1] <= '2') {
+                return true;
+            } else if (arr[0] == 'g' && arr[1] >= '0' && arr[1] <= '1') {
+                return true;
+            } else if (arr[0] == 'z' && arr[1] == '9') {
+                return true;
+            } else {
+                return false;
+        }else{
+            return false;
+        }
+
+}
 
     /**
      * Determine whether a placement string is well-formed:
@@ -41,8 +64,9 @@ public class WarringStatesGame {
      * - there is a card at the chosen location;
      * - the location is in the same row or column of the grid as Zhang Yi's current position; and
      * - drawing a line from Zhang Yi's current location through the card at the chosen location,
-     *   there are no other cards along the line from the same kingdom as the chosen card
-     *   that are further away from Zhang Yi.
+     * there are no other cards along the line from the same kingdom as the chosen card
+     * that are further away from Zhang Yi.
+     *
      * @param placement    the current placement string
      * @param locationChar a location for Zhang Yi to move to
      * @return true if Zhang Yi may move to that location
@@ -118,6 +142,7 @@ public class WarringStatesGame {
      * there are no other cards along the line from the same kingdom as the chosen card
      * that are further away from Zhang Yi.
      * If there is no legal move available, return the null character '\0'.
+     *
      * @param placement the current placement string
      * @return a location character representing Zhang Yi's destination for the move
      */
