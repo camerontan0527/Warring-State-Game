@@ -17,10 +17,11 @@ public class WarringStatesGame {
      */
     static boolean isCardPlacementWellFormed(String cardPlacement) {
         // FIXME Task 2: determine whether a card placement is well-formed
-        char[] arr = cardPlacement.toCharArray();
-        if ((arr[2] >= 'A' && arr[2] <= 'Z')|| (arr[2] >= '0' && arr[2] <= '9'))
-            if (arr[0] == 'a' && arr[1] >= '0' && arr[1] <= '7') {
-                return true;
+        char[] arr = cardPlacement.toCharArray(); //converts the cardPlacement set into an array of characters
+        //if the third element in the char array is A and Z or 0 and 9.
+        if ((arr[2] >= 'A' && arr[2] <= 'Z')|| (arr[2] >= '0' && arr[2] <= '9')) //checks if the characters are in range
+            if (arr[0] == 'a' && arr[1] >= '0' && arr[1] <= '7') {//checks if the kingdom is a and character number is valid  (0 and 7)
+                return true;// returns true if the above statement is true.
             } else if (arr[0] == 'b' && arr[1] >= '0' && arr[1] <= '6') {
                 return true;
             } else if (arr[0] == 'c' && arr[1] >= '0' && arr[1] <= '5') {
