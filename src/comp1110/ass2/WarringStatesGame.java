@@ -67,19 +67,25 @@ public class WarringStatesGame {
         if ((placement.length()) % 3 != 0){
             return false;
         }
-        for (String each : ar) {
-            if (isCardPlacementWellFormed(each) == false) {
+        for (int i = 0; i < ar.length ; i++) {
+            if (isCardPlacementWellFormed(ar[i]) == false) {
                 return false;
             }
         }for (int j = 0; j < ar.length - 1; j++) {
-            for (int i = 1; i < ar.length; i++) {
+            for (int i = j+1; i < ar.length; i++) {
                 if (ar[j] == ar[i]) {
                     return false;
                 }
             }
         }for (int m = 0; m < ar.length - 1; m++) {
-            for (int n = 1; n < ar.length; n++) {
+            for (int n = m+1; n < ar.length; n++) {
                 if (ar[m].charAt(2) == ar[n].charAt(2)) {
+                    return false;
+                }
+            }
+        }for (int m = 0; m < ar.length - 1; m++) {
+            for (int n = m+1; n < ar.length; n++) {
+                if ((ar[m].charAt(0) == ar[n].charAt(0))&& (ar[m].charAt(1)==ar[n].charAt(1))) {
                     return false;
                 }
             }
