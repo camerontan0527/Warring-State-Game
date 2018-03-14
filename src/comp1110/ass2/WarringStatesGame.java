@@ -57,7 +57,7 @@ public class WarringStatesGame {
     static boolean isPlacementWellFormed(String placement) {
         // FIXME Task 3: determine whether a placement is well-formed
         //first two char of string = card
-        //third char of string = location 
+        //third char of string = location
         //need to check if all cards are placed on the board once
         //need to check if the locations are all different (0-9 numbers no repeats)
         //can use if statements
