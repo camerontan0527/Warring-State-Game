@@ -91,7 +91,7 @@ public class WarringStatesGame {
                 }
             }
         }if (ar==null){
-               return false; 
+               return false;
         }
         return true;
     }
@@ -116,7 +116,7 @@ public class WarringStatesGame {
         // if (locationChar<0 &&locationChar>9){
         //     return false;
         //check through the placement string (use for loop)
-            //check if there is a duplicate in of the location (use for statements)
+            //check if the location char is in the placement string (use for statements)
         //check if the location is in the column/row
          // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
 
