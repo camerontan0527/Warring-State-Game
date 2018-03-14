@@ -63,7 +63,28 @@ public class WarringStatesGame {
         // or
         //create two arrays
           // one with the location values and the other with the card type 
-        return false;
+        String[] ar = placement.split("(?<=\\G...)");
+        if ((placement.length()) % 3 != 0){
+            return false;
+        }
+        for (String each : ar) {
+            if (isCardPlacementWellFormed(each) == false) {
+                return false;
+            }
+        }for (int j = 0; j < ar.length - 1; j++) {
+            for (int i = 1; i < ar.length; i++) {
+                if (ar[j] == ar[i]) {
+                    return false;
+                }
+            }
+        }for (int m = 0; m < ar.length - 1; m++) {
+            for (int n = 1; n < ar.length; n++) {
+                if (ar[m].charAt(2) == ar[n].charAt(2)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
