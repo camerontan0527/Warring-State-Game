@@ -62,30 +62,31 @@ public class WarringStatesGame {
         //can create an array of string (3char)
         // or
         //create two arrays
-          // one with the location values and the other with the card type 
+          // one with the location values and the other with the card type
+
         String[] ar = placement.split("(?<=\\G...)");
-        if ((placement.length()) % 3 != 0){
+           if ((placement.length()) % 3 != 0){ //checks if there are three pairs of char for each char
             return false;
         }
-        for (int i = 0; i < ar.length ; i++) {
-            if (isCardPlacementWellFormed(ar[i]) == false) {
+        for (int i = 0; i < ar.length ; i++) { //goes through the array of cards looking at each char
+            if (isCardPlacementWellFormed(ar[i]) == false) {//if the card placement is not well formed
                 return false;
             }
-        }for (int j = 0; j < ar.length - 1; j++) {
-            for (int i = j+1; i < ar.length; i++) {
-                if (ar[j] == ar[i]) {
+        }for (int j = 0; j < ar.length - 1; j++) {//goes through each char in the array
+            for (int i = j+1; i < ar.length; i++) {//goes through each char in array (one after j)
+                if (ar[j] == ar[i]) { //if the two chars are equal false is returned
                     return false;
                 }
             }
-        }for (int m = 0; m < ar.length - 1; m++) {
-            for (int n = m+1; n < ar.length; n++) {
-                if (ar[m].charAt(2) == ar[n].charAt(2)) {
+        }for (int m = 0; m < ar.length - 1; m++) {//goes through each char in the array
+            for (int n = m+1; n < ar.length; n++) {//goes through each char in the array (one after m)
+                if (ar[m].charAt(2) == ar[n].charAt(2)) {//checks if there are duplicates of locations in the card 
                     return false;
                 }
             }
-        }for (int m = 0; m < ar.length - 1; m++) {
-            for (int n = m+1; n < ar.length; n++) {
-                if ((ar[m].charAt(0) == ar[n].charAt(0))&& (ar[m].charAt(1)==ar[n].charAt(1))) {
+        }for (int m = 0; m < ar.length - 1; m++) {//does through each char in the array
+            for (int n = m+1; n < ar.length; n++) {//goes through each char in the array (one after m)
+                if ((ar[m].charAt(0) == ar[n].charAt(0))&& (ar[m].charAt(1)==ar[n].charAt(1))) {//checks if there are duplicates of the card in the array
                     return false;
                 }
             }
