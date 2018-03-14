@@ -80,7 +80,7 @@ public class WarringStatesGame {
             }
         }for (int m = 0; m < ar.length - 1; m++) {//goes through each char in the array
             for (int n = m+1; n < ar.length; n++) {//goes through each char in the array (one after m)
-                if (ar[m].charAt(2) == ar[n].charAt(2)) {//checks if there are duplicates of locations in the card 
+                if (ar[m].charAt(2) == ar[n].charAt(2)) {//checks if there are duplicates of locations in the card
                     return false;
                 }
             }
@@ -109,6 +109,13 @@ public class WarringStatesGame {
      */
     public static boolean isMoveLegal(String placement, char locationChar) {
         // FIXME Task 5: determine whether a given move is legal
+        //checking if location is in range (if statements)
+        //check through the placement string (use for loop)
+            //check if there is a duplicate in of the location
+        //check if the location is in the column/row
+            //
+
+
         return false;
     }
 
