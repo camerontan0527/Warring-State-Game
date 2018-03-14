@@ -56,18 +56,35 @@ public class WarringStatesGame {
      */
     static boolean isPlacementWellFormed(String placement) {
         // FIXME Task 3: determine whether a placement is well-formed
-        //first two char of string = card
-        //third char of string = location
         //need to check if all cards are placed on the board once
         //need to check if the locations are all different (0-9 numbers no repeats)
         //can use if statements
         //can create an array of string (3char)
         // or
         //create two arrays
-          // one with the location values and the other with the card type
-        char s [] = placement.toCharArray();
-         return false;
-
+          // one with the location values and the other with the card type 
+        String[] ar = placement.split("(?<=\\G...)");
+        if ((placement.length()) % 3 != 0){
+            return false;
+        }
+        for (String each : ar) {
+            if (isCardPlacementWellFormed(each) == false) {
+                return false;
+            }
+        }for (int j = 0; j < ar.length - 1; j++) {
+            for (int i = 1; i < ar.length; i++) {
+                if (ar[j] == ar[i]) {
+                    return false;
+                }
+            }
+        }for (int m = 0; m < ar.length - 1; m++) {
+            for (int n = 1; n < ar.length; n++) {
+                if (ar[m].charAt(2) == ar[n].charAt(2)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
