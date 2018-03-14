@@ -110,15 +110,15 @@ public class WarringStatesGame {
     public static boolean isMoveLegal(String placement, char locationChar) {
         // FIXME Task 5: determine whether a given move is legal
         //checking if location is in range (if statements)
+        // String[] p = placement.split("(?<=\\G...)");
+        // if (locationChar<0 &&locationChar>9){
+        //     return false;
         //check through the placement string (use for loop)
             //check if there is a duplicate in of the location (use for statements)
         //check if the location is in the column/row
-         // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row 
+         // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
 
-
-
-
-        return false;
+         return false;
     }
 
     /**
