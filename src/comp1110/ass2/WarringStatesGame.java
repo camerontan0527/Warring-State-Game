@@ -134,6 +134,9 @@ public class WarringStatesGame {
      */
     static boolean isMoveSequenceValid(String setup, String moveSequence) {
         // FIXME Task 6: determine whether a placement sequence is valid
+        //needs to call isMoveLegal function
+           //this function checks the isMoveLegal function multiple times
+            //if one move passes, the current move for the next move will be the move which passed the isMoveLegal function 
         return false;
     }
 
