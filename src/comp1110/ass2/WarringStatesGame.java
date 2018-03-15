@@ -96,8 +96,6 @@ public class WarringStatesGame {
                     return false;
                 }
             }
-        }if (ar==null){
-               return false;
         }
         return true;
     }
