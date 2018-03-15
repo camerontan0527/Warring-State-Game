@@ -63,7 +63,13 @@ public class WarringStatesGame {
         // or
         //create two arrays
           // one with the location values and the other with the card type
-
+        String nullString = null;
+        String emptyString = "";
+        if (placement == null){
+            return false;
+        }if (placement == "" ){
+            return  false;
+        }
         String[] ar = placement.split("(?<=\\G...)");
            if ((placement.length()) % 3 != 0){ //checks if there are three pairs of char for each char
             return false;
