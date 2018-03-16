@@ -117,14 +117,15 @@ public class WarringStatesGame {
      */
     public static boolean isMoveLegal(String placement, char locationChar) {
         // FIXME Task 5: determine whether a given move is legal
+        // set each row/column an array or string
         //checking if location is in range (if statements)
         // String[] p = placement.split("(?<=\\G...)");
         // if (locationChar<0 &&locationChar>9){
-        //     return false;
+        // return false;
         //check through the placement string (use for loop)
-            //check if the location char is in the placement string (use for statements)
-        //check if the location is in the column/row
-         // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
+        //check if the location char is in the placement string (use for statements)
+        //check if the location is in the column/row ( as z9)
+        // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
 
          return false;
     }
@@ -142,9 +143,11 @@ public class WarringStatesGame {
      */
     static boolean isMoveSequenceValid(String setup, String moveSequence) {
         // FIXME Task 6: determine whether a placement sequence is valid
+        // check if the length of the set up = 36
         //needs to call isMoveLegal function
-           //this function checks the isMoveLegal function multiple times
-            //if one move passes, the current move for the next move will be the move which passed the is current location
+        // this function checks the isMoveLegal function multiple times
+        //  check if the next move is in the same column/row as the previous one
+        //if one move passes, the current move for the next move will be the move which passed the is current location
         return false;
     }
 
