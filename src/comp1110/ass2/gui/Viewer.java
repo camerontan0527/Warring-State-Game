@@ -28,6 +28,10 @@ public class Viewer extends Application {
     private final Group controls = new Group();
     TextField textField;
 
+    //extract the individual card from the placement and its location
+    //use coordinates or directions to specify the location
+    // ask if needs to load card pic into the window
+
     /**
      * Draw a placement in the window, removing any previously drawn one
      *
@@ -35,8 +39,7 @@ public class Viewer extends Application {
      */
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
-        //extract the individual card from the placement and its location
-        //use coordinates or directions to specify the location
+
     }
 
     /**
