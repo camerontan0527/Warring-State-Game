@@ -4,12 +4,18 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
+
+
 
 /**
  * A very simple viewer for card layouts in the Warring States game.
@@ -17,6 +23,8 @@ import javafx.stage.Stage;
  * NOTE: This class is separate from your main game class.  This
  * class does not play a game, it just illustrates various card placements.
  */
+
+
 public class Viewer extends Application {
 
     private static final int VIEWER_WIDTH = 933;
@@ -28,18 +36,203 @@ public class Viewer extends Application {
     private final Group controls = new Group();
     TextField textField;
 
-    //extract the individual card from the placement and its location
-    //use coordinates or directions to specify the location
-    // ask if needs to load card pic into the window
+
 
     /**
      * Draw a placement in the window, removing any previously drawn one
      *
      * @param placement A valid placement string
      */
+    private void assignCards() { //assigns the different cards in the game
+        Rectangle a1= new Rectangle();
+        a1.setHeight(100);//specifies the hieght
+        a1.setWidth(100);//specifies the width
+        a1.setFill(Color.RED);//specifies the colour
+
+        Rectangle a2= new Rectangle();
+        a2.setHeight(100);
+        a2.setWidth(100);
+        a2.setFill(Color.RED);
+
+        Rectangle a3= new Rectangle();
+        a3.setHeight(100);
+        a3.setWidth(100);
+        a3.setFill(Color.RED);
+
+        Rectangle a4= new Rectangle();
+        a4.setHeight(100);
+        a4.setWidth(100);
+        a4.setFill(Color.RED);
+
+        Rectangle a5= new Rectangle();
+        a5.setHeight(100);
+        a5.setWidth(100);
+        a5.setFill(Color.RED);
+
+        Rectangle a6= new Rectangle();
+        a6.setHeight(100);
+        a6.setWidth(100);
+        a6.setFill(Color.RED);
+
+        Rectangle a7= new Rectangle();
+        a7.setHeight(100);
+        a7.setWidth(100);
+        a7.setFill(Color.RED);
+
+        Rectangle a8= new Rectangle();
+        a8.setHeight(100);
+        a8.setWidth(100);
+        a8.setFill(Color.RED);
+
+        Rectangle b1= new Rectangle();
+        b1.setHeight(100);
+        b1.setWidth(100);
+        b1.setFill(Color.PURPLE);
+
+        Rectangle b2= new Rectangle();
+        b2.setHeight(100);
+        b2.setWidth(100);
+        b2.setFill(Color.PURPLE);
+
+        Rectangle b3= new Rectangle();
+        b3.setHeight(100);
+        b3.setWidth(100);
+        b3.setFill(Color.PURPLE);
+
+        Rectangle b4= new Rectangle();
+        b4.setHeight(100);
+        b4.setWidth(100);
+        b4.setFill(Color.PURPLE);
+
+        Rectangle b5= new Rectangle();
+        b5.setHeight(100);
+        b5.setWidth(100);
+        b5.setFill(Color.PURPLE);
+
+        Rectangle b6= new Rectangle();
+        b6.setHeight(100);
+        b6.setWidth(100);
+        b6.setFill(Color.PURPLE);
+
+        Rectangle b7= new Rectangle();
+        b7.setHeight(100);
+        b7.setWidth(100);
+        b7.setFill(Color.PURPLE);
+
+        Rectangle c1= new Rectangle();
+        c1.setHeight(100);
+        c1.setWidth(100);
+        c1.setFill(Color.YELLOW);
+
+        Rectangle c2= new Rectangle();
+        c2.setHeight(100);
+        c2.setWidth(100);
+        c2.setFill(Color.YELLOW);
+
+        Rectangle c3= new Rectangle();
+        c3.setHeight(100);
+        c3.setWidth(100);
+        c3.setFill(Color.YELLOW);
+
+        Rectangle c4= new Rectangle();
+        c4.setHeight(100);
+        c4.setWidth(100);
+        c4.setFill(Color.YELLOW);
+
+        Rectangle c5= new Rectangle();
+        c5.setHeight(100);
+        c5.setWidth(100);
+        c5.setFill(Color.YELLOW);
+
+        Rectangle c6= new Rectangle();
+        c6.setHeight(100);
+        c6.setWidth(100);
+        c6.setFill(Color.YELLOW);
+
+        Rectangle d1= new Rectangle();
+        d1.setHeight(100);
+        d1.setWidth(100);
+        d1.setFill(Color.GREEN);
+
+        Rectangle d2= new Rectangle();
+        d2.setHeight(100);
+        d2.setWidth(100);
+        d2.setFill(Color.GREEN);
+
+        Rectangle d3= new Rectangle();
+        d3.setHeight(100);
+        d3.setWidth(100);
+        d3.setFill(Color.GREEN);
+
+        Rectangle d4= new Rectangle();
+        d4.setHeight(100);
+        d4.setWidth(100);
+        d4.setFill(Color.GREEN);
+
+        Rectangle d5= new Rectangle();
+        d5.setHeight(100);
+        d5.setWidth(100);
+        d5.setFill(Color.GREEN);
+
+        Rectangle e1= new Rectangle();
+        e1.setHeight(100);
+        e1.setWidth(100);
+        e1.setFill(Color.GRAY);
+
+        Rectangle e2= new Rectangle();
+        e2.setHeight(100);
+        e2.setWidth(100);
+        e2.setFill(Color.GRAY);
+
+        Rectangle e3= new Rectangle();
+        e3.setHeight(100);
+        e3.setWidth(100);
+        e3.setFill(Color.GRAY);
+
+        Rectangle e4= new Rectangle();
+        e4.setHeight(100);
+        e4.setWidth(100);
+        e4.setFill(Color.GRAY);
+
+        Rectangle f1= new Rectangle();
+        f1.setHeight(100);
+        f1.setWidth(100);
+        f1.setFill(Color.BLUE);
+
+
+        Rectangle f2= new Rectangle();
+        f2.setHeight(100);
+        f2.setWidth(100);
+        f2.setFill(Color.BLUE);
+
+        Rectangle f3= new Rectangle();
+        f3.setHeight(100);
+        f3.setWidth(100);
+        f3.setFill(Color.BLUE);
+
+        Rectangle g1= new Rectangle();
+        g1.setHeight(100);
+        g1.setWidth(100);
+        g1.setFill(Color.BEIGE);
+
+        Rectangle g2= new Rectangle();
+        g2.setHeight(100);
+        g2.setWidth(100);
+        g2.setFill(Color.BEIGE);
+
+        Rectangle z9= new Rectangle();
+        z9.setHeight(100);
+        z9.setWidth(100);
+        z9.setFill(Color.BLACK);
+
+    }
+
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
-
+        //need to first check if the placement string is valid using isPlacementWellFormed function
+        //assign color to each kingdom and number to each card in kingdom
+        //extract the individual card from the placement and its location
+        //use coordinates or directions to specify the location
     }
 
     /**
@@ -71,9 +264,13 @@ public class Viewer extends Application {
         Scene scene = new Scene(root, VIEWER_WIDTH, VIEWER_HEIGHT);
 
         root.getChildren().add(controls);
+        Shape shape = new Rectangle(600,600);
+        shape.setFill(Color.WHITE);
+        shape.setStroke(Color.BLACK);
+        //https://www.youtube.com/watch?v=u9XjA5eRUrE
+        root.getChildren().add(shape);
 
         makeControls();
-
         primaryStage.setScene(scene);
         primaryStage.show();
     }
