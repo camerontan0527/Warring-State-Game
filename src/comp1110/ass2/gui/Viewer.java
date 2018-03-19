@@ -265,7 +265,10 @@ public class Viewer extends Application {
         //need to first check if the placement string is valid using isPlacementWellFormed function
         //assign color to each kingdom and number to each card in kingdom
         //extract the individual card from the placement and its location
-        //use coordinates or directions to specify the location
+        //use matrix colum and row to specify the location
+        char [] p = placement.toCharArray();
+
+
 
     }
 
