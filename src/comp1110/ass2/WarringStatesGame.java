@@ -1,9 +1,29 @@
 package comp1110.ass2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * This class provides the text interface for the Warring States game
  */
 public class WarringStatesGame {
+    static char[][] row = {{'A', 'G', 'M', 'S', 'Y', '4'},
+            {'B', 'H', 'N', 'T', 'Z', '5'},
+            {'C', 'I', 'O', 'U', '0', '6'},
+            {'D', 'J', 'P', 'V', '1', '7'},
+            {'E', 'K', 'Q', 'W', '2', '8'},
+            {'F', 'L', 'R', 'X', '3', '9'}};
+    static char[][] column = {{'A', 'B', 'C', 'D', 'E', 'F'},
+            {'G', 'H', 'I', 'J', 'K', 'L'},
+            {'M', 'N', 'O', 'P', 'Q', 'R'},
+            {'S', 'T', 'U', 'V', 'W', 'X'},
+            {'Y', 'Z', '0', '1', '2', '3'},
+            {'4', '5', '6', '7', '8', '9'}};
+
+    WarringStatesGame(char[][] row, char[][] column) {
+        this.column = column;
+        this.row = row;
+    }
 
     /**
      * Determine whether a card placement is well-formed according to the following:
@@ -19,7 +39,7 @@ public class WarringStatesGame {
         // FIXME Task 2: determine whether a card placement is well-formed
         char[] arr = cardPlacement.toCharArray(); //converts the cardPlacement set into an array of characters
         //if the third element in the char array is A and Z or 0 and 9.
-        if ((arr[2] >= 'A' && arr[2] <= 'Z')|| (arr[2] >= '0' && arr[2] <= '9')) //checks if the characters are in range
+        if ((arr[2] >= 'A' && arr[2] <= 'Z') || (arr[2] >= '0' && arr[2] <= '9')) //checks if the characters are in range
             if (arr[0] == 'a' && arr[1] >= '0' && arr[1] <= '7') {//checks if the kingdom is a and character number is valid  (0 and 7)
                 return true;// returns true if the above statement is true.
             } else if (arr[0] == 'b' && arr[1] >= '0' && arr[1] <= '6') {
@@ -38,11 +58,12 @@ public class WarringStatesGame {
                 return true;
             } else {
                 return false;
-        }else{
+            }
+        else {
             return false;
         }
 
-}
+    }
 
     /**
      * Determine whether a placement string is well-formed:
@@ -62,37 +83,36 @@ public class WarringStatesGame {
         //can create an array of string (3char)
         // or
         //create two arrays
-          // one with the location values and the other with the card type
-        String nullString = null;
-        String emptyString = "";
-        if (placement == null){
+        // one with the location values and the other with the card type
+        if (placement == null || placement == "") {
             return false;
-        }if (placement == "" ){
-            return  false;
         }
         String[] ar = placement.split("(?<=\\G...)");
-           if ((placement.length()) % 3 != 0){ //checks if there are three pairs of char for each char
+        if ((placement.length()) % 3 != 0) { //checks if there are three pairs of char for each char
             return false;
         }
-        for (int i = 0; i < ar.length ; i++) { //goes through the array of cards looking at each char
+        for (int i = 0; i < ar.length; i++) { //goes through the array of cards looking at each char
             if (isCardPlacementWellFormed(ar[i]) == false) {//if the card placement is not well formed
                 return false;
             }
-        }for (int j = 0; j < ar.length - 1; j++) {//goes through each char in the array
-            for (int i = j+1; i < ar.length; i++) {//goes through each char in array (one after j)
+        }
+        for (int j = 0; j < ar.length - 1; j++) {//goes through each char in the array
+            for (int i = j + 1; i < ar.length; i++) {//goes through each char in array (one after j)
                 if (ar[j] == ar[i]) { //if the two chars are equal false is returned
                     return false;
                 }
             }
-        }for (int m = 0; m < ar.length - 1; m++) {//goes through each char in the array
-            for (int n = m+1; n < ar.length; n++) {//goes through each char in the array (one after m)
+        }
+        for (int m = 0; m < ar.length - 1; m++) {//goes through each char in the array
+            for (int n = m + 1; n < ar.length; n++) {//goes through each char in the array (one after m)
                 if (ar[m].charAt(2) == ar[n].charAt(2)) {//checks if there are duplicates of locations in the card
                     return false;
                 }
             }
-        }for (int m = 0; m < ar.length - 1; m++) {//does through each char in the array
-            for (int n = m+1; n < ar.length; n++) {//goes through each char in the array (one after m)
-                if ((ar[m].charAt(0) == ar[n].charAt(0))&& (ar[m].charAt(1)==ar[n].charAt(1))) {//checks if there are duplicates of the card in the array
+        }
+        for (int m = 0; m < ar.length - 1; m++) {//does through each char in the array
+            for (int n = m + 1; n < ar.length; n++) {//goes through each char in the array (one after m)
+                if ((ar[m].charAt(0) == ar[n].charAt(0)) && (ar[m].charAt(1) == ar[n].charAt(1))) {//checks if there are duplicates of the card in the array
                     return false;
                 }
             }
@@ -124,9 +144,136 @@ public class WarringStatesGame {
         //check if the location char is in the placement string (use for statements)
         //check if the location is in the column/row ( as z9)
         // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
+        String[] ar = placement.split("(?<=\\G...)");
+        if (locationChar < '0' || (locationChar > '9' && locationChar < 'A') || locationChar > 'Z') {
+            return false;
+        }
+        Character [] thirdChar = new Character[ar.length]; //check if there's a card at chosen location
+        for (int i = 0; i < ar.length; i++) {
+            thirdChar[i] = ar[i].charAt(2);
+        }
+        if ((Arrays.asList(thirdChar).contains(locationChar)) == false) {
+            return false;
+        }
+        String zhangLocation = "";
+        for (String elem : ar) {
+            if (elem.charAt(0) == 'z' && elem.charAt(1) == '9') {
+                zhangLocation = elem; // Zhang's current card (Z9_)
+            }
+        }
+        String locationCard = "";
+        for (String elem : ar) {
+            if (elem.charAt(2) == locationChar) {
+                locationCard = elem; // location's current card (_ _ locationChar)
+            }
+        }
+        int rowIndex = 0;  // return the row where zhang is
+        for (char[] elem : row) {
+            if (new String(elem).contains(String.valueOf(zhangLocation.charAt(2)))) {
+                rowIndex = Arrays.asList(row).indexOf(elem);
+            }
+        }
+        int columnIndex = 0;  // return the column where zhang is
+        for (char[] elem : column) {
+            if (new String(elem).contains(String.valueOf(zhangLocation.charAt(2)))) {
+                columnIndex = Arrays.asList(column).indexOf(elem);
+            }
+        }
+        int rowLocationIndex = 0;  // return the row where locationChar is
+        for (char[] elem : row) {
+            if (new String(elem).contains(String.valueOf(locationCard.charAt(2)))) {
+                rowLocationIndex = Arrays.asList(row).indexOf(elem);
+            }
+        }
+        int columnLocationIndex = 0;  // return the column where locationChar is
+        for (char[] elem : column) {
+            if (new String(elem).contains(String.valueOf(locationCard.charAt(2)))) {
+                columnLocationIndex = Arrays.asList(column).indexOf(elem);
+            }
+        }
+        if ((rowIndex == rowLocationIndex) && (columnIndex == columnLocationIndex)) {
+            return false;
+        }
+        if ((rowIndex != rowLocationIndex) && (columnIndex != columnLocationIndex)) {
+            return false;
+        }
+        ArrayList<String> cardAtsameRow = new ArrayList<>(); // return a List of cardString at the same row
+        char[] rowPosition = row[rowIndex]; // return all the locationChar of zhang's row
+        for (String elem : ar) {
+            for (int i = 0; i < 6; i++) {
+                if (elem.charAt(2) == rowPosition[i])
+                    cardAtsameRow.add(elem);
+            }
+        }
+        ArrayList<String> cardAtsameColumn = new ArrayList<>(); // return a List of cardString at the same column
+        char[] columnPosition = column[columnIndex]; // return all the locationChar of zhang's column
+        for (String elem : ar) {
+            for (int i = 0; i < 6; i++) {
+                if (elem.charAt(2) == columnPosition[i])
+                    cardAtsameColumn.add(elem);
+            }
+        }
+        ArrayList<String> sameRowKingdom = new ArrayList<>(); // return the card with same kingdom at same row
+        for (int i = 0; i < cardAtsameRow.size(); i++) {
+            if ((cardAtsameRow.get(i).charAt(0)) == locationCard.charAt(0)) {
+                sameRowKingdom.add(cardAtsameRow.get(i));
+            }
+        }
+        ArrayList<String> sameColumnKingdom = new ArrayList<>(); // return the card with same kingdom at same column
+        for (int i = 0; i < cardAtsameColumn.size(); i++) {
+            if ((cardAtsameColumn.get(i).charAt(0)) == locationCard.charAt(0)) {
+                sameColumnKingdom.add(cardAtsameColumn.get(i));
+            }
+        }
+        if (rowIndex == rowLocationIndex) { // they're in the same row
+            if (sameRowKingdom.size() == 1) {
+                return true;
+            } else if ((Arrays.asList(cardAtsameRow).get(0).indexOf(zhangLocation)) < ((Arrays.asList(cardAtsameRow)).get(0).indexOf(locationCard))) {
+                for (int i = 0; i < sameRowKingdom.size(); i++) {
+                    if (locationCard != sameRowKingdom.get(sameRowKingdom.size() - 1)) {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                for (int i = 0; i < sameRowKingdom.size(); i++) {
+                    if (locationCard != sameRowKingdom.get(0)) {
+                        return false;
+                    }
+                }return true;
+            }
+        }else{
+            if (columnIndex == columnLocationIndex) { // they're in the same row
+                if (sameColumnKingdom.size() == 1) {
+                    return true;
+                } else if ((Arrays.asList(cardAtsameColumn).get(0).indexOf(zhangLocation)) < ((Arrays.asList(cardAtsameColumn)).get(0).indexOf(locationCard))) {
+                    for (int i = 0; i < sameColumnKingdom.size(); i++) {
+                        if (locationCard != sameColumnKingdom.get(sameColumnKingdom.size() - 1)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                } else {
+                    for (int i = 0; i < sameColumnKingdom.size(); i++) {
+                        if (locationCard != sameColumnKingdom.get(0)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
 
-         return false;
+        }
     }
+
+
+
+
+
+
+
+
+
 
     /**
      * Determine whether a move sequence is valid.
@@ -163,6 +310,8 @@ public class WarringStatesGame {
      */
     public static String getSupporters(String setup, String moveSequence, int numPlayers, int playerId) {
         // FIXME Task 7: get the list of supporters for a given player after a sequence of moves
+        //create different arrays for each player which stores the kingdoms collected
+        // return: get the cards that player is holding
         return null;
     }
 
@@ -185,6 +334,8 @@ public class WarringStatesGame {
      */
     public static int[] getFlags(String setup, String moveSequence, int numPlayers) {
         // FIXME Task 8: determine which player controls the flag of each kingdom after a given sequence of moves
+        // check if the number of holding cards is equal or greater than other player
+
         return null;
     }
 
