@@ -9,12 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
-
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 
 /**
@@ -48,26 +50,39 @@ public class Viewer extends Application {
         a1.setHeight(100);//specifies the hieght
         a1.setWidth(100);//specifies the width
         a1.setFill(Color.RED);//specifies the colour
+        Text texta1= new Text("Qin, Duke Xiao");
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(a1, texta1);
+
+
 
         Rectangle a2= new Rectangle();
         a2.setHeight(100);
         a2.setWidth(100);
         a2.setFill(Color.RED);
+        Text texta2= new Text("Qin, Shang Yang");
+        StackPane stack2 = new StackPane();
+        stack.getChildren().addAll(a2, texta2);
+
 
         Rectangle a3= new Rectangle();
         a3.setHeight(100);
         a3.setWidth(100);
         a3.setFill(Color.RED);
 
+
+
         Rectangle a4= new Rectangle();
         a4.setHeight(100);
         a4.setWidth(100);
         a4.setFill(Color.RED);
 
+
         Rectangle a5= new Rectangle();
         a5.setHeight(100);
         a5.setWidth(100);
         a5.setFill(Color.RED);
+
 
         Rectangle a6= new Rectangle();
         a6.setHeight(100);
@@ -79,90 +94,108 @@ public class Viewer extends Application {
         a7.setWidth(100);
         a7.setFill(Color.RED);
 
+
         Rectangle a8= new Rectangle();
         a8.setHeight(100);
         a8.setWidth(100);
         a8.setFill(Color.RED);
+
 
         Rectangle b1= new Rectangle();
         b1.setHeight(100);
         b1.setWidth(100);
         b1.setFill(Color.PURPLE);
 
+
         Rectangle b2= new Rectangle();
         b2.setHeight(100);
         b2.setWidth(100);
         b2.setFill(Color.PURPLE);
+
 
         Rectangle b3= new Rectangle();
         b3.setHeight(100);
         b3.setWidth(100);
         b3.setFill(Color.PURPLE);
 
+
         Rectangle b4= new Rectangle();
         b4.setHeight(100);
         b4.setWidth(100);
         b4.setFill(Color.PURPLE);
+
 
         Rectangle b5= new Rectangle();
         b5.setHeight(100);
         b5.setWidth(100);
         b5.setFill(Color.PURPLE);
 
+
         Rectangle b6= new Rectangle();
         b6.setHeight(100);
         b6.setWidth(100);
         b6.setFill(Color.PURPLE);
+
 
         Rectangle b7= new Rectangle();
         b7.setHeight(100);
         b7.setWidth(100);
         b7.setFill(Color.PURPLE);
 
+
         Rectangle c1= new Rectangle();
         c1.setHeight(100);
         c1.setWidth(100);
         c1.setFill(Color.YELLOW);
+
 
         Rectangle c2= new Rectangle();
         c2.setHeight(100);
         c2.setWidth(100);
         c2.setFill(Color.YELLOW);
 
+
         Rectangle c3= new Rectangle();
         c3.setHeight(100);
         c3.setWidth(100);
         c3.setFill(Color.YELLOW);
+
 
         Rectangle c4= new Rectangle();
         c4.setHeight(100);
         c4.setWidth(100);
         c4.setFill(Color.YELLOW);
 
+
         Rectangle c5= new Rectangle();
         c5.setHeight(100);
         c5.setWidth(100);
         c5.setFill(Color.YELLOW);
+
 
         Rectangle c6= new Rectangle();
         c6.setHeight(100);
         c6.setWidth(100);
         c6.setFill(Color.YELLOW);
 
+
         Rectangle d1= new Rectangle();
         d1.setHeight(100);
         d1.setWidth(100);
         d1.setFill(Color.GREEN);
+
 
         Rectangle d2= new Rectangle();
         d2.setHeight(100);
         d2.setWidth(100);
         d2.setFill(Color.GREEN);
 
+
         Rectangle d3= new Rectangle();
         d3.setHeight(100);
         d3.setWidth(100);
         d3.setFill(Color.GREEN);
+
 
         Rectangle d4= new Rectangle();
         d4.setHeight(100);
@@ -233,7 +266,9 @@ public class Viewer extends Application {
         //assign color to each kingdom and number to each card in kingdom
         //extract the individual card from the placement and its location
         //use coordinates or directions to specify the location
+
     }
+
 
     /**
      * Create a basic text field for input and a refresh button.
@@ -269,6 +304,16 @@ public class Viewer extends Application {
         shape.setStroke(Color.BLACK);
         //https://www.youtube.com/watch?v=u9XjA5eRUrE
         root.getChildren().add(shape);
+//creating a matrix
+        int SIZE = 6;
+        int length = SIZE;
+        int width = SIZE;
+
+        GridPane root = new GridPane();
+        Button [][] matrix; //names the matrix
+        matrix = new Button[width][length];
+
+
 
         makeControls();
         primaryStage.setScene(scene);
