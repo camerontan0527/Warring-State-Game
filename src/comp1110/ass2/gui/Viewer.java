@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-
+import comp1110.ass2.WarringStatesGame;
 
 /**
  * A very simple viewer for card layouts in the Warring States game.
