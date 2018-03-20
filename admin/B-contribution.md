@@ -4,4 +4,4 @@ We declare that the work toward our submission of Stage B was distributed among 
 * u6211458 33
 * u6381216 33
 
-Signed: Mary Jones (u2345678), Bob Smith (u3456789), and Sue Black (u0234567)
+Signed: Lucy Chang  (u6296127), Renhao Tan (u6211458), and Harmanpreet Kaur (u6381216)
