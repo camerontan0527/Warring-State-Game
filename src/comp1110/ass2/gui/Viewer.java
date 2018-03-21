@@ -266,10 +266,2604 @@ public class Viewer extends Application {
         //assign color to each kingdom and number to each card in kingdom
         //extract the individual card from the placement and its location
         //use matrix colum and row to specify the location
-        char [] p = placement.toCharArray();
 
+        String[] array = placement.split("(?<=\\G...)");
+        for (int i=0; i<=array.length; i++) {
+            if (array[i].charAt(2) == 'A') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
 
-
+            } else  if (array[i].charAt(2)=='B') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='C') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='D') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='E') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='F') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='G') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='H') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='I') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='J') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='K') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='L') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            }  if (array[i].charAt(2)=='M') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='N') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='O') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='P') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='Q') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='R') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='S') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='T') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='U') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='V') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='W') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='X') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='Y') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='Z') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='0') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='1') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='2') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='3') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='4') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='5') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='6') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='7') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='8') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            } else  if (array[i].charAt(2)=='9') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    return;
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    return;
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    return;
+                }
+            }
+        }
     }
 
 
