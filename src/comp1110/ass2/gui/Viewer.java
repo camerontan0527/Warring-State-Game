@@ -46,6 +46,15 @@ public class Viewer extends Application {
      * @param placement A valid placement string
      */
     private void assignCards() { //assigns the different cards in the game
+
+    }
+
+    void makePlacement(String placement) {
+        // FIXME Task 4: implement the simple placement viewer
+        //need to first check if the placement string is valid using isPlacementWellFormed function
+        //assign color to each kingdom and number to each card in kingdom
+        //extract the individual card from the placement and its location
+        //use matrix colum and row to specify the location
         Rectangle a1= new Rectangle();
         a1.setHeight(100);//specifies the hieght
         a1.setWidth(100);//specifies the width
@@ -258,88 +267,80 @@ public class Viewer extends Application {
         z9.setWidth(100);
         z9.setFill(Color.BLACK);
 
-    }
-
-    void makePlacement(String placement) {
-        // FIXME Task 4: implement the simple placement viewer
-        //need to first check if the placement string is valid using isPlacementWellFormed function
-        //assign color to each kingdom and number to each card in kingdom
-        //extract the individual card from the placement and its location
-        //use matrix colum and row to specify the location
 
         String[] array = placement.split("(?<=\\G...)");
         for (int i=0; i<=array.length; i++) {
             if (array[i].charAt(2) == 'A') {
                 if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(a1, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(a2, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(a3, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
-                    return;
+                    GridPane.setConstraints(a4, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
-                    return;
+                    GridPane.setConstraints(a5, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
-                    return;
+                    GridPane.setConstraints(a6, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
-                    return;
+                    GridPane.setConstraints(a7, 5, 0);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
-                    return;
+                    GridPane.setConstraints(a8, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(b1, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(b2, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(b3, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
-                    return;
+                    GridPane.setConstraints(b4, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
-                    return;
+                    GridPane.setConstraints(b5, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
-                    return;
+                    GridPane.setConstraints(b6, 5, 0);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
-                    return;
+                    GridPane.setConstraints(b7, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(c1, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(c2, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(c2, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
-                    return;
+                    GridPane.setConstraints(c3, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
-                    return;
+                    GridPane.setConstraints(c4, 5, 0);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
-                    return;
+                    GridPane.setConstraints(c5, 5, 0);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(d1, 5, 0);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(d2, 5, 0);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(d3, 5, 0);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
-                    return;
+                    GridPane.setConstraints(d4, 5, 0);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
-                    return;
+                    GridPane.setConstraints(d5, 5, 0);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(e1, 5, 0);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(e2, 5, 0);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(e3, 5, 0);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
-                    return;
+                    GridPane.setConstraints(e4, 5, 0);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(f1, 5, 0);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(f2, 5, 0);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
-                    return;
+                    GridPane.setConstraints(f3, 5, 0);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
-                    return;
+                    GridPane.setConstraints(g1, 5, 0);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
-                    return;
+                    GridPane.setConstraints(g2, 5, 0);
                 }
 
             } else  if (array[i].charAt(2)=='B') {
@@ -2909,6 +2910,7 @@ public class Viewer extends Application {
         GridPane root = new GridPane();
         Button [][] matrix; //names the matrix
         matrix = new Button[width][length];
+        
 
 
 
