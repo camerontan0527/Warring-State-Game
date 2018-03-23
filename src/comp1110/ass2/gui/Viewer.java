@@ -69,498 +69,1530 @@ public class Viewer extends Application {
         for (int i = 0; i <= array.length; i++) {
             if (array[i].charAt(2) == 'A') {
                 if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
-                    Card A1 = new Card(0, 5);
+                    Card A1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Duke Xiao");
-                    grid[0][5] = A1;
+                    grid[5][0] = A1;
                     root.getChildren().addAll(A1, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
-                    Card A2 = new Card(0, 5);
+                    Card A2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Shang Yang");
-                    grid[0][5] = A2;
+                    grid[5][0] = A2;
                     root.getChildren().addAll(A2, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
-                    Card A3 = new Card(0, 5);
+                    Card A3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Hui");
-                    grid[0][5] = A3;
+                    grid[5][0] = A3;
                     root.getChildren().addAll(A3, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
-                    Card A4 = new Card(0, 5);
+                    Card A4 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Zhaoxiang");
-                    grid[0][5] = A4;
+                    grid[5][0] = A4;
                     root.getChildren().addAll(A4, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
-                    Card A5 = new Card(0, 5);
+                    Card A5 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Lady Mi");
-                    grid[0][5] = A5;
+                    grid[5][0] = A5;
                     root.getChildren().addAll(A5, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
-                    Card A6 = new Card(0, 5);
+                    Card A6 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Bai Qi");
-                    grid[0][5] = A6;
+                    grid[5][0] = A6;
                     root.getChildren().addAll(A6, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
-                    Card A7 = new Card(0, 5);
+                    Card A7 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Lady Zhao");
-                    grid[0][5] = A7;
+                    grid[5][0] = A7;
                     root.getChildren().addAll(A7, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
-                    Card A8 = new Card(0, 5);
+                    Card A8 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Zheng");
-                    grid[0][5] = A8;
+                    grid[5][0] = A8;
                     root.getChildren().addAll(A8, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
-                    Card B1 = new Card(0, 5);
+                    Card B1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Xuan");
-                    grid[0][5] = B1;
+                    grid[5][0] = B1;
                     root.getChildren().addAll(B1, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
-                    Card B2 = new Card(0, 5);
+                    Card B2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Zhong Wuyan");
-                    grid[0][5] = B2;
+                    grid[5][0] = B2;
                     root.getChildren().addAll(B2, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
-                    Card B3 = new Card(0, 5);
+                    Card B3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Lord Menchang");
-                    grid[0][5] = B3;
+                    grid[5][0] = B3;
                     root.getChildren().addAll(B3, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
-                    Card B4 = new Card(0, 5);
+                    Card B4 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Xiang");
-                    grid[0][5] = B4;
+                    grid[5][0] = B4;
                     root.getChildren().addAll(B4, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
-                    Card B5 = new Card(0, 5);
+                    Card B5 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Queen Junwang");
-                    grid[0][5] = B5;
+                    grid[5][0] = B5;
                     root.getChildren().addAll(B5, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
-                    Card B6 = new Card(0, 5);
+                    Card B6 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Jian");
-                    grid[0][5] = B6;
+                    grid[5][0] = B6;
                     root.getChildren().addAll(B6, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
-                    Card B7 = new Card(0, 5);
+                    Card B7 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Sun Bin");
-                    grid[0][5] = B7;
+                    grid[5][0] = B7;
                     root.getChildren().addAll(B7, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
-                    Card C1 = new Card(0, 5);
+                    Card C1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Wu Qi");
-                    grid[0][5] = C1;
+                    grid[5][0] = C1;
                     root.getChildren().addAll(C1, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
-                    Card C2 = new Card(0, 5);
+                    Card C2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, King Kaolie");
-                    grid[0][5] = C2;
+                    grid[5][0] = C2;
                     root.getChildren().addAll(C2, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
-                    Card C3 = new Card(0, 5);
+                    Card C3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, King You");
-                    grid[0][5] = C3;
+                    grid[5][0] = C3;
                     root.getChildren().addAll(C3, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
-                    Card C3 = new Card(0, 5);
+                    Card C3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Qu Yuan");
-                    grid[0][5] = C3;
+                    grid[5][0] = C3;
                     root.getChildren().addAll(C3, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
-                    Card C4 = new Card(0, 5);
+                    Card C4 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Fuchu");
-                    grid[0][5] = C4;
+                    grid[5][0] = C4;
                     root.getChildren().addAll(C4, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
-                    Card C5 = new Card(0, 5);
+                    Card C5 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Lord Chunshen");
-                    grid[0][5] = C5;
+                    grid[5][0] = C5;
                     root.getChildren().addAll(C5, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
-                    Card D1 = new Card(0, 5);
+                    Card D1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, King Wuling");
-                    grid[0][5] = D1;
+                    grid[5][0] = D1;
                     root.getChildren().addAll(D1, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
-                    Card D2 = new Card(0, 5);
+                    Card D2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Lord Pingyuan");
-                    grid[0][5] = D2;
+                    grid[5][0] = D2;
                     root.getChildren().addAll(D2, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
-                    Card D3 = new Card(0, 5);
+                    Card D3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, King Xiaocheng");
-                    grid[0][5] = D3;
+                    grid[5][0] = D3;
                     root.getChildren().addAll(D3, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
-                    Card D4 = new Card(0, 5);
+                    Card D4 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Li Mu");
-                    grid[0][5] = D4;
+                    grid[5][0] = D4;
                     root.getChildren().addAll(D4, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
-                    Card D5 = new Card(0, 5);
+                    Card D5 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Lian Po");
-                    grid[0][5] = D5;
+                    grid[5][0] = D5;
                     root.getChildren().addAll(D5, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
-                    Card E1 = new Card(0, 5);
+                    Card E1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, Marquess Ai");
-                    grid[0][5] = E1;
+                    grid[5][0] = E1;
                     root.getChildren().addAll(E1, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
-                    Card E2 = new Card(0, 5);
+                    Card E2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, King Huanhui");
-                    grid[0][5] = E2;
+                    grid[5][0] = E2;
                     root.getChildren().addAll(E2, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
-                    Card E3 = new Card(0, 5);
+                    Card E3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, King An");
-                    grid[0][5] = E3;
+                    grid[5][0] = E3;
                     root.getChildren().addAll(E3, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
-                    Card E4 = new Card(0, 5);
+                    Card E4 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, Han Fei");
-                    grid[0][5] = E4;
+                    grid[5][0] = E4;
                     root.getChildren().addAll(E4, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
-                    Card F1 = new Card(0, 5);
+                    Card F1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, Marquess Wen");
-                    grid[0][5] = F1;
+                    grid[5][0] = F1;
                     root.getChildren().addAll(F1, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
-                    Card F2 = new Card(0, 5);
+                    Card F2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, Lord Xinling");
-                    grid[0][5] = F2;
+                    grid[5][0] = F2;
                     root.getChildren().addAll(F2, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
-                    Card F3 = new Card(0, 5);
+                    Card F3 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, King Anxi");
-                    grid[0][5] = F3;
+                    grid[5][0] = F3;
                     root.getChildren().addAll(F3, border, t1);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
-                    Card G1 = new Card(0, 5);
+                    Card G1 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PURPLE);
                     Text t1 = new Text("Yan, King Xi");
-                    grid[0][5] = G1;
+                    grid[5][0] = G1;
                     root.getChildren().addAll(G1, border, t1);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
-                    Card G2 = new Card(0, 5);
+                    Card G2 = new Card(5, 0);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PURPLE);
                     Text t1 = new Text("Yan, Prince Dan");
-                    grid[0][5] = G2;
+                    grid[5][0] = G2;
                     root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 0);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][0] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
                 }
 
             } else if (array[i].charAt(2) == 'B') {
                 if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
-                    Card A1 = new Card(1, 5);
+                    Card A1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Duke Xiao");
-                    grid[1][5] = A1;
+                    grid[5][1] = A1;
                     root.getChildren().addAll(A1, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
-                    Card A2 = new Card(1, 5);
+                    Card A2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Shang Yang");
-                    grid[1][5] = A2;
+                    grid[5][1] = A2;
                     root.getChildren().addAll(A2, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
-                    Card A3 = new Card(1, 5);
+                    Card A3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Hui");
-                    grid[1][5] = A3;
+                    grid[5][1] = A3;
                     root.getChildren().addAll(A3, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
-                    Card A4 = new Card(1, 5);
+                    Card A4 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Zhaoxiang");
-                    grid[1][5] = A4;
+                    grid[5][1] = A4;
                     root.getChildren().addAll(A4, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
-                    Card A5 = new Card(1, 5);
+                    Card A5 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Lady Mi");
-                    grid[1][5] = A5;
+                    grid[5][1] = A5;
                     root.getChildren().addAll(A5, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
-                    Card A6 = new Card(1, 5);
+                    Card A6 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Bai Qi");
-                    grid[1][5] = A6;
+                    grid[5][1] = A6;
                     root.getChildren().addAll(A6, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
-                    Card A7 = new Card(1, 5);
+                    Card A7 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, Lady Zhao");
-                    grid[1][5] = A7;
+                    grid[5][1] = A7;
                     root.getChildren().addAll(A7, border, t1);
                 } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
-                    Card A8 = new Card(1, 5);
+                    Card A8 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.RED);
                     Text t1 = new Text("Qin, King Zheng");
-                    grid[1][5] = A8;
+                    grid[5][1] = A8;
                     root.getChildren().addAll(A8, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
-                    Card B1 = new Card(1, 5);
+                    Card B1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Xuan");
-                    grid[1][5] = B1;
+                    grid[5][1] = B1;
                     root.getChildren().addAll(B1, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
-                    Card B2 = new Card(1, 5);
+                    Card B2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Zhong Wuyan");
-                    grid[1][5] = B2;
+                    grid[5][1] = B2;
                     root.getChildren().addAll(B2, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
-                    Card B3 = new Card(1, 5);
+                    Card B3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Lord Menchang");
-                    grid[1][5] = B3;
+                    grid[5][1] = B3;
                     root.getChildren().addAll(B3, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
-                    Card B4 = new Card(1, 5);
+                    Card B4 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Xiang");
-                    grid[1][5] = B4;
+                    grid[5][1] = B4;
                     root.getChildren().addAll(B4, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
-                    Card B5 = new Card(1, 5);
+                    Card B5 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Queen Junwang");
-                    grid[1][5] = B5;
+                    grid[5][1] = B5;
                     root.getChildren().addAll(B5, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
-                    Card B6 = new Card(1, 5);
+                    Card B6 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, King Jian");
-                    grid[1][5] = B6;
+                    grid[5][1] = B6;
                     root.getChildren().addAll(B6, border, t1);
                 } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
-                    Card B7 = new Card(1, 5);
+                    Card B7 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.GREEN);
                     Text t1 = new Text("Qi, Sun Bin");
-                    grid[1][5] = B7;
+                    grid[5][1] = B7;
                     root.getChildren().addAll(B7, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
-                    Card C1 = new Card(1, 5);
+                    Card C1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Wu Qi");
-                    grid[1][5] = C1;
+                    grid[5][1] = C1;
                     root.getChildren().addAll(C1, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
-                    Card C2 = new Card(1, 5);
+                    Card C2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, King Kaolie");
-                    grid[1][5] = C2;
+                    grid[5][1] = C2;
                     root.getChildren().addAll(C2, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
-                    Card C3 = new Card(1, 5);
+                    Card C3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, King You");
-                    grid[1][5] = C3;
+                    grid[5][1] = C3;
                     root.getChildren().addAll(C3, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
-                    Card C3 = new Card(1, 5);
+                    Card C3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Qu Yuan");
-                    grid[1][5] = C3;
+                    grid[5][1] = C3;
                     root.getChildren().addAll(C3, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
-                    Card C4 = new Card(1, 5);
+                    Card C4 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Fuchu");
-                    grid[1][5] = C4;
+                    grid[5][1] = C4;
                     root.getChildren().addAll(C4, border, t1);
                 } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
-                    Card C5 = new Card(1, 5);
+                    Card C5 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.YELLOW);
                     Text t1 = new Text("Chu, Lord Chunshen");
-                    grid[1][5] = C5;
+                    grid[5][1] = C5;
                     root.getChildren().addAll(C5, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
-                    Card D1 = new Card(1, 5);
+                    Card D1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, King Wuling");
-                    grid[1][5] = D1;
+                    grid[5][1] = D1;
                     root.getChildren().addAll(D1, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
-                    Card D2 = new Card(1, 5);
+                    Card D2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Lord Pingyuan");
-                    grid[1][5] = D2;
+                    grid[5][1] = D2;
                     root.getChildren().addAll(D2, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
-                    Card D3 = new Card(1, 5);
+                    Card D3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, King Xiaocheng");
-                    grid[1][5] = D3;
+                    grid[5][1] = D3;
                     root.getChildren().addAll(D3, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
-                    Card D4 = new Card(1, 5);
+                    Card D4 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Li Mu");
-                    grid[1][5] = D4;
+                    grid[5][1] = D4;
                     root.getChildren().addAll(D4, border, t1);
                 } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
-                    Card D5 = new Card(1, 5);
+                    Card D5 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BLUE);
                     Text t1 = new Text("Zhao, Lian Po");
-                    grid[1][5] = D5;
+                    grid[5][1] = D5;
                     root.getChildren().addAll(D5, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
-                    Card E1 = new Card(1, 5);
+                    Card E1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, Marquess Ai");
-                    grid[1][5] = E1;
+                    grid[5][1] = E1;
                     root.getChildren().addAll(E1, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
-                    Card E2 = new Card(1, 5);
+                    Card E2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, King Huanhui");
-                    grid[1][5] = E2;
+                    grid[5][1] = E2;
                     root.getChildren().addAll(E2, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
-                    Card E3 = new Card(1, 5);
+                    Card E3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, King An");
-                    grid[1][5] = E3;
+                    grid[5][1] = E3;
                     root.getChildren().addAll(E3, border, t1);
                 } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
-                    Card E4 = new Card(1, 5);
+                    Card E4 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.BEIGE);
                     Text t1 = new Text("Han, Han Fei");
-                    grid[1][5] = E4;
+                    grid[5][1] = E4;
                     root.getChildren().addAll(E4, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
-                    Card F1 = new Card(1, 5);
+                    Card F1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, Marquess Wen");
-                    grid[1][5] = F1;
+                    grid[5][1] = F1;
                     root.getChildren().addAll(F1, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
-                    Card F2 = new Card(1, 5);
+                    Card F2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, Lord Xinling");
-                    grid[1][5] = F2;
+                    grid[5][1] = F2;
                     root.getChildren().addAll(F2, border, t1);
                 } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
-                    Card F3 = new Card(1, 5);
+                    Card F3 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PINK);
                     Text t1 = new Text("Wei, King Anxi");
-                    grid[1][5] = F3;
+                    grid[5][1] = F3;
                     root.getChildren().addAll(F3, border, t1);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
-                    Card G1 = new Card(1, 5);
+                    Card G1 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PURPLE);
                     Text t1 = new Text("Yan, King Xi");
-                    grid[1][5] = G1;
+                    grid[5][1] = G1;
                     root.getChildren().addAll(G1, border, t1);
                 } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
-                    Card G2 = new Card(1, 5);
+                    Card G2 = new Card(5, 1);
                     Rectangle border = new Rectangle();
                     border.setStroke(Color.PURPLE);
                     Text t1 = new Text("Yan, Prince Dan");
-                    grid[1][5] = G2;
+                    grid[5][1] = G2;
                     root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 1);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][1] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
+                }
+
+            }else if (array[i].charAt(2) == 'C') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    Card A1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Duke Xiao");
+                    grid[5][2] = A1;
+                    root.getChildren().addAll(A1, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    Card A2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Shang Yang");
+                    grid[5][2] = A2;
+                    root.getChildren().addAll(A2, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    Card A3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Hui");
+                    grid[5][2] = A3;
+                    root.getChildren().addAll(A3, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    Card A4 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zhaoxiang");
+                    grid[5][2] = A4;
+                    root.getChildren().addAll(A4, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    Card A5 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Mi");
+                    grid[5][2] = A5;
+                    root.getChildren().addAll(A5, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    Card A6 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Bai Qi");
+                    grid[5][2] = A6;
+                    root.getChildren().addAll(A6, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    Card A7 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Zhao");
+                    grid[5][2] = A7;
+                    root.getChildren().addAll(A7, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    Card A8 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zheng");
+                    grid[5][2] = A8;
+                    root.getChildren().addAll(A8, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    Card B1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xuan");
+                    grid[5][2] = B1;
+                    root.getChildren().addAll(B1, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    Card B2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Zhong Wuyan");
+                    grid[5][2] = B2;
+                    root.getChildren().addAll(B2, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    Card B3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Lord Menchang");
+                    grid[5][2] = B3;
+                    root.getChildren().addAll(B3, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    Card B4 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xiang");
+                    grid[5][2] = B4;
+                    root.getChildren().addAll(B4, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    Card B5 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Queen Junwang");
+                    grid[5][2] = B5;
+                    root.getChildren().addAll(B5, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    Card B6 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Jian");
+                    grid[5][2] = B6;
+                    root.getChildren().addAll(B6, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    Card B7 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Sun Bin");
+                    grid[5][2] = B7;
+                    root.getChildren().addAll(B7, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    Card C1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Wu Qi");
+                    grid[5][2] = C1;
+                    root.getChildren().addAll(C1, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    Card C2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King Kaolie");
+                    grid[5][2] = C2;
+                    root.getChildren().addAll(C2, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    Card C3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King You");
+                    grid[5][2] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    Card C3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Qu Yuan");
+                    grid[5][2] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    Card C4 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Fuchu");
+                    grid[5][2] = C4;
+                    root.getChildren().addAll(C4, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    Card C5 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Lord Chunshen");
+                    grid[5][2] = C5;
+                    root.getChildren().addAll(C5, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    Card D1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Wuling");
+                    grid[5][2] = D1;
+                    root.getChildren().addAll(D1, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    Card D2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lord Pingyuan");
+                    grid[5][2] = D2;
+                    root.getChildren().addAll(D2, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    Card D3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Xiaocheng");
+                    grid[5][2] = D3;
+                    root.getChildren().addAll(D3, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    Card D4 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Li Mu");
+                    grid[5][2] = D4;
+                    root.getChildren().addAll(D4, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    Card D5 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lian Po");
+                    grid[5][2] = D5;
+                    root.getChildren().addAll(D5, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    Card E1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Marquess Ai");
+                    grid[5][2] = E1;
+                    root.getChildren().addAll(E1, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    Card E2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King Huanhui");
+                    grid[5][2] = E2;
+                    root.getChildren().addAll(E2, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    Card E3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King An");
+                    grid[5][2] = E3;
+                    root.getChildren().addAll(E3, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    Card E4 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Han Fei");
+                    grid[5][2] = E4;
+                    root.getChildren().addAll(E4, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    Card F1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Marquess Wen");
+                    grid[5][2] = F1;
+                    root.getChildren().addAll(F1, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    Card F2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Lord Xinling");
+                    grid[5][2] = F2;
+                    root.getChildren().addAll(F2, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    Card F3 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, King Anxi");
+                    grid[5][2] = F3;
+                    root.getChildren().addAll(F3, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    Card G1 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, King Xi");
+                    grid[5][2] = G1;
+                    root.getChildren().addAll(G1, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    Card G2 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, Prince Dan");
+                    grid[5][2] = G2;
+                    root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 2);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][2] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
+                }
+
+            }else if (array[i].charAt(2) == 'D') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    Card A1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Duke Xiao");
+                    grid[5][3] = A1;
+                    root.getChildren().addAll(A1, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    Card A2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Shang Yang");
+                    grid[5][3] = A2;
+                    root.getChildren().addAll(A2, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    Card A3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Hui");
+                    grid[5][3] = A3;
+                    root.getChildren().addAll(A3, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    Card A4 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zhaoxiang");
+                    grid[5][3] = A4;
+                    root.getChildren().addAll(A4, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    Card A5 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Mi");
+                    grid[5][3] = A5;
+                    root.getChildren().addAll(A5, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    Card A6 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Bai Qi");
+                    grid[5][3] = A6;
+                    root.getChildren().addAll(A6, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    Card A7 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Zhao");
+                    grid[5][3] = A7;
+                    root.getChildren().addAll(A7, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    Card A8 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zheng");
+                    grid[5][3] = A8;
+                    root.getChildren().addAll(A8, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    Card B1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xuan");
+                    grid[5][3] = B1;
+                    root.getChildren().addAll(B1, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    Card B2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Zhong Wuyan");
+                    grid[5][3] = B2;
+                    root.getChildren().addAll(B2, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    Card B3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Lord Menchang");
+                    grid[5][3] = B3;
+                    root.getChildren().addAll(B3, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    Card B4 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xiang");
+                    grid[5][3] = B4;
+                    root.getChildren().addAll(B4, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    Card B5 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Queen Junwang");
+                    grid[5][3] = B5;
+                    root.getChildren().addAll(B5, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    Card B6 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Jian");
+                    grid[5][3] = B6;
+                    root.getChildren().addAll(B6, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    Card B7 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Sun Bin");
+                    grid[5][3] = B7;
+                    root.getChildren().addAll(B7, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    Card C1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Wu Qi");
+                    grid[5][3] = C1;
+                    root.getChildren().addAll(C1, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    Card C2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King Kaolie");
+                    grid[5][3] = C2;
+                    root.getChildren().addAll(C2, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    Card C3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King You");
+                    grid[5][3] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    Card C3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Qu Yuan");
+                    grid[5][3] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    Card C4 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Fuchu");
+                    grid[5][3] = C4;
+                    root.getChildren().addAll(C4, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    Card C5 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Lord Chunshen");
+                    grid[5][3] = C5;
+                    root.getChildren().addAll(C5, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    Card D1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Wuling");
+                    grid[5][3] = D1;
+                    root.getChildren().addAll(D1, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    Card D2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lord Pingyuan");
+                    grid[5][3] = D2;
+                    root.getChildren().addAll(D2, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    Card D3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Xiaocheng");
+                    grid[5][3] = D3;
+                    root.getChildren().addAll(D3, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    Card D4 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Li Mu");
+                    grid[5][3] = D4;
+                    root.getChildren().addAll(D4, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    Card D5 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lian Po");
+                    grid[5][3] = D5;
+                    root.getChildren().addAll(D5, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    Card E1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Marquess Ai");
+                    grid[5][3] = E1;
+                    root.getChildren().addAll(E1, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    Card E2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King Huanhui");
+                    grid[5][3] = E2;
+                    root.getChildren().addAll(E2, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    Card E3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King An");
+                    grid[5][3] = E3;
+                    root.getChildren().addAll(E3, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    Card E4 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Han Fei");
+                    grid[5][3] = E4;
+                    root.getChildren().addAll(E4, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    Card F1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Marquess Wen");
+                    grid[5][3] = F1;
+                    root.getChildren().addAll(F1, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    Card F2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Lord Xinling");
+                    grid[5][3] = F2;
+                    root.getChildren().addAll(F2, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    Card F3 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, King Anxi");
+                    grid[5][3] = F3;
+                    root.getChildren().addAll(F3, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    Card G1 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, King Xi");
+                    grid[5][3] = G1;
+                    root.getChildren().addAll(G1, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    Card G2 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, Prince Dan");
+                    grid[5][3] = G2;
+                    root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 3);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][3] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
+                }
+            }else if (array[i].charAt(2) == 'E') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    Card A1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Duke Xiao");
+                    grid[5][4] = A1;
+                    root.getChildren().addAll(A1, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    Card A2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Shang Yang");
+                    grid[5][4] = A2;
+                    root.getChildren().addAll(A2, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    Card A3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Hui");
+                    grid[5][4] = A3;
+                    root.getChildren().addAll(A3, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    Card A4 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zhaoxiang");
+                    grid[5][4] = A4;
+                    root.getChildren().addAll(A4, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    Card A5 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Mi");
+                    grid[5][4] = A5;
+                    root.getChildren().addAll(A5, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    Card A6 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Bai Qi");
+                    grid[5][4] = A6;
+                    root.getChildren().addAll(A6, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    Card A7 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Zhao");
+                    grid[5][4] = A7;
+                    root.getChildren().addAll(A7, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    Card A8 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zheng");
+                    grid[5][4] = A8;
+                    root.getChildren().addAll(A8, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    Card B1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xuan");
+                    grid[5][4] = B1;
+                    root.getChildren().addAll(B1, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    Card B2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Zhong Wuyan");
+                    grid[5][4] = B2;
+                    root.getChildren().addAll(B2, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    Card B3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Lord Menchang");
+                    grid[5][4] = B3;
+                    root.getChildren().addAll(B3, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    Card B4 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xiang");
+                    grid[5][4] = B4;
+                    root.getChildren().addAll(B4, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    Card B5 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Queen Junwang");
+                    grid[5][4] = B5;
+                    root.getChildren().addAll(B5, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    Card B6 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Jian");
+                    grid[5][4] = B6;
+                    root.getChildren().addAll(B6, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    Card B7 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Sun Bin");
+                    grid[5][4] = B7;
+                    root.getChildren().addAll(B7, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    Card C1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Wu Qi");
+                    grid[5][4] = C1;
+                    root.getChildren().addAll(C1, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    Card C2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King Kaolie");
+                    grid[5][4] = C2;
+                    root.getChildren().addAll(C2, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    Card C3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King You");
+                    grid[5][4] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    Card C3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Qu Yuan");
+                    grid[5][4] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    Card C4 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Fuchu");
+                    grid[5][4] = C4;
+                    root.getChildren().addAll(C4, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    Card C5 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Lord Chunshen");
+                    grid[5][4] = C5;
+                    root.getChildren().addAll(C5, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    Card D1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Wuling");
+                    grid[5][4] = D1;
+                    root.getChildren().addAll(D1, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    Card D2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lord Pingyuan");
+                    grid[5][4] = D2;
+                    root.getChildren().addAll(D2, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    Card D3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Xiaocheng");
+                    grid[5][4] = D3;
+                    root.getChildren().addAll(D3, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    Card D4 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Li Mu");
+                    grid[5][4] = D4;
+                    root.getChildren().addAll(D4, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    Card D5 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lian Po");
+                    grid[5][4] = D5;
+                    root.getChildren().addAll(D5, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    Card E1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Marquess Ai");
+                    grid[5][4] = E1;
+                    root.getChildren().addAll(E1, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    Card E2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King Huanhui");
+                    grid[5][4] = E2;
+                    root.getChildren().addAll(E2, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    Card E3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King An");
+                    grid[5][4] = E3;
+                    root.getChildren().addAll(E3, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    Card E4 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Han Fei");
+                    grid[5][4] = E4;
+                    root.getChildren().addAll(E4, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    Card F1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Marquess Wen");
+                    grid[5][4] = F1;
+                    root.getChildren().addAll(F1, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    Card F2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Lord Xinling");
+                    grid[5][4] = F2;
+                    root.getChildren().addAll(F2, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    Card F3 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, King Anxi");
+                    grid[5][4] = F3;
+                    root.getChildren().addAll(F3, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    Card G1 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, King Xi");
+                    grid[5][4] = G1;
+                    root.getChildren().addAll(G1, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    Card G2 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, Prince Dan");
+                    grid[5][4] = G2;
+                    root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 4);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][4] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
+                }
+            }else if (array[i].charAt(2) == 'F') {
+                if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '0') {
+                    Card A1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Duke Xiao");
+                    grid[5][5] = A1;
+                    root.getChildren().addAll(A1, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '1') {
+                    Card A2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Shang Yang");
+                    grid[5][5] = A2;
+                    root.getChildren().addAll(A2, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '2') {
+                    Card A3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Hui");
+                    grid[5][5] = A3;
+                    root.getChildren().addAll(A3, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '3') {
+                    Card A4 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zhaoxiang");
+                    grid[5][5] = A4;
+                    root.getChildren().addAll(A4, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '4') {
+                    Card A5 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Mi");
+                    grid[5][5] = A5;
+                    root.getChildren().addAll(A5, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '5') {
+                    Card A6 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Bai Qi");
+                    grid[5][5] = A6;
+                    root.getChildren().addAll(A6, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '6') {
+                    Card A7 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, Lady Zhao");
+                    grid[5][5] = A7;
+                    root.getChildren().addAll(A7, border, t1);
+                } else if (array[i].charAt(0) == 'a' && array[i].charAt(1) == '7') {
+                    Card A8 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.RED);
+                    Text t1 = new Text("Qin, King Zheng");
+                    grid[5][5] = A8;
+                    root.getChildren().addAll(A8, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '0') {
+                    Card B1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xuan");
+                    grid[5][5] = B1;
+                    root.getChildren().addAll(B1, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '1') {
+                    Card B2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Zhong Wuyan");
+                    grid[5][5] = B2;
+                    root.getChildren().addAll(B2, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '2') {
+                    Card B3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Lord Menchang");
+                    grid[5][5] = B3;
+                    root.getChildren().addAll(B3, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '3') {
+                    Card B4 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Xiang");
+                    grid[5][5] = B4;
+                    root.getChildren().addAll(B4, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '4') {
+                    Card B5 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Queen Junwang");
+                    grid[5][5] = B5;
+                    root.getChildren().addAll(B5, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '5') {
+                    Card B6 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, King Jian");
+                    grid[5][5] = B6;
+                    root.getChildren().addAll(B6, border, t1);
+                } else if (array[i].charAt(0) == 'b' && array[i].charAt(1) == '6') {
+                    Card B7 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.GREEN);
+                    Text t1 = new Text("Qi, Sun Bin");
+                    grid[5][5] = B7;
+                    root.getChildren().addAll(B7, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '0') {
+                    Card C1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Wu Qi");
+                    grid[5][5] = C1;
+                    root.getChildren().addAll(C1, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '1') {
+                    Card C2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King Kaolie");
+                    grid[5][5] = C2;
+                    root.getChildren().addAll(C2, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '2') {
+                    Card C3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, King You");
+                    grid[5][5] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '3') {
+                    Card C3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Qu Yuan");
+                    grid[5][5] = C3;
+                    root.getChildren().addAll(C3, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '4') {
+                    Card C4 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Fuchu");
+                    grid[5][5] = C4;
+                    root.getChildren().addAll(C4, border, t1);
+                } else if (array[i].charAt(0) == 'c' && array[i].charAt(1) == '5') {
+                    Card C5 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.YELLOW);
+                    Text t1 = new Text("Chu, Lord Chunshen");
+                    grid[5][5] = C5;
+                    root.getChildren().addAll(C5, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '0') {
+                    Card D1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Wuling");
+                    grid[5][5] = D1;
+                    root.getChildren().addAll(D1, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '1') {
+                    Card D2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lord Pingyuan");
+                    grid[5][5] = D2;
+                    root.getChildren().addAll(D2, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '2') {
+                    Card D3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, King Xiaocheng");
+                    grid[5][5] = D3;
+                    root.getChildren().addAll(D3, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '3') {
+                    Card D4 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Li Mu");
+                    grid[5][5] = D4;
+                    root.getChildren().addAll(D4, border, t1);
+                } else if (array[i].charAt(0) == 'd' && array[i].charAt(1) == '4') {
+                    Card D5 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLUE);
+                    Text t1 = new Text("Zhao, Lian Po");
+                    grid[5][5] = D5;
+                    root.getChildren().addAll(D5, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '0') {
+                    Card E1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Marquess Ai");
+                    grid[5][5] = E1;
+                    root.getChildren().addAll(E1, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '1') {
+                    Card E2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King Huanhui");
+                    grid[5][5] = E2;
+                    root.getChildren().addAll(E2, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '2') {
+                    Card E3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, King An");
+                    grid[5][5] = E3;
+                    root.getChildren().addAll(E3, border, t1);
+                } else if (array[i].charAt(0) == 'e' && array[i].charAt(1) == '3') {
+                    Card E4 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BEIGE);
+                    Text t1 = new Text("Han, Han Fei");
+                    grid[5][5] = E4;
+                    root.getChildren().addAll(E4, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '0') {
+                    Card F1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Marquess Wen");
+                    grid[5][5] = F1;
+                    root.getChildren().addAll(F1, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '1') {
+                    Card F2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, Lord Xinling");
+                    grid[5][5] = F2;
+                    root.getChildren().addAll(F2, border, t1);
+                } else if (array[i].charAt(0) == 'f' && array[i].charAt(1) == '2') {
+                    Card F3 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PINK);
+                    Text t1 = new Text("Wei, King Anxi");
+                    grid[5][5] = F3;
+                    root.getChildren().addAll(F3, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '0') {
+                    Card G1 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, King Xi");
+                    grid[5][5] = G1;
+                    root.getChildren().addAll(G1, border, t1);
+                } else if (array[i].charAt(0) == 'g' && array[i].charAt(1) == '1') {
+                    Card G2 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.PURPLE);
+                    Text t1 = new Text("Yan, Prince Dan");
+                    grid[5][5] = G2;
+                    root.getChildren().addAll(G2, border, t1);
+                } else if (array[i].charAt(0) == 'z' && array[i].charAt(1) == '9') {
+                    Card Z9 = new Card(5, 5);
+                    Rectangle border = new Rectangle();
+                    border.setStroke(Color.BLACK);
+                    Text t1 = new Text("Zhang Yi");
+                    grid[5][5] = Z9;
+                    root.getChildren().addAll(Z9, border, t1);
                 }
             }
 
