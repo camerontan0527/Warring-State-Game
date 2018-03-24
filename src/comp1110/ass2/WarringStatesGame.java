@@ -293,7 +293,24 @@ public class WarringStatesGame {
         // this function checks the isMoveLegal function multiple times
         //  check if the next move is in the same column/row as the previous one
         //if one move passes, the current move for the next move will be the move which passed the is current location
-        return false;
+        String[] ar = setup.split("(?<=\\G...)");
+        String placement = setup;
+        ArrayList<String> board = new ArrayList<>();
+        if (ar.length != 36) // check if setup is made up by 36 elements
+            return false;
+        for (String elem: ar){
+            board.add(elem);
+        }
+        for (int i = 0; i < moveSequence.length(); i++){
+            char location = moveSequence.charAt(i);
+            if (!(isMoveLegal(placement, location)))
+                return false;
+            for (String elem : board){
+                if (elem.charAt(2) == location)
+                    elem = "z9" + location;
+            }
+        }
+        return true;
     }
 
     /**
