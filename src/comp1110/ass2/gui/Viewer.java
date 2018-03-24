@@ -56,37 +56,8 @@ public class Viewer extends Application {
      *
      * @param placement A valid placement string
      */
-    private void getLocation() { //assigns the different cards in the game
 
 
-    }
-
-    private void Card(){
-        Rectangle a = new Rectangle();
-        a.setFill(Color.RED);
-
-        Rectangle b = new Rectangle();
-        b.setFill(Color.BLUE);
-
-        Rectangle c = new Rectangle();
-        c.setFill(Color.PURPLE);
-
-        Rectangle d = new Rectangle();
-        d.setFill(Color.YELLOW);
-
-        Rectangle e = new Rectangle();
-        e.setFill(Color.PINK);
-
-        Rectangle f = new Rectangle();
-        f.setFill(Color.BEIGE);
-
-        Rectangle g = new Rectangle();
-        g.setFill(Color.GREEN);
-
-        Rectangle z = new Rectangle();
-        z.setFill(Color.LIGHTGRAY);
-
-    }
 
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
@@ -96,15 +67,64 @@ public class Viewer extends Application {
         //use matrix colum and row to specify the location
 
 //
-
+        //TEST PLACEMENT STRING
+//a0Aa1Ba2Ca3Da4Ea5Fa6Ga7Hb0Ib1Jb2Kb3Lb4Mb5Nb6Oc0Pc1Qc2Rc3Sc4Tc5Ud0Vd1Wd2Xd3Yd4Ze00e11e22e33f04f15f26g07g18z09
 
         String[] array = placement.split("(?<=\\G...)");
-        int y;
-        int x;
+
         for (int a = 0; a <= array.length; a++){
-        for ( int i = 0; i <6; ++i ) {
-            for ( int j = 0; j < 6; ++j ) {
+         for ( int i = 0; i <=location.length; ++i ) {
+            for ( int j = 0; j <=location[i].length; ++j ) {
                 if (location[i][j] == (array[a].charAt(2)) ) {
+                    if (array[a].charAt(0)=='a'){
+                        Card cardA = new Card(i, j);
+                        Rectangle Ac = new Rectangle(100, 100);
+                        Ac.setFill(Color.RED);
+                        grid[i][j] = cardA;
+                        root.getChildren().addAll(cardA, Ac);
+                    }else if (array[a].charAt(0)=='b'){
+                        Card cardB = new Card(i, j);
+                        Rectangle Bc = new Rectangle(100, 100);
+                        Bc.setFill(Color.GREEN);
+                        grid[i][j] = cardB;
+                        root.getChildren().addAll(cardB, Bc);
+                    } else if (array[a].charAt(0)=='c'){
+                        Card cardC = new Card(i, j);
+                        Rectangle Cc = new Rectangle(100, 100);
+                        Cc.setFill(Color.BEIGE);
+                        grid[i][j] = cardC;
+                        root.getChildren().addAll(cardC, Cc);
+                    } else if (array[a].charAt(0)=='d'){
+                        Card cardD = new Card(i, j);
+                        Rectangle Dc= new Rectangle(100, 100);
+                        Dc.setFill(Color.PINK);
+                        grid[i][j] = cardD;
+                        root.getChildren().addAll(cardD, Dc);
+                    }else if (array[a].charAt(0)=='e'){
+                        Card cardE = new Card(i, j);
+                        Rectangle Ec = new Rectangle(100, 100);
+                        Ec.setFill(Color.PURPLE);
+                        grid[i][j] = cardE;
+                        root.getChildren().addAll(cardE, Ec);
+                    }else if (array[a].charAt(0)=='f'){
+                        Card cardF = new Card(i, j);
+                        Rectangle Fc = new Rectangle(100, 100);
+                        Fc.setFill(Color.YELLOW);
+                        grid[i][j] = cardF;
+                        root.getChildren().addAll(cardF, Fc);
+                    }else if (array[a].charAt(0)=='g'){
+                        Card cardG = new Card(i, j);
+                        Rectangle Gc = new Rectangle(100, 100);
+                        Gc.setFill(Color.RED);
+                        grid[i][j] = cardG;
+                        root.getChildren().addAll(cardG, Gc);
+                    }else if (array[a].charAt(0)=='z'){
+                        Card cardZ = new Card(i, j);
+                        Rectangle Zc = new Rectangle(100, 100);
+                        Zc.setFill(Color.RED);
+                        grid[i][j] = cardZ;
+                        root.getChildren().addAll(cardZ, Zc);
+                    }
 
                 }
             }
