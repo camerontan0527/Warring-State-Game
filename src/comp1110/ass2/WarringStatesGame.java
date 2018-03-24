@@ -306,8 +306,8 @@ public class WarringStatesGame {
             if (!(isMoveLegal(placement, location)))
                 return false;
             for (String elem : board){
-                if (elem.charAt(2) == location)
-                    elem = "z9" + location;
+                if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
+                    board.remove(elem);
             }
         }
         return true;
