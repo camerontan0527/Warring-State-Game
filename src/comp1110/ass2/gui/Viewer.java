@@ -72,10 +72,11 @@ public class Viewer extends Application {
 
         String[] array = placement.split("(?<=\\G...)");
 
-        for (int a = 0; a <= array.length; a++){
-         for ( int i = 0; i <=location.length; ++i ) {
-            for ( int j = 0; j <=location[i].length; ++j ) {
-                if (location[i][j] == (array[a].charAt(2)) ) {
+        for (int a = 0; a <= array.length; a++){//goes through the array placement string
+         for ( int i = 0; i <location.length; ++i ) {//checks the row
+            for ( int j = 0; j <location[i].length; ++j ) {//checks the column
+                String s = ""+ array[a].charAt(2);//converts char to string
+                if (location[i].toString().contains(s) && location[i].toString().indexOf(array[a].charAt(2))==j) { // first checks what row the location is in then checks the column using the row
                     if (array[a].charAt(0)=='a'){
                         Card cardA = new Card(i, j);
                         Rectangle Ac = new Rectangle(100, 100);
@@ -127,6 +128,7 @@ public class Viewer extends Application {
                     }
 
                 }
+
             }
         }
          //   https://stackoverflow.com/questions/8408316/return-position-of-value-in-a-2d-array-java
