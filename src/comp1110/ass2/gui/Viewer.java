@@ -74,57 +74,59 @@ public class Viewer extends Application {
 
         for (int a = 0; a <= array.length; a++){//goes through the array placement string
          for ( int i = 0; i <location.length; ++i ) {//checks the row
-            for ( int j = 0; j <location[i].length; ++j ) {//checks the column
                 String s = ""+ array[a].charAt(2);//converts char to string
-                if (location[i].toString().contains(s) && location[i].toString().indexOf(array[a].charAt(2))==j) { // first checks what row the location is in then checks the column using the row
-                    if (array[a].charAt(0)=='a'){
-                        Card cardA = new Card(i, j);
-                        Rectangle Ac = new Rectangle(100, 100);
-                        Ac.setFill(Color.RED);
-                        grid[i][j] = cardA;
-                        root.getChildren().addAll(cardA, Ac);
-                    }else if (array[a].charAt(0)=='b'){
-                        Card cardB = new Card(i, j);
-                        Rectangle Bc = new Rectangle(100, 100);
-                        Bc.setFill(Color.GREEN);
-                        grid[i][j] = cardB;
-                        root.getChildren().addAll(cardB, Bc);
-                    } else if (array[a].charAt(0)=='c'){
-                        Card cardC = new Card(i, j);
-                        Rectangle Cc = new Rectangle(100, 100);
-                        Cc.setFill(Color.BEIGE);
-                        grid[i][j] = cardC;
-                        root.getChildren().addAll(cardC, Cc);
-                    } else if (array[a].charAt(0)=='d'){
-                        Card cardD = new Card(i, j);
-                        Rectangle Dc= new Rectangle(100, 100);
-                        Dc.setFill(Color.PINK);
-                        grid[i][j] = cardD;
-                        root.getChildren().addAll(cardD, Dc);
-                    }else if (array[a].charAt(0)=='e'){
-                        Card cardE = new Card(i, j);
-                        Rectangle Ec = new Rectangle(100, 100);
-                        Ec.setFill(Color.PURPLE);
-                        grid[i][j] = cardE;
-                        root.getChildren().addAll(cardE, Ec);
-                    }else if (array[a].charAt(0)=='f'){
-                        Card cardF = new Card(i, j);
-                        Rectangle Fc = new Rectangle(100, 100);
-                        Fc.setFill(Color.YELLOW);
-                        grid[i][j] = cardF;
-                        root.getChildren().addAll(cardF, Fc);
-                    }else if (array[a].charAt(0)=='g'){
-                        Card cardG = new Card(i, j);
-                        Rectangle Gc = new Rectangle(100, 100);
-                        Gc.setFill(Color.RED);
-                        grid[i][j] = cardG;
-                        root.getChildren().addAll(cardG, Gc);
-                    }else if (array[a].charAt(0)=='z'){
-                        Card cardZ = new Card(i, j);
-                        Rectangle Zc = new Rectangle(100, 100);
-                        Zc.setFill(Color.RED);
-                        grid[i][j] = cardZ;
-                        root.getChildren().addAll(cardZ, Zc);
+                if (location[i].toString().contains(s)) {
+                    for ( int j = 0; j <location[i].length; ++j ) {//checks the column
+                    if (location[i].toString().indexOf(array[a].charAt(2))==j) {// first checks what row the location is in then checks the column using the row
+                        if (array[a].charAt(0) == 'a') {
+                            Card cardA = new Card(i, j);
+                            Rectangle Ac = new Rectangle(100, 100);
+                            Ac.setFill(Color.RED);
+                            grid[i][j] = cardA;
+                            root.getChildren().addAll(cardA, Ac);
+                        } else if (array[a].charAt(0) == 'b') {
+                            Card cardB = new Card(i, j);
+                            Rectangle Bc = new Rectangle(100, 100);
+                            Bc.setFill(Color.GREEN);
+                            grid[i][j] = cardB;
+                            root.getChildren().addAll(cardB, Bc);
+                        } else if (array[a].charAt(0) == 'c') {
+                            Card cardC = new Card(i, j);
+                            Rectangle Cc = new Rectangle(100, 100);
+                            Cc.setFill(Color.BEIGE);
+                            grid[i][j] = cardC;
+                            root.getChildren().addAll(cardC, Cc);
+                        } else if (array[a].charAt(0) == 'd') {
+                            Card cardD = new Card(i, j);
+                            Rectangle Dc = new Rectangle(100, 100);
+                            Dc.setFill(Color.PINK);
+                            grid[i][j] = cardD;
+                            root.getChildren().addAll(cardD, Dc);
+                        } else if (array[a].charAt(0) == 'e') {
+                            Card cardE = new Card(i, j);
+                            Rectangle Ec = new Rectangle(100, 100);
+                            Ec.setFill(Color.PURPLE);
+                            grid[i][j] = cardE;
+                            root.getChildren().addAll(cardE, Ec);
+                        } else if (array[a].charAt(0) == 'f') {
+                            Card cardF = new Card(i, j);
+                            Rectangle Fc = new Rectangle(100, 100);
+                            Fc.setFill(Color.YELLOW);
+                            grid[i][j] = cardF;
+                            root.getChildren().addAll(cardF, Fc);
+                        } else if (array[a].charAt(0) == 'g') {
+                            Card cardG = new Card(i, j);
+                            Rectangle Gc = new Rectangle(100, 100);
+                            Gc.setFill(Color.RED);
+                            grid[i][j] = cardG;
+                            root.getChildren().addAll(cardG, Gc);
+                        } else if (array[a].charAt(0) == 'z') {
+                            Card cardZ = new Card(i, j);
+                            Rectangle Zc = new Rectangle(100, 100);
+                            Zc.setFill(Color.RED);
+                            grid[i][j] = cardZ;
+                            root.getChildren().addAll(cardZ, Zc);
+                        }
                     }
 
                 }
