@@ -19,6 +19,10 @@ public class WarringStatesGame {
                     {'S', 'T', 'U', 'V', 'W', 'X'},
                     {'Y', 'Z', '0', '1', '2', '3'},
                     {'4', '5', '6', '7', '8', '9'}};
+            static String[] row_str = {"AGMSY4", "BHNTZ5",
+                    "CIOU06", "DJPV17", "EKQW28", "FLRX39"};
+            static String[] col_str = {"ABCDEF", "GHIJKL",
+                    "MNOPQR", "STUVWX", "YZ0123", "456789"};
 
             WarringStatesGame(char[][] row, char[][] column) {
                 this.column = column;
@@ -293,8 +297,8 @@ public class WarringStatesGame {
         // this function checks the isMoveLegal function multiple times
         //  check if the next move is in the same column/row as the previous one
         //if one move passes, the current move for the next move will be the move which passed the is current location
-        String[] ar = setup.split("(?<=\\G...)");
         String placement = setup;
+        String[] ar = setup.split("(?<=\\G...)");
         ArrayList<String> board = new ArrayList<>();
         if (ar.length != 36) // check if setup is made up by 36 elements
             return false;
@@ -305,12 +309,87 @@ public class WarringStatesGame {
             char location = moveSequence.charAt(i);
             if (!(isMoveLegal(placement, location)))
                 return false;
+            String zhang_location = "";
+            char kingdom = ' ';
             for (String elem : board){
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
-                    board.remove(elem);
+                    zhang_location = elem;
+            }
+            board.remove(zhang_location);
+            for (String elem : board){
+                if (elem.charAt(2) == location) {
+                    kingdom = elem.charAt(0);
+                    elem = "z9" + location;
+                }
+            }
+            int row_index = row.length;
+            int col_index = column.length;
+            for (int m = 0; m < row.length; m++){
+                for (int n = 0; n < row[m].length; n++){
+                    if (zhang_location.charAt(2) == row[m][n])
+                        row_index = m;
+                }
+            }
+            for (int m = 0; m < column.length; m++){
+                for (int n = 0; n < column[m].length; n++){
+                    if (zhang_location.charAt(2) == column[m][n])
+                        col_index = m;
+                }
+            }
+            String mid = "";
+            ArrayList<String> remove_elem = new ArrayList<>();
+            if (sameRow(location, row_index)){
+                int ri1 = row_str[row_index].indexOf(zhang_location.charAt(2));
+                int ri2 = row_str[row_index].indexOf(location);
+                if (ri1 > ri2)
+                    mid = row_str[row_index].substring(ri2 + 1, ri1);
+                else
+                    mid = row_str[row_index].substring(ri1 + 1, ri2);
+                for (int m = 0; m < mid.length(); m++){
+                    for (String elem : board){
+                        if (elem.charAt(2) == mid.charAt(m) && elem.charAt(0) == kingdom)
+                            remove_elem.add(elem);
+                    }
+                }
+                board.removeAll(remove_elem);
+            }
+            else if (sameColumn(location, col_index)){
+                int ci1 = col_str[col_index].indexOf(zhang_location.charAt(2));
+                int ci2 = col_str[col_index].indexOf(location);
+                if (ci1 > ci2)
+                    mid = col_str[col_index].substring(ci2 + 1, ci1);
+                else
+                    mid = col_str[col_index].substring(ci1 + 1, ci2);
+                for (int m = 0; m < mid.length(); m++){
+                    for (String elem : board){
+                        if (elem.charAt(2) == mid.charAt(m) && elem.charAt(0) == kingdom)
+                            remove_elem.add(elem);
+                    }
+                }
+                board.removeAll(remove_elem);
+            }
+            placement = "";
+            for (String elem : board){
+                placement = placement + elem;
             }
         }
         return true;
+    }
+
+    static boolean sameRow(char loc, int i){
+        for (int j = 0; j < row[i].length; j++){
+            if (row[i][j] == loc)
+                return true;
+        }
+        return false;
+    }
+
+    static boolean sameColumn(char loc, int i){
+        for (int j = 0; j < column[i].length; j++){
+            if (column[i][j] == loc)
+                return true;
+        }
+        return false;
     }
 
     /**
