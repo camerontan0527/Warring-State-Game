@@ -7,22 +7,22 @@ import java.util.Arrays;
  * This class provides the text interface for the Warring States game
  */
 public class WarringStatesGame {
-    static char[][] row = {{'A', 'G', 'M', 'S', 'Y', '4'},
-            {'B', 'H', 'N', 'T', 'Z', '5'},
-            {'C', 'I', 'O', 'U', '0', '6'},
-            {'D', 'J', 'P', 'V', '1', '7'},
-            {'E', 'K', 'Q', 'W', '2', '8'},
-            {'F', 'L', 'R', 'X', '3', '9'}};
-    static char[][] column = {{'A', 'B', 'C', 'D', 'E', 'F'},
-            {'G', 'H', 'I', 'J', 'K', 'L'},
-            {'M', 'N', 'O', 'P', 'Q', 'R'},
-            {'S', 'T', 'U', 'V', 'W', 'X'},
-            {'Y', 'Z', '0', '1', '2', '3'},
-            {'4', '5', '6', '7', '8', '9'}};
+            static char[][] row = {{'A', 'G', 'M', 'S', 'Y', '4'},
+                    {'B', 'H', 'N', 'T', 'Z', '5'},
+                    {'C', 'I', 'O', 'U', '0', '6'},
+                    {'D', 'J', 'P', 'V', '1', '7'},
+                    {'E', 'K', 'Q', 'W', '2', '8'},
+                    {'F', 'L', 'R', 'X', '3', '9'}};
+            static char[][] column = {{'A', 'B', 'C', 'D', 'E', 'F'},
+                    {'G', 'H', 'I', 'J', 'K', 'L'},
+                    {'M', 'N', 'O', 'P', 'Q', 'R'},
+                    {'S', 'T', 'U', 'V', 'W', 'X'},
+                    {'Y', 'Z', '0', '1', '2', '3'},
+                    {'4', '5', '6', '7', '8', '9'}};
 
-    WarringStatesGame(char[][] row, char[][] column) {
-        this.column = column;
-        this.row = row;
+            WarringStatesGame(char[][] row, char[][] column) {
+                this.column = column;
+                this.row = row;
     }
 
     /**
@@ -326,7 +326,7 @@ public class WarringStatesGame {
      * @return the list of supporters for the given player
      */
     public static String getSupporters(String setup, String moveSequence, int numPlayers, int playerId) {
-        // FIXME Task 7: get the list of supporters for a given player after a sequence of moves
+        // FIXME Task 7: get the list of supporters for  a given player after a sequence of moves
         //create different arrays for each player which stores the kingdoms collected
         // return: get the cards that player is holding
         return null;
