@@ -72,7 +72,7 @@ public class Viewer extends Application {
 
         String[] array = placement.split("(?<=\\G...)");
 
-        for (int a = 0; a <= array.length; a++) {//goes through the array placement string
+        for (int a = 0; a < array.length; a++) {//goes through the array placement string
             for (int i = 0; i < location.length; ++i) {//checks the row
                 String s = "" + array[a].charAt(2);//converts char to string
                 if (String.valueOf(location[a]).indexOf(s)!= -1) {
