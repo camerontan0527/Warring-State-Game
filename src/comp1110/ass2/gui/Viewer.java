@@ -1,26 +1,24 @@
 package comp1110.ass2.gui;
 
-import gittest.A;
-import gittest.C;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
-import comp1110.ass2.WarringStatesGame;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 /**
  * A very simple viewer for card layouts in the Warring States game.
@@ -39,6 +37,20 @@ public class Viewer extends Application {
             {'7', '1', 'V', 'P', 'J', 'D'},
             {'8', '2', 'W', 'Q', 'K', 'E'},
             {'9', '3', 'X', 'R', 'L', 'F'}};
+    static char[][] row = {
+            {'4', 'Y', 'S', 'M', 'G', 'A'},
+            {'5', 'Z', 'T', 'N', 'H', 'B'},
+            {'6', '0', 'U', 'O', 'I', 'C'},
+            {'7', '1', 'V', 'P', 'J', 'D'},
+            {'8', '2', 'W', 'Q', 'K', 'E'},
+            {'9', '3', 'X', 'R', 'L', 'F'}};
+    static char[][] column =
+            {{'4', '5', '6', '7', '8', '9'},
+            {'Y', 'Z', '0', '1', '2', '3'},
+            {'S', 'T', 'U', 'V', 'W', 'X'},
+            {'M', 'N', 'O', 'P', 'Q', 'R'},
+            {'G', 'H', 'I', 'J', 'K', 'L'},
+            {'A', 'B', 'C', 'D', 'E', 'F'}};
 
 
     private static final int VIEWER_WIDTH = 933;
@@ -61,87 +73,86 @@ public class Viewer extends Application {
 
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
-        //need to first check if the placement string is valid using isPlacementWellFormed function
-        //assign color to each kingdom and number to each card in kingdom
-        //extract the individual card from the placement and its location
-        //use matrix colum and row to specify the location
+
 
 //
         //TEST PLACEMENT STRING
 //a0Aa1Ba2Ca3Da4Ea5Fa6Ga7Hb0Ib1Jb2Kb3Lb4Mb5Nb6Oc0Pc1Qc2Rc3Sc4Tc5Ud0Vd1Wd2Xd3Yd4Ze00e11e22e33f04f15f26g07g18z09
-
         String[] array = placement.split("(?<=\\G...)");
-
-        for (int a = 0; a < array.length; a++) {//goes through the array placement string
-            for (int i = 0; i < location.length; ++i) {//checks the row
-                String s = "" + array[a].charAt(2);//converts char to string
-                if (String.valueOf(location[a]).indexOf(s)!= -1) {
-                    for (int j = 0; j < location[i].length; ++j) {//checks the column
-                        if (String.valueOf(location[a]).indexOf(array[a].charAt(2)) == j) {// first checks what row the location is in then checks the column using the row
-                            if (array[a].charAt(0) == 'a') {
-                                Card cardA = new Card(i, j);
-                                Rectangle Ac = new Rectangle(100, 100);
-                                Ac.setFill(Color.RED);
-                                grid[i][j] = cardA;
-                                root.getChildren().addAll(cardA, Ac);
-                            } else if (array[a].charAt(0) == 'b') {
-                                Card cardB = new Card(i, j);
-                                Rectangle Bc = new Rectangle(100, 100);
-                                Bc.setFill(Color.GREEN);
-                                grid[i][j] = cardB;
-                                root.getChildren().addAll(cardB, Bc);
-                            } else if (array[a].charAt(0) == 'c') {
-                                Card cardC = new Card(i, j);
-                                Rectangle Cc = new Rectangle(100, 100);
-                                Cc.setFill(Color.BEIGE);
-                                grid[i][j] = cardC;
-                                root.getChildren().addAll(cardC, Cc);
-                            } else if (array[a].charAt(0) == 'd') {
-                                Card cardD = new Card(i, j);
-                                Rectangle Dc = new Rectangle(100, 100);
-                                Dc.setFill(Color.PINK);
-                                grid[i][j] = cardD;
-                                root.getChildren().addAll(cardD, Dc);
-                            } else if (array[a].charAt(0) == 'e') {
-                                Card cardE = new Card(i, j);
-                                Rectangle Ec = new Rectangle(100, 100);
-                                Ec.setFill(Color.PURPLE);
-                                grid[i][j] = cardE;
-                                root.getChildren().addAll(cardE, Ec);
-                            } else if (array[a].charAt(0) == 'f') {
-                                Card cardF = new Card(i, j);
-                                Rectangle Fc = new Rectangle(100, 100);
-                                Fc.setFill(Color.YELLOW);
-                                grid[i][j] = cardF;
-                                root.getChildren().addAll(cardF, Fc);
-                            } else if (array[a].charAt(0) == 'g') {
-                                Card cardG = new Card(i, j);
-                                Rectangle Gc = new Rectangle(100, 100);
-                                Gc.setFill(Color.RED);
-                                grid[i][j] = cardG;
-                                root.getChildren().addAll(cardG, Gc);
-                            } else if (array[a].charAt(0) == 'z') {
-                                Card cardZ = new Card(i, j);
-                                Rectangle Zc = new Rectangle(100, 100);
-                                Zc.setFill(Color.RED);
-                                grid[i][j] = cardZ;
-                                root.getChildren().addAll(cardZ, Zc);
-                            }
-                        }
-
-                    }
-
+        List<Integer> rowlst = new ArrayList<>();
+        List<Integer> columnlst = new ArrayList<>();
+        for (String elem : array) {
+            int rowIndex = 0;  // return the row where zhang is
+            for (char[] r : row) {
+                if (new String(r).contains(String.valueOf(elem.charAt(2)))) {
+                    rowIndex = Arrays.asList(row).indexOf(r);
+                    rowlst.add(rowIndex);
                 }
             }
-            //   https://stackoverflow.com/questions/8408316/return-position-of-value-in-a-2d-array-java
-
-
+            int columnIndex = 0;  // return the column where zhang is
+            for (char[] c : column) {
+                if (new String(c).contains(String.valueOf(elem.charAt(2)))) {
+                    columnIndex = Arrays.asList(column).indexOf(c);
+                    columnlst.add(columnIndex);
+                }
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].charAt(0) == 'a') {
+                Rectangle Ac = new Rectangle(100, 100);
+                Ac.setFill(Color.RED);
+                Ac.setTranslateX(columnlst.get(i) * 100);//5
+                Ac.setTranslateY(rowlst.get(i) * 100);//0
+                root.getChildren().addAll(Ac);
+            }else if(array[i].charAt(0)=='b'){
+                Rectangle Bc=new Rectangle(100,100);
+                Bc.setFill(Color.PINK);
+                Bc.setTranslateX(columnlst.get(i)*100);
+                Bc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Bc);
+            }else if(array[i].charAt(0)=='c'){
+                Rectangle Cc=new Rectangle(100,100);
+                Cc.setFill(Color.ORANGE);
+                Cc.setTranslateX(columnlst.get(i)*100);
+                Cc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Cc);
+            }else if(array[i].charAt(0)=='d'){
+                Rectangle Dc=new Rectangle(100,100);
+                Dc.setFill(Color.YELLOW);
+                Dc.setTranslateX(columnlst.get(i)*100);
+                Dc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Dc);
+            }else if(array[i].charAt(0)=='e'){
+                Rectangle Ec=new Rectangle(100,100);
+                Ec.setFill(Color.GREEN);
+                Ec.setTranslateX(columnlst.get(i)*100);
+                Ec.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Ec);
+            }else if(array[i].charAt(0)=='f'){
+                Rectangle Fc=new Rectangle(100,100);
+                Fc.setFill(Color.BLUE);
+                Fc.setTranslateX(columnlst.get(i)*100);
+                Fc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Fc);
+            }else if(array[i].charAt(0)=='g'){
+                Rectangle Gc=new Rectangle(100,100);
+                Gc.setFill(Color.PURPLE);
+                Gc.setTranslateX(columnlst.get(i)*100);
+                Gc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Gc);
+            }else if(array[i].charAt(0)=='z'){
+                Rectangle Zc=new Rectangle(100,100);
+                Zc.setFill(Color.GRAY);
+                Zc.setTranslateX(columnlst.get(i)*100);
+                Zc.setTranslateY(rowlst.get(i)*100);
+                root.getChildren().addAll(Zc);
+            }
         }
     }
 
-    private class Card extends StackPane {
-        private int x;
-        private int y;
+    public class Card extends StackPane {
+        int x;
+        int y;
         private Rectangle border = new Rectangle(CARD_SIZE - 2, CARD_SIZE - 2);
 
         public Card(int x, int y) {
