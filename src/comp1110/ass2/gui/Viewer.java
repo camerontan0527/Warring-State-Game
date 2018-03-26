@@ -1,6 +1,7 @@
 package comp1110.ass2.gui;
 
 
+import gittest.C;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +15,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.StackPane;
+
+import javafx.scene.text.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -103,49 +106,58 @@ public class Viewer extends Application {
                 Ac.setFill(Color.RED);
                 Ac.setTranslateX(columnlst.get(i) * 100);//5
                 Ac.setTranslateY(rowlst.get(i) * 100);//0
+                Ac.setStroke(Color.WHITE);
                 root.getChildren().addAll(Ac);
             }else if(array[i].charAt(0)=='b'){
                 Rectangle Bc=new Rectangle(100,100);
                 Bc.setFill(Color.PINK);
                 Bc.setTranslateX(columnlst.get(i)*100);
                 Bc.setTranslateY(rowlst.get(i)*100);
+                Bc.setStroke(Color.WHITE);
                 root.getChildren().addAll(Bc);
             }else if(array[i].charAt(0)=='c'){
                 Rectangle Cc=new Rectangle(100,100);
                 Cc.setFill(Color.ORANGE);
+                Cc.setStroke(Color.WHITE);
                 Cc.setTranslateX(columnlst.get(i)*100);
                 Cc.setTranslateY(rowlst.get(i)*100);
                 root.getChildren().addAll(Cc);
             }else if(array[i].charAt(0)=='d'){
                 Rectangle Dc=new Rectangle(100,100);
                 Dc.setFill(Color.YELLOW);
+                Dc.setStroke(Color.WHITE);
                 Dc.setTranslateX(columnlst.get(i)*100);
                 Dc.setTranslateY(rowlst.get(i)*100);
                 root.getChildren().addAll(Dc);
             }else if(array[i].charAt(0)=='e'){
                 Rectangle Ec=new Rectangle(100,100);
                 Ec.setFill(Color.GREEN);
+                Ec.setStroke(Color.WHITE);
                 Ec.setTranslateX(columnlst.get(i)*100);
                 Ec.setTranslateY(rowlst.get(i)*100);
                 root.getChildren().addAll(Ec);
             }else if(array[i].charAt(0)=='f'){
                 Rectangle Fc=new Rectangle(100,100);
                 Fc.setFill(Color.BLUE);
+                Fc.setStroke(Color.WHITE);
                 Fc.setTranslateX(columnlst.get(i)*100);
                 Fc.setTranslateY(rowlst.get(i)*100);
                 root.getChildren().addAll(Fc);
             }else if(array[i].charAt(0)=='g'){
                 Rectangle Gc=new Rectangle(100,100);
                 Gc.setFill(Color.PURPLE);
+                Gc.setStroke(Color.WHITE);
                 Gc.setTranslateX(columnlst.get(i)*100);
                 Gc.setTranslateY(rowlst.get(i)*100);
+
                 root.getChildren().addAll(Gc);
             }else if(array[i].charAt(0)=='z'){
                 Rectangle Zc=new Rectangle(100,100);
                 Zc.setFill(Color.GRAY);
+                Zc.setStroke(Color.WHITE);
                 Zc.setTranslateX(columnlst.get(i)*100);
                 Zc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Zc);
+                                root.getChildren().addAll(Zc);
             }
         }
     }
