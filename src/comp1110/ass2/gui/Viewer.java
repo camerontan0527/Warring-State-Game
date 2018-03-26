@@ -203,6 +203,7 @@ public class Viewer extends Application {
         //  shape.setStroke(Color.BLACK);
         //  root.getChildren().add(shape);
 //loop to generate a grid if the number of cards in the x and y direction are less then 6.
+        //https://www.youtube.com/watch?v=JwcyxuKko_M
         for (int y = 0; y < Y_CARDS; y++) {
             for (int x = 0; x < X_CARDS; x++) {
                 Card card = new Card(x, y);
@@ -211,7 +212,7 @@ public class Viewer extends Application {
             }
         }
 
-//https://www.youtube.com/watch?v=JwcyxuKko_M
+
 
         makeControls();
         primaryStage.setScene(scene);
