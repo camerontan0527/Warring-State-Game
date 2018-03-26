@@ -298,32 +298,43 @@ public class WarringStatesGame {
         //  check if the next move is in the same column/row as the previous one
         //if one move passes, the current move for the next move will be the move which passed the is current location
         String placement = setup;
+        //System.out.println(setup);
+        //System.out.println("begin");
         String[] ar = setup.split("(?<=\\G...)");
         ArrayList<String> board = new ArrayList<>();
+        char location = ' ';
+        char kingdom = ' ';
+        String zhang_location = "";
+        int row_index = row.length;
+        int col_index = column.length;
+        String new_character = "";
+        String new_location = "";
         if (ar.length != 36) // check if setup is made up by 36 elements
             return false;
-        for (String elem: ar){
+        for (String elem: ar){ // put the every element in ar to the arraylist board
             board.add(elem);
         }
         for (int i = 0; i < moveSequence.length(); i++){
-            char location = moveSequence.charAt(i);
+            ArrayList<String> array = new ArrayList<>();
+            for (int j = 0; j < placement.length(); j = j + 3){
+                array.add(placement.substring(j, j + 3));
+            }
+            location = moveSequence.charAt(i);
             if (!(isMoveLegal(placement, location)))
                 return false;
-            String zhang_location = "";
-            char kingdom = ' ';
-            for (String elem : board){
+            for (String elem : array){
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
                     zhang_location = elem;
             }
-            board.remove(zhang_location);
-            for (String elem : board){
+            placement = placement.replace(zhang_location, "");
+            for (String elem : array){ // put zhang yi at his next position
                 if (elem.charAt(2) == location) {
                     kingdom = elem.charAt(0);
-                    elem = "z9" + location;
+                    new_character = elem;
                 }
             }
-            int row_index = row.length;
-            int col_index = column.length;
+            new_location = "z9" + location;
+            placement = placement.replace(new_character, new_location);
             for (int m = 0; m < row.length; m++){
                 for (int n = 0; n < row[m].length; n++){
                     if (zhang_location.charAt(2) == row[m][n])
@@ -346,12 +357,14 @@ public class WarringStatesGame {
                 else
                     mid = row_str[row_index].substring(ri1 + 1, ri2);
                 for (int m = 0; m < mid.length(); m++){
-                    for (String elem : board){
+                    for (String elem : array){
                         if (elem.charAt(2) == mid.charAt(m) && elem.charAt(0) == kingdom)
                             remove_elem.add(elem);
                     }
                 }
-                board.removeAll(remove_elem);
+                for (String elem : remove_elem){
+                    placement = placement.replace(elem, "");
+                }
             }
             else if (sameColumn(location, col_index)){
                 int ci1 = col_str[col_index].indexOf(zhang_location.charAt(2));
@@ -361,16 +374,14 @@ public class WarringStatesGame {
                 else
                     mid = col_str[col_index].substring(ci1 + 1, ci2);
                 for (int m = 0; m < mid.length(); m++){
-                    for (String elem : board){
+                    for (String elem : array){
                         if (elem.charAt(2) == mid.charAt(m) && elem.charAt(0) == kingdom)
                             remove_elem.add(elem);
                     }
                 }
-                board.removeAll(remove_elem);
-            }
-            placement = "";
-            for (String elem : board){
-                placement = placement + elem;
+                for (String elem : remove_elem){
+                    placement = placement.replace(elem, "");
+                }
             }
         }
         return true;
