@@ -70,6 +70,7 @@ public class Viewer extends Application {
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
         //TEST PLACEMENT STRING: a0Aa1Ba2Ca3Da4Ea5Fa6Ga7Hb0Ib1Jb2Kb3Lb4Mb5Nb6Oc0Pc1Qc2Rc3Sc4Tc5Ud0Vd1Wd2Xd3Yd4Ze00e11e22e33f04f15f26g07g18z09
+        //https://stackoverflow.com/questions/2297347/splitting-a-string-at-every-n-th-character (split string)
         String[] array = placement.split("(?<=\\G...)");
         List<Integer> rowlst = new ArrayList<>();
         List<Integer> columnlst = new ArrayList<>();
