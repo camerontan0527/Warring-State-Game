@@ -33,13 +33,6 @@ import java.util.List;
 
 public class Viewer extends Application {
 
-    static char[][] location = {
-            {'4', 'Y', 'S', 'M', 'G', 'A'},
-            {'5', 'Z', 'T', 'N', 'H', 'B'},
-            {'6', '0', 'U', 'O', 'I', 'C'},
-            {'7', '1', 'V', 'P', 'J', 'D'},
-            {'8', '2', 'W', 'Q', 'K', 'E'},
-            {'9', '3', 'X', 'R', 'L', 'F'}};
     static char[][] row = {
             {'4', 'Y', 'S', 'M', 'G', 'A'},
             {'5', 'Z', 'T', 'N', 'H', 'B'},
@@ -76,11 +69,7 @@ public class Viewer extends Application {
 
     void makePlacement(String placement) {
         // FIXME Task 4: implement the simple placement viewer
-
-
-//
-        //TEST PLACEMENT STRING
-//a0Aa1Ba2Ca3Da4Ea5Fa6Ga7Hb0Ib1Jb2Kb3Lb4Mb5Nb6Oc0Pc1Qc2Rc3Sc4Tc5Ud0Vd1Wd2Xd3Yd4Ze00e11e22e33f04f15f26g07g18z09
+        //TEST PLACEMENT STRING: a0Aa1Ba2Ca3Da4Ea5Fa6Ga7Hb0Ib1Jb2Kb3Lb4Mb5Nb6Oc0Pc1Qc2Rc3Sc4Tc5Ud0Vd1Wd2Xd3Yd4Ze00e11e22e33f04f15f26g07g18z09
         String[] array = placement.split("(?<=\\G...)");
         List<Integer> rowlst = new ArrayList<>();
         List<Integer> columnlst = new ArrayList<>();
@@ -104,8 +93,8 @@ public class Viewer extends Application {
             if (array[i].charAt(0) == 'a') {
                 Rectangle Ac = new Rectangle(100, 100);
                 Ac.setFill(Color.RED);
-                Ac.setTranslateX(columnlst.get(i) * 100);//5
-                Ac.setTranslateY(rowlst.get(i) * 100);//0
+                Ac.setTranslateX(columnlst.get(i) * 100);
+                Ac.setTranslateY(rowlst.get(i) * 100);
                 Ac.setStroke(Color.WHITE);
                 root.getChildren().addAll(Ac);
             }else if(array[i].charAt(0)=='b'){
@@ -149,7 +138,6 @@ public class Viewer extends Application {
                 Gc.setStroke(Color.WHITE);
                 Gc.setTranslateX(columnlst.get(i)*100);
                 Gc.setTranslateY(rowlst.get(i)*100);
-
                 root.getChildren().addAll(Gc);
             }else if(array[i].charAt(0)=='z'){
                 Rectangle Zc=new Rectangle(100,100);
@@ -157,7 +145,7 @@ public class Viewer extends Application {
                 Zc.setStroke(Color.WHITE);
                 Zc.setTranslateX(columnlst.get(i)*100);
                 Zc.setTranslateY(rowlst.get(i)*100);
-                                root.getChildren().addAll(Zc);
+                root.getChildren().addAll(Zc);
             }
         }
     }
