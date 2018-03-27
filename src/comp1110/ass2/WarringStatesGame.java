@@ -298,8 +298,6 @@ public class WarringStatesGame {
         //  check if the next move is in the same column/row as the previous one
         //if one move passes, the current move for the next move will be the move which passed the is current location
         String placement = setup;
-        //System.out.println(setup);
-        //System.out.println("begin");
         String[] ar = setup.split("(?<=\\G...)");
         ArrayList<String> board = new ArrayList<>();
         char location = ' ';
@@ -311,9 +309,6 @@ public class WarringStatesGame {
         String new_location = "";
         if (ar.length != 36) // check if setup is made up by 36 elements
             return false;
-        for (String elem: ar){ // put the every element in ar to the arraylist board
-            board.add(elem);
-        }
         for (int i = 0; i < moveSequence.length(); i++){
             ArrayList<String> array = new ArrayList<>();
             for (int j = 0; j < placement.length(); j = j + 3){
@@ -322,6 +317,9 @@ public class WarringStatesGame {
             location = moveSequence.charAt(i);
             if (!(isMoveLegal(placement, location)))
                 return false;
+            System.out.println("pass");
+            System.out.println("location" + location);
+            System.out.println("placement: " + placement);
             for (String elem : array){
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
                     zhang_location = elem;
@@ -379,9 +377,11 @@ public class WarringStatesGame {
                             remove_elem.add(elem);
                     }
                 }
+                System.out.println(remove_elem.size());
                 for (String elem : remove_elem){
                     placement = placement.replace(elem, "");
                 }
+                System.out.println("placement: " + placement);
             }
         }
         return true;
