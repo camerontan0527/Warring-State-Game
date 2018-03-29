@@ -2,6 +2,7 @@ package comp1110.ass2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * This class provides the text interface for the Warring States game
@@ -28,6 +29,10 @@ public class WarringStatesGame {
         this.column = column;
         this.row = row;
     }
+    static ArrayList<Character> possible_move =
+            new ArrayList<>(Arrays.asList('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
+                    'P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3',
+                    '4','5','6','7','8','9'  ));
 
     /**
      * Determine whether a card placement is well-formed according to the following:
@@ -463,6 +468,22 @@ public class WarringStatesGame {
      */
     public static char generateMove(String placement) {
         // FIXME Task 10: generate a legal move
-        return '\0';
+        ArrayList<Character> moves = new ArrayList<>();
+        for (char elem : possible_move){
+            if (isMoveLegal(placement,elem) == true){
+                moves.add(elem);
+            }
+        }
+        if (moves.size() == 0) {
+            return '\0';
+        }else if (moves.size() == 1){
+            return moves.get(0);
+        }else {
+            Random rand = new Random();
+            int x = rand.nextInt(moves.size());
+            return moves.get(x);
+        }
+
+
     }
 }
