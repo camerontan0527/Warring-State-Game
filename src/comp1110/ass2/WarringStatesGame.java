@@ -408,6 +408,68 @@ public class WarringStatesGame {
         return false;
     }
 
+
+//gets the index of the first move of the second player
+    public static Integer playerTwoFirstMove (String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int i =0;
+        int x= 0;
+        while (i<ar.length){
+            if (ar[i].charAt(0)==ar[i+1].charAt(0)){
+                i++;
+            } else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                x = i+1;
+            }
+        }return x;
+    }
+//gets the index of the first move of the third player
+    public static Integer playerThreeFirstMove (String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int i =0;
+        int x= 0;
+        while (i<ar.length){
+            if (ar[i].charAt(0)==ar[i+1].charAt(0)){
+                i++;
+            } else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                int j=i+1;
+                while (j<ar.length){
+                    if (ar[j].charAt(0)==ar[j+1].charAt(0)) {
+                        j++;
+                    }else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                        x=j+1;
+                    }
+                }
+            }
+        }return x;
+    }
+
+    //gets the index of the first move of the third player
+    public static Integer playerFourFirstMove (String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int i =0;
+        int x= 0;
+        while (i<ar.length){
+            if (ar[i].charAt(0)==ar[i+1].charAt(0)){
+                i++;
+            } else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                int j=i+1;
+                while (j<ar.length){
+                    if (ar[j].charAt(0)==ar[j+1].charAt(0)) {
+                        j++;
+                    }else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                        int k=j+1;
+                        while (k<ar.length){
+                            if (ar[k].charAt(0)==ar[k+1].charAt(0)){
+                                k++;
+                            }else if (ar[k].charAt(0)!=ar[k+1].charAt(0)){
+                                x = k+1;
+                            }
+                        }
+                    }
+                }
+            }
+        }return x;
+    }
     /**
      * Get the list of supporters for the chosen player, given the provided
      * setup and move sequence.
@@ -420,12 +482,123 @@ public class WarringStatesGame {
      * @param playerId     the player number for which to get the list of supporters, [0..(numPlayers-1)]
      * @return the list of supporters for the given player
      */
+
+
+
     public static String getSupporters(String setup, String moveSequence, int numPlayers, int playerId) {
         // FIXME Task 7: get the list of supporters for  a given player after a sequence of moves
         //create different arrays for each player which stores the kingdoms collected
         // return: get the cards that player is holding
-        return null;
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        String supporters = "";
+
+
+        if (isMoveSequenceValid(setup, moveSequence)==true){
+            if (numPlayers==2){
+                if (playerId==0){
+                    int i =0;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            //add i and i+1 supporters to list and go to the the i+2th element
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            //add i and i+1 to supporters list and move to i+3
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
+                            int r =0;
+                            for (int j=i+2; j<ar.length; i++){
+                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
+                                    j++;
+                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                                    r = j+1;
+                                }
+                            }
+                            i =r;
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            //add i to supporters and move i+2
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            int r =0;
+                            for (int j=i+2; j<ar.length; i++){
+                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
+                                    j++;
+                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                                    r = j+1;
+                                }
+                            }
+                            i =r;
+                        }
+                    }
+                } else if (playerId==1) {
+                    Integer x = playerTwoFirstMove(moveSequence);
+                    int i = x;
+                    while (i < ar.length) {
+                        if (ar[i].charAt(0) == ar[i + 1].charAt(0) && ar[i + 1].charAt(0) == ar[i + 2].charAt(0)) {
+                            //add i and i+2 supporters to list and go to the the i+2th element
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i += 2;
+                        } else if (ar[i].charAt(0) == ar[i + 1].charAt(0) && ar[i + 1].charAt(0) != ar[i + 2].charAt(0)) {
+                            //add i and i+1 to supporters list and move to i+3
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
+                            int r =0;
+                            for (int j=i+2; j<ar.length; i++){
+                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
+                                    j++;
+                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                                    r = j+1;
+                                }
+                            }
+                            i =r;
+                        } else if (ar[i].charAt(0) != ar[i + 1].charAt(0)) {
+                            //add i to supporters and move i+2
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
+                            int r =0;
+                            for (int j=i+2; j<ar.length; i++){
+                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
+                                    j++;
+                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                                    r = j+1;
+                                }
+                            }
+                            i =r;
+                        }
+                    }
+                }
+                }else if (numPlayers==3){
+                if (playerId==0){
+
+
+                }else if (playerId==1){
+                    Integer x = playerTwoFirstMove(moveSequence);
+
+                }else if (playerId==2){
+                    Integer x = playerThreeFirstMove(moveSequence);
+
+                }
+
+            }else if (numPlayers==4){
+                if (playerId==0){
+
+                }else if (playerId==1){
+                    Integer x = playerTwoFirstMove(moveSequence);
+
+                }else if (playerId==2){
+                    Integer x = playerThreeFirstMove(moveSequence);
+
+                }else if (playerId==3){
+                    Integer x = playerFourFirstMove(moveSequence);
+
+                }
+
+            }
+
+
+        }
+        return supporters;
     }
+
 
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
