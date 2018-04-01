@@ -470,6 +470,19 @@ public class WarringStatesGame {
             }
         }return x;
     }
+    //add a for loop to determine the next move for player (need to check if player one/two/three/four collects one card or more than one)
+    public static Integer playerNextMove (Integer x, String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int r = 0;
+        for (int j=x; j<ar.length; j++){
+            if (ar[j].charAt(0)==ar[j+1].charAt(0)){
+                j++;
+            } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                r = j+1;
+            }
+        }return r;
+    }
+
     /**
      * Get the list of supporters for the chosen player, given the provided
      * setup and move sequence.
@@ -506,27 +519,13 @@ public class WarringStatesGame {
                             //add i and i+1 to supporters list and move to i+3
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
                             //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            int r =0;
-                            for (int j=i+2; j<ar.length; i++){
-                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
-                                    j++;
-                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
-                                    r = j+1;
-                                }
-                            }
-                            i =r;
+                            i=playerNextMove(i+2, moveSequence);
+
                         }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
                             //add i to supporters and move i+2
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
-                            int r =0;
-                            for (int j=i+2; j<ar.length; i++){
-                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
-                                    j++;
-                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
-                                    r = j+1;
-                                }
-                            }
-                            i =r;
+
+                            i =playerNextMove(i+2, moveSequence);
                         }
                     }
                 } else if (playerId==1) {
@@ -541,28 +540,11 @@ public class WarringStatesGame {
                             //add i and i+1 to supporters list and move to i+3
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
                             //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            int r =0;
-                            for (int j=i+2; j<ar.length; i++){
-                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
-                                    j++;
-                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
-                                    r = j+1;
-                                }
-                            }
-                            i =r;
+                            i =playerNextMove(i+2, moveSequence);
                         } else if (ar[i].charAt(0) != ar[i + 1].charAt(0)) {
                             //add i to supporters and move i+2
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
-                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            int r =0;
-                            for (int j=i+2; j<ar.length; i++){
-                                if (ar[j].charAt(0)==ar[j+1].charAt(0)){
-                                    j++;
-                                } else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
-                                    r = j+1;
-                                }
-                            }
-                            i =r;
+                            i =playerNextMove(i+2, moveSequence);
                         }
                     }
                 }
