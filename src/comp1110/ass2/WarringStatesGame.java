@@ -214,6 +214,12 @@ public class WarringStatesGame {
                     cardAtsameRow.add(elem);
             }
         }
+        java.util.Collections.sort(cardAtsameRow, new java.util.Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return possible_move.indexOf(s1.charAt(2)) - possible_move.indexOf(s2.charAt(2));//comparision
+            }
+        });
         ArrayList<String> cardAtsameColumn = new ArrayList<>(); // return a List of cardString at the same column
         char[] columnPosition = column[columnIndex]; // return all the locationChar of zhang's column
         for (String elem : ar) {
@@ -222,6 +228,12 @@ public class WarringStatesGame {
                     cardAtsameColumn.add(elem);
             }
         }
+        java.util.Collections.sort(cardAtsameColumn, new java.util.Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return possible_move.indexOf(s1.charAt(2)) - possible_move.indexOf(s2.charAt(2));//comparision
+            }
+        });
         ArrayList<String> sameRowKingdom = new ArrayList<>(); // return the card with same kingdom at same row
         for (int i = 0; i < cardAtsameRow.size(); i++) {
             if ((cardAtsameRow.get(i).charAt(0)) == locationCard.charAt(0)) {
@@ -296,6 +308,8 @@ public class WarringStatesGame {
      * @return True if the placement sequence is valid
      */
     static boolean isMoveSequenceValid(String setup, String moveSequence) {
+        System.out.println(setup);
+        System.out.println(moveSequence);
         // FIXME Task 6: determine whether a placement sequence is valid
         // check if the length of the set up = 36
         //needs to call isMoveLegal function
@@ -312,19 +326,20 @@ public class WarringStatesGame {
         int col_index = column.length;
         String new_character = "";
         String new_location = "";
-        if (ar.length != 36) // check if setup is made up by 36 elements
-            return false;
+
         for (int i = 0; i < moveSequence.length(); i++){
             ArrayList<String> array = new ArrayList<>();
             for (int j = 0; j < placement.length(); j = j + 3){
                 array.add(placement.substring(j, j + 3));
             }
             location = moveSequence.charAt(i);
+            System.out.println("location " + location);
+            System.out.println("placement: " + placement);
+            System.out.println(isMoveLegal(placement,location));
             if (!(isMoveLegal(placement, location)))
                 return false;
             System.out.println("pass");
-            System.out.println("location" + location);
-            System.out.println("placement: " + placement);
+
             for (String elem : array){
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
                     zhang_location = elem;
@@ -382,11 +397,9 @@ public class WarringStatesGame {
                             remove_elem.add(elem);
                     }
                 }
-                System.out.println(remove_elem.size());
                 for (String elem : remove_elem){
                     placement = placement.replace(elem, "");
                 }
-                System.out.println("placement: " + placement);
             }
         }
         return true;
@@ -407,6 +420,12 @@ public class WarringStatesGame {
         }
         return false;
     }
+
+
+
+
+
+
 
 
 //gets the index of the first move of the second player
