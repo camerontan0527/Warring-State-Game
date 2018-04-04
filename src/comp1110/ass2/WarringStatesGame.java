@@ -462,7 +462,7 @@ public class WarringStatesGame {
         }return x;
     }
 
-    //gets the index of the first move of the third player
+    //gets the index of the first move of the fourth player
     public static Integer playerFourFirstMove (String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int i =0;
@@ -490,7 +490,8 @@ public class WarringStatesGame {
         }return x;
     }
     //add a for loop to determine the next move for player (need to check if player one/two/three/four collects one card or more than one)
-    public static Integer playerNextMove (Integer x, String moveSequence){
+    //x is the index of the players whose supporters are not needed
+    public static Integer playerNextMoveTwoPlayer (Integer x, String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int r = 0;
         for (int j=x; j<ar.length; j++){
@@ -501,7 +502,55 @@ public class WarringStatesGame {
             }
         }return r;
     }
-
+// determines the next move for the player in a three player game
+// i and j are the two other players whose supporters are not required
+    public static Integer playerNextMoveThreePlayer (Integer x, String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int r = 0;
+        int i = x;
+        while (i<ar.length){
+            if (ar[i].charAt(0)==ar[i+1].charAt(0)){
+                i++;
+            } else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                int j=i+1;
+                while (j<ar.length){
+                    if (ar[j].charAt(0)==ar[j+1].charAt(0)) {
+                        j++;
+                    }else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                        r=j+1;
+                    }
+                }
+            }
+        }return r;
+    }
+    // determines the next move for the player in a four player game
+// i, j and k are the three other players whose supporters are not required
+    public static Integer playerNextMoveFourPlayer (Integer x, String moveSequence){
+        String[] ar = moveSequence.split("(?<=\\G...)");
+        int r = 0;
+        int i = x;
+        while (i<ar.length){
+            if (ar[i].charAt(0)==ar[i+1].charAt(0)){
+                i++;
+            } else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                int j=i+1;
+                while (j<ar.length){
+                    if (ar[j].charAt(0)==ar[j+1].charAt(0)) {
+                        j++;
+                    }else if (ar[j].charAt(0)!=ar[j+1].charAt(0)){
+                        int k=j+1;
+                        while (k<ar.length){
+                            if (ar[k].charAt(0)==ar[k+1].charAt(0)){
+                                k++;
+                            }else if (ar[k].charAt(0)!=ar[k+1].charAt(0)){
+                                r = k+1;
+                            }
+                        }
+                    }
+                }
+            }
+        }return r;
+    }
     /**
      * Get the list of supporters for the chosen player, given the provided
      * setup and move sequence.
@@ -533,18 +582,18 @@ public class WarringStatesGame {
                         if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
                             //add i and i+1 supporters to list and go to the the i+2th element
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
-                            i+=2;
+                            i=i+2;
                         } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
-                            //add i and i+1 to supporters list and move to i+3
+                            //add i and i+1 to supporters list
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
                             //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            i=playerNextMove(i+2, moveSequence);
+                            i=playerNextMoveTwoPlayer(i+2, moveSequence);
 
                         }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
-                            //add i to supporters and move i+2
+                            //add i to supporters and move i+1 to find the next move
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
 
-                            i =playerNextMove(i+2, moveSequence);
+                            i =playerNextMoveTwoPlayer(i+1, moveSequence);
                         }
                     }
                 } else if (playerId==1) {
@@ -552,45 +601,128 @@ public class WarringStatesGame {
                     int i = x;
                     while (i < ar.length) {
                         if (ar[i].charAt(0) == ar[i + 1].charAt(0) && ar[i + 1].charAt(0) == ar[i + 2].charAt(0)) {
-                            //add i and i+2 supporters to list and go to the the i+2th element
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
                             i += 2;
                         } else if (ar[i].charAt(0) == ar[i + 1].charAt(0) && ar[i + 1].charAt(0) != ar[i + 2].charAt(0)) {
-                            //add i and i+1 to supporters list and move to i+3
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
-                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            i =playerNextMove(i+2, moveSequence);
+                            i =playerNextMoveTwoPlayer(i+2, moveSequence);
                         } else if (ar[i].charAt(0) != ar[i + 1].charAt(0)) {
-                            //add i to supporters and move i+2
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
-                            i =playerNextMove(i+2, moveSequence);
+                            i =playerNextMoveTwoPlayer(i+1, moveSequence);
                         }
                     }
                 }
                 }else if (numPlayers==3){
                 if (playerId==0){
-
+                    int i =0;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveThreePlayer(i+2, moveSequence);
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveThreePlayer(i+1, moveSequence);
+                        }
+                    }
 
                 }else if (playerId==1){
                     Integer x = playerTwoFirstMove(moveSequence);
+                    int i =x;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveThreePlayer(i+2, moveSequence);
 
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveThreePlayer(i+1, moveSequence);
+                        }
+                    }
                 }else if (playerId==2){
                     Integer x = playerThreeFirstMove(moveSequence);
-
+                    int i =x;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveThreePlayer(i+2, moveSequence);
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveThreePlayer(i+1, moveSequence);
+                        }
+                    }
                 }
-
             }else if (numPlayers==4){
                 if (playerId==0){
+                    int i =0;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveFourPlayer(i+2, moveSequence);
 
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveFourPlayer(i+1, moveSequence);
+                        }
+                    }
                 }else if (playerId==1){
                     Integer x = playerTwoFirstMove(moveSequence);
-
+                    int i =x;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                           supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveFourPlayer(i+2, moveSequence);
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveFourPlayer(i+1, moveSequence);
+                        }
+                    }
                 }else if (playerId==2){
                     Integer x = playerThreeFirstMove(moveSequence);
+                    int i =x;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveFourPlayer(i+2, moveSequence);
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveFourPlayer(i+1, moveSequence);
+                        }
+                    }
 
                 }else if (playerId==3){
                     Integer x = playerFourFirstMove(moveSequence);
+                    int i =x;
+                    while (i<ar.length){
+                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i+=2;
+                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
+                            i=playerNextMoveFourPlayer(i+2, moveSequence);
 
+                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
+                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
+                            i =playerNextMoveFourPlayer(i+1, moveSequence);
+                        }
+                    }
                 }
 
             }
