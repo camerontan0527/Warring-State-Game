@@ -429,7 +429,7 @@ public class WarringStatesGame {
 
 
 //gets the index of the first move of the second player
-    public static Integer playerTwoFirstMove (String moveSequence){
+    public static int playerTwoFirstMove (String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int i =0;
         int x= 0;
@@ -442,7 +442,7 @@ public class WarringStatesGame {
         }return x;
     }
 //gets the index of the first move of the third player
-    public static Integer playerThreeFirstMove (String moveSequence){
+    public static int playerThreeFirstMove (String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int i =0;
         int x= 0;
@@ -463,7 +463,7 @@ public class WarringStatesGame {
     }
 
     //gets the index of the first move of the fourth player
-    public static Integer playerFourFirstMove (String moveSequence){
+    public static int playerFourFirstMove (String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int i =0;
         int x= 0;
@@ -491,7 +491,7 @@ public class WarringStatesGame {
     }
     //add a for loop to determine the next move for player (need to check if player one/two/three/four collects one card or more than one)
     //x is the index of the players whose supporters are not needed
-    public static Integer playerNextMoveTwoPlayer (Integer x, String moveSequence){
+    public static int playerNextMoveTwoPlayer (Integer x, String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int r = 0;
         for (int j=x; j<ar.length; j++){
@@ -504,7 +504,7 @@ public class WarringStatesGame {
     }
 // determines the next move for the player in a three player game
 // i and j are the two other players whose supporters are not required
-    public static Integer playerNextMoveThreePlayer (Integer x, String moveSequence){
+    public static int playerNextMoveThreePlayer (Integer x, String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int r = 0;
         int i = x;
@@ -525,10 +525,11 @@ public class WarringStatesGame {
     }
     // determines the next move for the player in a four player game
 // i, j and k are the three other players whose supporters are not required
-    public static Integer playerNextMoveFourPlayer (Integer x, String moveSequence){
+    public static int playerNextMoveFourPlayer (Integer x, String moveSequence){
         String[] ar = moveSequence.split("(?<=\\G...)");
         int r = 0;
         int i = x;
+
         while (i<ar.length){
             if (ar[i].charAt(0)==ar[i+1].charAt(0)){
                 i++;
@@ -592,12 +593,11 @@ public class WarringStatesGame {
                         }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
                             //add i to supporters and move i+1 to find the next move
                             supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
-
                             i =playerNextMoveTwoPlayer(i+1, moveSequence);
                         }
                     }
                 } else if (playerId==1) {
-                    Integer x = playerTwoFirstMove(moveSequence);
+                    int x = playerTwoFirstMove(moveSequence);
                     int i = x;
                     while (i < ar.length) {
                         if (ar[i].charAt(0) == ar[i + 1].charAt(0) && ar[i + 1].charAt(0) == ar[i + 2].charAt(0)) {
@@ -645,7 +645,7 @@ public class WarringStatesGame {
                         }
                     }
                 }else if (playerId==2){
-                    Integer x = playerThreeFirstMove(moveSequence);
+                    int x = playerThreeFirstMove(moveSequence);
                     int i =x;
                     while (i<ar.length){
                         if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
@@ -677,7 +677,7 @@ public class WarringStatesGame {
                         }
                     }
                 }else if (playerId==1){
-                    Integer x = playerTwoFirstMove(moveSequence);
+                    int x = playerTwoFirstMove(moveSequence);
                     int i =x;
                     while (i<ar.length){
                         if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
@@ -692,7 +692,7 @@ public class WarringStatesGame {
                         }
                     }
                 }else if (playerId==2){
-                    Integer x = playerThreeFirstMove(moveSequence);
+                    int x = playerThreeFirstMove(moveSequence);
                     int i =x;
                     while (i<ar.length){
                         if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
@@ -708,7 +708,7 @@ public class WarringStatesGame {
                     }
 
                 }else if (playerId==3){
-                    Integer x = playerFourFirstMove(moveSequence);
+                    int x = playerFourFirstMove(moveSequence);
                     int i =x;
                     while (i<ar.length){
                         if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
