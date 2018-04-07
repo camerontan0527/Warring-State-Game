@@ -553,14 +553,14 @@ public class WarringStatesGame {
         }return r;
     }
 
-    public static String cardAtLocation (char location, String setup){
+    public static String cardAtLocation (char l, String setup){
         String card ="";
         String[] ar = setup.split("(?<=\\G...)");
         for (int i =0; i<ar.length; i++){
-            if (location!=ar[i].charAt(2)){
+            if (l!=ar[i].charAt(2)){
                 continue;
             }
-            if (location==ar[i].charAt(2)){
+            if (l==ar[i].charAt(2)){
                 card = card + ar[i].charAt(0) + ar[i].charAt(1);
                 break;
             }
@@ -596,24 +596,25 @@ public class WarringStatesGame {
         if (isMoveSequenceValid(setup, moveSequence)==true){
             if (numPlayers==2){
                 if (playerId==0){
-                    int i =0;
-                    while (i<ar.length){
-                        if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)==ar[i+2].charAt(0)){
-                            //add i and i+1 supporters to list and go to the the i+2th element
-                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
-                            i=i+2;
-                        } else if (ar[i].charAt(0)==ar[i+1].charAt(0) && ar[i+1].charAt(0)!=ar[i+2].charAt(0)){
-                            //add i and i+1 to supporters list
-                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1))+String.valueOf(ar[i+1].charAt(0))+String.valueOf(ar[i+1].charAt(1));
-                            //add a for loop to determine the next move for player one (need to check if player two collects one card or more than one)
-                            i=playerNextMoveTwoPlayer(i+2, moveSequence);
+                    int j = 0;
+                    while (j<moveSequence.length()){
+                        if (cardAtLocation(moveSequence.charAt(j),setup).charAt(0)==cardAtLocation(moveSequence.charAt(j+1),setup).charAt(0) &&
+                                cardAtLocation(moveSequence.charAt(j+1),setup).charAt(0)==cardAtLocation(moveSequence.charAt(j+2),setup).charAt(0)){
 
-                        }else if (ar[i].charAt(0)!=ar[i+1].charAt(0)){
-                            //add i to supporters and move i+1 to find the next move
-                            supporters = supporters + String.valueOf(ar[i].charAt(0))+ String.valueOf(ar[i].charAt(1));
-                            i =playerNextMoveTwoPlayer(i+1, moveSequence);
+                            supporters=supporters + cardAtLocation(moveSequence.charAt(j),setup)+ cardAtLocation(moveSequence.charAt(j+1),setup);
+                            j=j+2;
+                        } else if (cardAtLocation(moveSequence.charAt(j),setup).charAt(0)==cardAtLocation(moveSequence.charAt(j+1),setup).charAt(0) &&
+                                cardAtLocation(moveSequence.charAt(j+1),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(j+2),setup).charAt(0)){
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j),setup)+ cardAtLocation(moveSequence.charAt(j+1),setup);
+                            //need to update function for getting the next move of the second player using j+2
+                        } else if (cardAtLocation(moveSequence.charAt(j),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(j+1),setup).charAt(0)){
+                            supporters=supporters + cardAtLocation(moveSequence.charAt(j),setup);
+                            //need to update function for getting the next move of the second player using j+1
                         }
                     }
+
+
+                    
                 } else if (playerId==1) {
                     int x = playerTwoFirstMove(setup);
                     int i = x;
