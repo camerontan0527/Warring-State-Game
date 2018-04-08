@@ -1,8 +1,8 @@
 package comp1110.ass2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import javafx.util.Pair;
+
+import java.util.*;
 
 /**
  * This class provides the text interface for the Warring States game
@@ -526,24 +526,28 @@ public class WarringStatesGame {
     }
     // determines the next move for the player in a four player game
 // i, j and k are the three other players whose supporters are not required
-    public static int playerNextMoveFourPlayer (Integer x, String setup, String moveSequence){
+    public static Pair<Integer, String> playerNextMoveFourPlayer (Integer x, String setup, String moveSequence){
         int r = 0;
         int i = x;
 
         while (i<moveSequence.length()){
             if (cardAtLocation(moveSequence.charAt(i),setup).charAt(0)==cardAtLocation(moveSequence.charAt(i+1),setup).charAt(0)){
+                setup=updateSetup(moveSequence.charAt(i),setup);
                 i++;
             } else if (cardAtLocation(moveSequence.charAt(i),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(i+1),setup).charAt(0)){
                 int a=i+1;
                 while (a<moveSequence.length()){
                     if (cardAtLocation(moveSequence.charAt(a),setup).charAt(0)==cardAtLocation(moveSequence.charAt(a+1),setup).charAt(0)) {
+                        setup=updateSetup(moveSequence.charAt(a),setup);
                         a++;
                     }else if (cardAtLocation(moveSequence.charAt(a),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(a+1),setup).charAt(0)){
                         int k=a+1;
                         while (k<moveSequence.length()){
                             if (cardAtLocation(moveSequence.charAt(k),setup).charAt(0)==cardAtLocation(moveSequence.charAt(k+1),setup).charAt(0)){
+                                setup=updateSetup(moveSequence.charAt(k),setup);
                                 k++;
                             }else if (cardAtLocation(moveSequence.charAt(k),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(k+1),setup).charAt(0)){
+                                setup=updateSetup(moveSequence.charAt(k),setup);//updates the board with the move made
                                 r = k+1;
                                 break;
                             }
@@ -551,8 +555,11 @@ public class WarringStatesGame {
                     }
                 }
             }
-        }return r;
+        }return new Pair<>(r, setup);//creates a pair with the next move of the player and teh recent setup of the board
     }
+
+
+
 //finds card location
     public static String cardAtLocation (char l, String setup){
         String[] ar = setup.split("(?<=\\G...)");
@@ -573,41 +580,16 @@ public class WarringStatesGame {
 //updates setup deleting one cards
     public static String updateSetup (char l, String setup){
         String[] ar = setup.split("(?<=\\G...)");
-        for (int i = 0; i < ar.length; i++)
-        {
-            if (ar[i].equals(cardAtLocation(l, setup)+l))
-            {
-                ar[i] = null;
-                break;
-            }
-
-        }return ar.toString();
-    }
-    public static String updateSetup2 (char l, char l2, String setup){
-        String[] ar = setup.split("(?<=\\G...)");
-        for (int i = 0; i < ar.length; i++)
-        {
-            if (ar[i].equals(cardAtLocation(l, setup)+l))
-            {
-                ar[i] = null;
-                break;
-            }
-
-
+        List<String> setupList=new ArrayList<>();
+        Collections.addAll(setupList, ar);
+        setupList.remove(cardAtLocation(l, setup)+l);
+        String array[] = new String[setupList.size()];
+        for(int j =0;j<setupList.size();j++){
+            array[j] = setupList.get(j);
         }
-        
-        for (int j = 0; j < ar.length; j++)
-        {
-            if (ar[j].equals(cardAtLocation(l2, setup)+l))
-            {
-                ar[j] = null;
-                break;
-            }
-
-
-        }
-        return ar.toString();
+        return array.toString();
     }
+
 
     /**
      * Get the list of supporters for the chosen player, given the provided
@@ -635,18 +617,11 @@ public class WarringStatesGame {
                 if (playerId == 0) {
                     int j = 0;
                     while (j < moveSequence.length()) {
-                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = j + 2;
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            //need to update function for getting the next move of the second player using j+2
-                            j = playerNextMoveTwoPlayer(j + 2, setup, moveSequence);
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            setup=updateSetup(moveSequence.charAt(j),setup);
+                            j = j + 1;
                         } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                             supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                             //update the setup board deleting the card and location
@@ -660,17 +635,11 @@ public class WarringStatesGame {
                     int x = playerTwoFirstMove(setup, moveSequence);
                     int j = x;
                     while (j < moveSequence.length()) {
-                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = j + 2;
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = playerNextMoveTwoPlayer(j + 2, setup, moveSequence);
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            setup=updateSetup(moveSequence.charAt(j),setup);
+                            j = j + 1;
                         } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                             supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                             setup=updateSetup(moveSequence.charAt(j),setup);
@@ -682,17 +651,11 @@ public class WarringStatesGame {
                 if (playerId == 0) {
                     int j = 0;
                     while (j < moveSequence.length()) {
-                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = j + 2;
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = playerNextMoveThreePlayer(j + 2, setup, moveSequence);
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            setup=updateSetup(moveSequence.charAt(j),setup);
+                            j = j + 1;
                         } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                             supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                             setup=updateSetup(moveSequence.charAt(j),setup);
@@ -705,18 +668,12 @@ public class WarringStatesGame {
                     Integer x = playerTwoFirstMove(setup, moveSequence);
                     int j = x;
                     while (j < moveSequence.length()) {
-                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = j + 2;
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = playerNextMoveThreePlayer(j + 2, setup, moveSequence);
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            setup=updateSetup(moveSequence.charAt(j),setup);
+                            j = j + 1;
+                        }  else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                             supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                             setup=updateSetup(moveSequence.charAt(j),setup);
                             j = playerNextMoveThreePlayer(j + 1, setup, moveSequence);
@@ -726,17 +683,11 @@ public class WarringStatesGame {
                     int x = playerThreeFirstMove(setup, moveSequence);
                     int j = x;
                     while (j < moveSequence.length()) {
-                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                        if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = j + 2;
-                        } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                            setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                            j = playerNextMoveThreePlayer(j + 2, setup, moveSequence);
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            setup=updateSetup(moveSequence.charAt(j),setup);
+                            j = j + 1;
                         } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                             supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                             setup=updateSetup(moveSequence.charAt(j),setup);
@@ -747,63 +698,48 @@ public class WarringStatesGame {
                     if (playerId == 0) {
                         int j = 0;
                         while (j < moveSequence.length()) {
-                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = j + 2;
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = playerNextMoveFourPlayer(j + 2, setup, moveSequence);
+                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                setup=updateSetup(moveSequence.charAt(j),setup);
+                                j = j + 1;
                             } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = playerNextMoveFourPlayer(j + 1, setup, moveSequence);
+                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();//next move
+                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();//recent setup of board 
                             }
                         }
                     } else if (playerId == 1) {
                         int x = playerTwoFirstMove(setup, moveSequence);
                         int j = x;
                         while (j < moveSequence.length()) {
-                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = j + 2;
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = playerNextMoveFourPlayer(j + 2, setup, moveSequence);
+                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                setup=updateSetup(moveSequence.charAt(j),setup);
+                                j = j + 1;
                             } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = playerNextMoveFourPlayer(j + 1, setup, moveSequence);
+                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
+                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
                             }
                         }
                     } else if (playerId == 2) {
                         int x = playerThreeFirstMove(setup, moveSequence);
                         int j = x;
                         while (j < moveSequence.length()) {
-                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = j + 2;
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = playerNextMoveFourPlayer(j + 2, setup, moveSequence);
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = playerNextMoveFourPlayer(j + 1, setup, moveSequence);
+                                j = j + 1;
+                            }else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
+                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                setup=updateSetup(moveSequence.charAt(j),setup);
+                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
+                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
                             }
                         }
 
@@ -811,21 +747,16 @@ public class WarringStatesGame {
                         int x = playerFourFirstMove(setup, moveSequence);
                         int j = x;
                         while (j < moveSequence.length()) {
-                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
+                            if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = j + 2;
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) == cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) &&
-                                    cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 2), setup).charAt(0)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup) + cardAtLocation(moveSequence.charAt(j + 1), setup);
-                                setup=updateSetup2(moveSequence.charAt(j), moveSequence.charAt(j+1),setup);
-                                j = playerNextMoveFourPlayer(j + 2, setup, moveSequence);
-                            } else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = playerNextMoveFourPlayer(j + 1, setup, moveSequence);
+                                j = j + 1;
+                            }  else if (cardAtLocation(moveSequence.charAt(j), setup).charAt(0) != cardAtLocation(moveSequence.charAt(j + 1), setup).charAt(0)) {
+                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                setup=updateSetup(moveSequence.charAt(j),setup);
+                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
+                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
                             }
                         }
                     }
