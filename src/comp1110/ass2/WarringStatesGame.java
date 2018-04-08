@@ -565,13 +565,11 @@ public class WarringStatesGame {
         String[] ar = setup.split("(?<=\\G...)");
         String card ="";
         for (int i =0; i<ar.length-1; i++){
-            if (l!=ar[i].charAt(2)){
-                continue;
-            }
+
             if (l==ar[i].charAt(2)){
                 card = card + ar[i].charAt(0) + ar[i].charAt(1);
                 break;
-            }
+            } else continue;
         }
 
         return card;
@@ -707,7 +705,7 @@ public class WarringStatesGame {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
                                 j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();//next move
-                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();//recent setup of board 
+                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();//recent setup of board
                             }
                         }
                     } else if (playerId == 1) {
