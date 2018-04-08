@@ -585,7 +585,12 @@ public class WarringStatesGame {
         for(int j =0;j<setupList.size();j++){
             array[j] = setupList.get(j);
         }
-        return array.toString();
+        StringBuilder builder = new StringBuilder();
+        for(String s : array) {
+            builder.append(s);
+        }
+        String str = builder.toString();
+        return str;
     }
 
 
