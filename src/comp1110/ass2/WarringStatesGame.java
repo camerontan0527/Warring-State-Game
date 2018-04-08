@@ -537,6 +537,7 @@ public class WarringStatesGame {
             } else if (cardAtLocation(moveSequence.charAt(i),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(i+1),setup).charAt(0)){
                 int a=i+1;
                 while (a<moveSequence.length()){
+                    //checks if the kingdom is the same for move a and a+1
                     if (cardAtLocation(moveSequence.charAt(a),setup).charAt(0)==cardAtLocation(moveSequence.charAt(a+1),setup).charAt(0)) {
                         setup=updateSetup(moveSequence.charAt(a),setup);
                         a++;
@@ -548,7 +549,7 @@ public class WarringStatesGame {
                                 k++;
                             }else if (cardAtLocation(moveSequence.charAt(k),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(k+1),setup).charAt(0)){
                                 setup=updateSetup(moveSequence.charAt(k),setup);//updates the board with the move made
-                                r = k+1;
+                                r = k+1;//gets the next move for the player
                                 break;
                             }
                         }
