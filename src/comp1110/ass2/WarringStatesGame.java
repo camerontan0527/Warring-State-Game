@@ -425,9 +425,6 @@ public class WarringStatesGame {
 
 
 
-
-
-
 //gets the index of the first move of the second player
     public static int playerTwoFirstMove (String setup, String moveSequence){
         int i =0;
@@ -526,6 +523,7 @@ public class WarringStatesGame {
     }
     // determines the next move for the player in a four player game
 // i, j and k are the three other players whose supporters are not required
+
     public static Pair<Integer, String> playerNextMoveFourPlayer (Integer x, String setup, String moveSequence){
         int r = 0;
         int i = x;
@@ -549,7 +547,7 @@ public class WarringStatesGame {
                                 k++;
                             }else if (cardAtLocation(moveSequence.charAt(k),setup).charAt(0)!=cardAtLocation(moveSequence.charAt(k+1),setup).charAt(0)){
                                 setup=updateSetup(moveSequence.charAt(k),setup);//updates the board with the move made
-                                r = k+1;//gets the next move for the player
+                                 r = k+1;//gets the next move for the player
                                 break;
                             }
                         }
@@ -576,7 +574,7 @@ public class WarringStatesGame {
         return card;
 
     }
-//updates setup deleting one cards
+//updates setup deleting card of move made
     public static String updateSetup (char l, String setup){
         String[] ar = setup.split("(?<=\\G...)");
         List<String> setupList=new ArrayList<>();
@@ -711,7 +709,8 @@ public class WarringStatesGame {
                                 supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
                                 setup=updateSetup(moveSequence.charAt(j),setup);
                                 j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();//next move
-                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();//recent setup of board
+                                switch (setup = playerNextMoveFourPlayer(j + 1, setup, moveSequence).getValue()) {
+                                }
                             }
                         }
                     } else if (playerId == 1) {
