@@ -308,8 +308,7 @@ public class WarringStatesGame {
      * @return True if the placement sequence is valid
      */
     static boolean isMoveSequenceValid(String setup, String moveSequence) {
-        System.out.println(setup);
-        System.out.println(moveSequence);
+
         // FIXME Task 6: determine whether a placement sequence is valid
         // check if the length of the set up = 36
         //needs to call isMoveLegal function
@@ -333,12 +332,9 @@ public class WarringStatesGame {
                 array.add(placement.substring(j, j + 3));
             }
             location = moveSequence.charAt(i);
-            System.out.println("location " + location);
-            System.out.println("placement: " + placement);
-            System.out.println(isMoveLegal(placement,location));
+
             if (!(isMoveLegal(placement, location)))
                 return false;
-            System.out.println("pass");
 
             for (String elem : array){
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
