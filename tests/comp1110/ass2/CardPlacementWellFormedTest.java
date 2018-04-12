@@ -20,7 +20,7 @@ import static comp1110.ass2.TestUtility.*;
  * - the second character is numeric, and is a valid character number for that kingdom (9 for Zhang Yi)
  * - the third character is in the range A .. Z or 0..9 (location)
  */
-public class CardPlacementWellFormed {
+public class CardPlacementWellFormedTest {
     @Rule
     public Timeout globalTimeout = Timeout.millis(2000);
 
@@ -45,7 +45,7 @@ public class CardPlacementWellFormed {
                 String lower = placement.toLowerCase();
                 assertFalse("Simple card placement string '" + lower + "', has lower case location, but passed", WarringStatesGame.isCardPlacementWellFormed(lower));
             }
-            assertTrue("Simple card placement string '" + upper + "' failed, but should have passed", WarringStatesGame.isCardPlacementWellFormed(placement));
+            assertTrue("Simple card placement string '" + placement + "' failed, but should have passed", WarringStatesGame.isCardPlacementWellFormed(placement));
         }
     }
 
