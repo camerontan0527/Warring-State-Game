@@ -2,6 +2,7 @@ package comp1110.ass2;
 
 import javafx.util.Pair;
 
+import javax.print.DocFlavor;
 import java.util.*;
 
 /**
@@ -584,20 +585,7 @@ public class WarringStatesGame {
 
 
 //finds card location
-    public static String cardAtLocation (char l, String setup){
-        String[] ar = setup.split("(?<=\\G...)");
-        String card ="";
-        for (int i =0; i<ar.length-1; i++){
 
-            if (l==ar[i].charAt(2)){
-                card = card + ar[i].charAt(0) + ar[i].charAt(1);
-                break;
-            } else continue;
-        }
-
-        return card;
-
-    }
 //updates setup deleting card of move made
     public static String updateSetup (char l, String setup){
         String[] ar = setup.split("(?<=\\G...)");
@@ -615,6 +603,104 @@ public class WarringStatesGame {
         String str = builder.toString();
         return str;
     }
+    public static String cardAtLocation (char l, String setup){
+        String[] ar = setup.split("(?<=\\G...)");
+        String card ="";
+        for (int i =0; i<ar.length-1; i++){
+
+            if (l==ar[i].charAt(2)){
+                card = card + ar[i].charAt(0) + ar[i].charAt(1);
+                break;
+            } else continue;
+        }
+
+        return card;
+
+    }
+
+public static String sortString(String s){
+    String[] a = s.split("(?<=\\G..)");
+    Arrays.sort(a);
+    StringBuilder builder = new StringBuilder();
+    for(String x : a) {
+        builder.append(x);
+    }
+    String str = builder.toString();
+    return str;
+}
+//   https://stackoverflow.com/questions/17993729/split-a-string-after-each-two-characters
+
+    static boolean isMoveWithinRow(char l, char l2){
+        boolean x=true;
+        for (int i=0; i<row_str.length; i++){
+            if (row_str[i].contains(String.valueOf(l)) && row_str[i].contains(String.valueOf(l2))){
+                return x;
+            }else return x=false;
+        }
+    return x;
+    }
+
+    static boolean isMoveWithinCol(char l, char l2){
+        boolean x = true;
+        for (int i=0; i<col_str.length; i++){
+            if (col_str[i].contains(String.valueOf(l)) && col_str[i].contains(String.valueOf(l2))){
+                return x;
+            } else x = false;
+        }
+        return x;
+    }
+    public static String extractColOrRow(char l, char l2){
+        String colOrRow = "";
+        if (isMoveWithinCol(l, l2)==true){
+            for (int i=0; i<col_str.length; i++){
+                if (col_str[i].contains(String.valueOf(l)) && col_str[i].contains(String.valueOf(l2))){
+                    colOrRow = colOrRow + col_str[i];
+                    break;
+                }
+            }
+        }else if (isMoveWithinRow(l, l2)==true){
+            for (int i=0; i<col_str.length; i++){
+                if (row_str[i].contains(String.valueOf(l)) && row_str[i].contains(String.valueOf(l2))){
+                    colOrRow = colOrRow + row_str[i];
+                    break;
+                }
+            }
+        }
+        return colOrRow;
+    }
+
+    public static String possibleCardsTaken(char l, char l2){
+        String rowOrCol = extractColOrRow(l, l2);
+        int startIndex;
+        int finishIndex;
+
+        if (rowOrCol.indexOf(l)>rowOrCol.indexOf(l2)){
+            startIndex=rowOrCol.indexOf(l);
+            finishIndex=rowOrCol.indexOf(l2);
+        } else {
+            startIndex=rowOrCol.indexOf(l2);
+            finishIndex=rowOrCol.indexOf(l);
+        }
+        String possibleCards ="";
+        if (startIndex-finishIndex==1){
+            possibleCards="";
+        }else
+        for (int i=startIndex+1; i<finishIndex; i++){
+            possibleCards=possibleCards+ rowOrCol.charAt(i);
+        }
+        return possibleCards;
+    }
+    public static char positionofZhang ( String setup){
+        String[] ar = setup.split("(?<=\\G...)");
+        String  location = "";
+        for (int i=0; i<ar.length; i++){
+            if (ar[i].charAt(0)=='z'){
+                location= location+ar[i].charAt(2);
+            }else continue;
+
+        }return  location.charAt(0);
+    }
+
 
 
     /**
@@ -641,159 +727,144 @@ public class WarringStatesGame {
         if (isMoveSequenceValid(setup, moveSequence) == true) {
             if (numPlayers == 2) {
                 if (playerId == 0) {
-                    int j = 0;
-                    while (j < moveSequence.length()-1) {
-                        if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                    for (int i=0; i<moveSequence.length();i+=2){
+                        supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                        String possibleC;
+                        if (i==0){
+                            possibleC=possibleCardsTaken(positionofZhang(setup), moveSequence.charAt(i));
+                        } else possibleC= possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                        if (possibleC!="") {
+                            for (int j = 0; j < possibleC.length(); j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleC.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                } else continue;
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = j + 1;
-                        } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) != getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            //update the setup board deleting the card and location
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            //need to update function for getting the next move of the second player using j+1
-                            j = playerNextMoveTwoPlayer(j + 1, setup, moveSequence).getKey();
-                            setup=(playerNextMoveTwoPlayer(j + 1, setup, moveSequence)).getValue();
+                            }
+
                         }
+
                     }
 
                 } else if (playerId == 1) {
-                    int x = playerTwoFirstMove(setup, moveSequence).getKey();
-                    setup=playerTwoFirstMove(setup, moveSequence).getValue();
-                    int j = x;
-                    while (j < moveSequence.length()-1) {
-                        if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                    for (int i=1; i<moveSequence.length(); i+=2) {
+                        supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                        String possibleCards = possibleCardsTaken(moveSequence.charAt(i - 1), moveSequence.charAt(i));
+                        if (possibleCards != "") {
+                            for (int j = 0; j < possibleCards.length(); j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                }
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = j + 1;
-                        } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) != getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = playerNextMoveTwoPlayer(j + 1, setup, moveSequence).getKey();
-                            setup=(playerNextMoveTwoPlayer(j + 1, setup, moveSequence)).getValue();
+                            }
                         }
                     }
                 }
             } else if (numPlayers == 3) {
                 if (playerId == 0) {
-                    int j = 0;
-                    while (j < moveSequence.length()-1) {
-                        if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                    for (int i =0; i<moveSequence.length(); i+=3){
+                        supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                        String possibleC;
+                        if (i==0){
+                            possibleC=possibleCardsTaken(positionofZhang(setup), moveSequence.charAt(i));
+                        } else possibleC= possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = j + 1;
-                        } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)!= getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = playerNextMoveThreePlayer(j + 1, setup, moveSequence).getKey();
-                            setup=(playerNextMoveThreePlayer(j + 1, setup, moveSequence)).getValue();
+                        if (possibleC!="") {
+
+                            for (int j = 0; j < possibleC.length(); j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleC.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                } else continue;
+
+                            }
                         }
+
                     }
 
                 } else if (playerId == 1) {
-                    Integer x = playerTwoFirstMove(setup, moveSequence).getKey();
-                setup=playerTwoFirstMove(setup, moveSequence).getValue();
-                int j = x;
-                    while (j < moveSequence.length()-1) {
-                        if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                    for (int i=1; i<moveSequence.length(); i+=3){
+                        supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                        String  possibleCards = possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                        if (possibleCards!="") {
+                            for (int j = 0; j < possibleCards.length(); j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                }
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = j + 1;
-                        }  else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)!= getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = playerNextMoveThreePlayer(j + 1, setup, moveSequence).getKey();
-                            setup=(playerNextMoveThreePlayer(j + 1, setup, moveSequence)).getValue();
+                            }
                         }
                     }
-                } else if (playerId == 2) {
-                    int x = playerThreeFirstMove(setup, moveSequence).getKey();
-                    setup=playerThreeFirstMove(setup, moveSequence).getValue();
-                    int j = x;
-                    while (j < moveSequence.length()-1) {
-                        if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)== getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
 
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = j + 1;
-                        } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)!= getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                            supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                            setup=updateSetup(moveSequence.charAt(j),setup);
-                            j = playerNextMoveThreePlayer(j + 1, setup, moveSequence).getKey();
-                            setup=(playerNextMoveThreePlayer(j + 1, setup, moveSequence)).getValue();
+                } else if (playerId == 2) {
+                    for (int i=2; i<moveSequence.length(); i+=3){
+                        supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                        String  possibleCards = possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                        if (possibleCards!=""){
+
+                        for (int j=0; j<possibleCards.length();j++) {
+                            if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                            }
+                        }
+
                         }
                     }
                 }
                 } else if (numPlayers == 4) {
                     if (playerId == 0) {
-                        int j = 0;
-                        while (j < moveSequence.length()-1) {
-                            if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                        for (int i=0; i<moveSequence.length(); i+=4){
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                            String possibleC;
+                            if (i==0){
+                                possibleC=possibleCardsTaken(positionofZhang(setup), moveSequence.charAt(i));
+                            } else possibleC= possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = j + 1;
-                            } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)!= getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();//next move
-                                setup = playerNextMoveFourPlayer(j + 1, setup, moveSequence).getValue();
+                            if (possibleC!="") {
+                                for (int j = 0; j < possibleC.length(); j++) {
+                                    if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleC.charAt(j), setup)) {
+                                        supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                    } else continue;
+
+                                }
                             }
                         }
                     } else if (playerId == 1) {
-                        int x = playerTwoFirstMove(setup, moveSequence).getKey();
-                        setup=playerTwoFirstMove(setup,moveSequence).getValue();
-                        int j = x;
-                        while (j < moveSequence.length()-1) {
-                            if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
+                        for (int i =1; i<moveSequence.length(); i+=4){
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                            String  possibleCards = possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                            if (possibleCards!=""){
+                            for (int j=0; j<possibleCards.length();j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                }
+                            }
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = j + 1;
-                            } else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) != getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
-                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
                             }
                         }
-                    } else if (playerId == 2) {
-                        int x = playerThreeFirstMove(setup, moveSequence).getKey();
-                        setup=playerThreeFirstMove(setup,moveSequence).getValue();
-                        int j = x;
-                        while (j < moveSequence.length()-1) {
-                            if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
 
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = j + 1;
-                            }else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup)!= getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
-                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
+                    } else if (playerId == 2) {
+                        for(int i=2; i<moveSequence.length(); i+=4){
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                            String  possibleCards = possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                            if (possibleCards!=""){
+                            for (int j=0; j<possibleCards.length();j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                }
+                            }
+
                             }
                         }
 
                     } else if (playerId == 3) {
-                        int x = playerFourFirstMove(setup, moveSequence).getKey();
-                        setup=playerFourFirstMove(setup,moveSequence).getValue();
-                        int j = x;
-                        while (j < moveSequence.length()-1) {
-                            if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) == getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = j + 1;
-                            }  else if (getFirstCharForCardLocation(moveSequence.charAt(j), setup) != getFirstCharForCardLocation(moveSequence.charAt(j + 1), setup)) {
-                                supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
-                                setup=updateSetup(moveSequence.charAt(j),setup);
-                                j = (playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getKey();
-                                setup=(playerNextMoveFourPlayer(j + 1, setup, moveSequence)).getValue();
+                        for (int i=3; i<moveSequence.length(); i+=4){
+                            supporters = supporters + cardAtLocation(moveSequence.charAt(i), setup);
+                            String  possibleCards = possibleCardsTaken(moveSequence.charAt(i-1), moveSequence.charAt(i));
+                            if (possibleCards!=""){
+                            for (int j=0; j<possibleCards.length();j++) {
+                                if (cardAtLocation(moveSequence.charAt(i), setup) == cardAtLocation(possibleCards.charAt(j), setup)) {
+                                    supporters = supporters + cardAtLocation(moveSequence.charAt(j), setup);
+                                }
+                            }
                             }
                         }
                     }
@@ -802,7 +873,7 @@ public class WarringStatesGame {
 
 
             }
-            return supporters;
+            return sortString(supporters);
         }
 
 
