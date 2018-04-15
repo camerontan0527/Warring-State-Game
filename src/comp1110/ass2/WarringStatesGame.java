@@ -924,7 +924,29 @@ public class WarringStatesGame {
     public static int[] getFlags(String setup, String moveSequence, int numPlayers) {
         // FIXME Task 8: determine which player controls the flag of each kingdom after a given sequence of moves
         // check if the number of holding cards is equal or greater than other player
+        //need to call task 7 to check which supporters the player has
 
+        // can use compareTo to code this function
+        Integer flags [] = new Integer[7];
+        if (numPlayers==4){
+            String id_0= getSupporters(setup, moveSequence, numPlayers, 0);
+            String id_1=  getSupporters(setup, moveSequence, numPlayers, 1);
+            String id_2= getSupporters(setup, moveSequence, numPlayers, 2);
+            String id_3 = getSupporters(setup, moveSequence, numPlayers, 3);
+        }
+        else
+            if (numPlayers==3){
+            String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
+            String id_1 = getSupporters(setup, moveSequence, numPlayers, 1);
+            String is_2 = getSupporters(setup, moveSequence, numPlayers, 2);
+            }
+        else
+            if (numPlayers==2){
+                String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
+                String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
+            }
+
+//return the array of flags 
         return null;
     }
 
