@@ -565,7 +565,7 @@ public static String sortString(String s){
         return  location;
     }
 //generates a string of cards which are collected as Zhang moves to a certain location
-    //MAY BE AN ISSUE IN THIS FUNCTION 
+    //MAY BE AN ISSUE IN THIS FUNCTION
     public static Pair<String, String> possibleCollect(String setup, String moveSequence, int i){
         String possibleC="";
         String supporters ="";
