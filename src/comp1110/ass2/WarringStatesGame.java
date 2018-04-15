@@ -565,6 +565,7 @@ public static String sortString(String s){
         return  location;
     }
 //generates a string of cards which are collected as Zhang moves to a certain location
+    //MAY BE AN ISSUE IN THIS FUNCTION 
     public static Pair<String, String> possibleCollect(String setup, String moveSequence, int i){
         String possibleC="";
         String supporters ="";
@@ -591,6 +592,9 @@ public static String sortString(String s){
             }
         }return new Pair<>(supporters, setup);
     }
+
+    //Determines if another player has collected the card
+    //MAY BE AN ISSUE IN THIS FUNCTION
     public static boolean isCardAlreadyExistInOtherPLayer(String possibleCards,String p1,String p2,String p3)
     {
         String[] a = possibleCards.split("(?<=\\G..)");
