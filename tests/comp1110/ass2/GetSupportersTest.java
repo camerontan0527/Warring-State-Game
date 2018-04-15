@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class GetSupportersTest {
     @Rule
-    public Timeout globalTimeout = Timeout.millis(2000);
+  public Timeout globalTimeout = Timeout.millis(2000);
 
     @Test
     public void testGood() {
