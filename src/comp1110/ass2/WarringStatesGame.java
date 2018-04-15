@@ -904,6 +904,42 @@ public class WarringStatesGame {
     }
 
 
+    //count the number of cards collected in the specific kingdom
+public static int qinCards (String supporters){
+        int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+        return 0;
+}
+public static int qiCards (String supporters){
+    int counter = 0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int chuCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int zhaoCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int hanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int weiCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int yanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0; }
+
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
      * after all the moves in the sequence have been played.
@@ -946,7 +982,7 @@ public class WarringStatesGame {
                 String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
             }
 
-//return the array of flags 
+//return the array of flags
         return null;
     }
 
