@@ -642,27 +642,27 @@ public class WarringStatesGame {
         ArrayList<String> ID_3 = new ArrayList<>();
 
 
-        String[] set = setup.split("(?<=\\G...)");
-        ArrayList<String> setLst = new ArrayList<>();
+        String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
+        ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
         for (String elem : set) {
             setLst.add(elem);
         }
 
 
-        char zhang_initial = 0;
+        char zhang_initial = 0; // return the initial position of zhang (one character)
         for (String elem : set) {
             if (elem.charAt(0) == 'z') {
                 zhang_initial = elem.charAt(2);
             }
-        } // return the initial position of zhang
+        }
         int zhang_initial_column = 0;
         int zhang_initial_row = 0;
-        for (char[] elem : row) {
+        for (char[] elem : row) { // return zhang initial row index
             if (new String(elem).contains(String.valueOf(zhang_initial))) {
                 zhang_initial_row = Arrays.asList(row).indexOf(elem);
             }
         }
-        for (char[] elem : column) {
+        for (char[] elem : column) { // return zhang initial column index
             if (new String(elem).contains(String.valueOf(zhang_initial))) {
                 zhang_initial_column = Arrays.asList(column).indexOf(elem);
             }
@@ -673,58 +673,60 @@ public class WarringStatesGame {
         int columnIndex_mov = 0;
         int rowIndex_pre = 0;
         int columnIndex_pre = 0;
-        ArrayList<String>[] supporter_lst = new ArrayList[36];
-        for (int i = 0; i < supporter_lst.length; i++) {
+
+        ArrayList<String>[] supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
+        for (int i = 0; i < supporter_lst.length; i++) { // each element in array is an arrayList
             supporter_lst[i] = new ArrayList<String>();
         }
-        for (int i = 0; i < moveSequence.length(); i++) {
-            String target = "";
+        for (int i = 0; i < moveSequence.length(); i++) { // go through every move
+            String target = ""; // the card we are moving to (three character)
             for (String elem : set) {
                 if (elem.charAt(2) == moveSequence.charAt(i)) {
                     target = elem;
                 }
             }
 
-            for (char[] elem : row) {
+            for (char[] elem : row) { // the row index of target
                 if (new String(elem).contains(String.valueOf(moveSequence.charAt(i)))) {
                     rowIndex_mov = Arrays.asList(row).indexOf(elem);
                 }
             }
 
-            for (char[] elem : column) {
+            for (char[] elem : column) { // the column index of target
                 if (new String(elem).contains(String.valueOf(moveSequence.charAt(i)))) {
                     columnIndex_mov = Arrays.asList(column).indexOf(elem);
                 }
             }
 
 
-            if (i == 0) {
-                if (rowIndex_mov == zhang_initial_row) {
-                    if (row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)) < row_str[rowIndex_mov].indexOf(zhang_initial)) {
+            if (i == 0) { // the first move, so we need to compare the move position with the zhang's initial position
+                if (rowIndex_mov == zhang_initial_row) { // on the same row
+                    if (row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)) < row_str[rowIndex_mov].indexOf(zhang_initial)) { // moving right
+                        // the row range between zhang's position and target position
                         String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)), row_str[rowIndex_mov].indexOf(zhang_initial));
-                        for (String elem : setLst) {
+                        for (String elem : setLst) { // check if there's any other card with the same kingdom between zhang's position and target positoin
                             if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
-                                supporter_lst[i].add(elem);
+                                supporter_lst[i].add(elem); // add all the cards, between row range, with the same kingdom as target into supporter list
                             }
                         }
-                    } else {
+                    } else { //moving left
                         String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(zhang_initial), row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)));
-                        supporter_lst[i].add(target);
-                        for (String elem : setLst) {
+                        supporter_lst[i].add(target); // add the target into the supporter_lst first, because it's moving left, and the substring (zhang's initial, target) doesn't include target
+                        for (String elem : setLst) {// check if there's any other card with the same kingdom between zhang's position and target positoin
                             if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
-                                supporter_lst[i].add(elem);
+                                supporter_lst[i].add(elem);// add all the cards, between row range, with the same kingdom as target into supporter list
                             }
                         }
                     }
-                } else {
-                    if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(zhang_initial)) {
+                } else { // on the same column
+                    if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(zhang_initial)) { // moving up
                         String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)), col_str[columnIndex_mov].indexOf(zhang_initial));
                         for (String elem : setLst) {
                             if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
                                 supporter_lst[i].add(elem);
                             }
                         }
-                    } else {
+                    } else {// moving down
                         String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(zhang_initial), col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)));
                         supporter_lst[i].add(target);
                         for (String elem : setLst) {
@@ -734,26 +736,26 @@ public class WarringStatesGame {
                         }
                     }
                 }
-            } else {
+            } else {// other than first move, compare the target move position with the previous move position
                 String pre = "";
-                for (String elem : set) {
+                for (String elem : set) { // the position of the previous movement
                     if (elem.charAt(2) == moveSequence.charAt(i - 1)) {
                         pre = elem;
                     }
                 }
-                for (char[] elem : row) {
+                for (char[] elem : row) { // the row index of previous movement
                     if (new String(elem).contains(String.valueOf(moveSequence.charAt(i - 1)))) {
                         rowIndex_pre = Arrays.asList(row).indexOf(elem);
                     }
                 }
-                for (char[] elem : column) {
+                for (char[] elem : column) { // the column index of previous movement
                     if (new String(elem).contains(String.valueOf(moveSequence.charAt(i - 1)))) {
                         columnIndex_pre = Arrays.asList(column).indexOf(elem);
                     }
                 }
 
 
-                if (rowIndex_mov == rowIndex_pre) {
+                if (rowIndex_mov == rowIndex_pre) { // on same row
                     if (row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)) < row_str[rowIndex_mov].indexOf(pre.charAt(2))) {
                         String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)), row_str[rowIndex_mov].indexOf(pre.charAt(2)));
                         for (String elem : setLst) {
@@ -770,15 +772,15 @@ public class WarringStatesGame {
                             }
                         }
                     }
-                } else {
-                    if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(pre.charAt(2))) {
+                } else { // on same column
+                    if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(pre.charAt(2))) { // moving up
                         String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)), col_str[columnIndex_mov].indexOf(pre.charAt(2)));
                         for (String elem : setLst) {
                             if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
                                 supporter_lst[i].add(elem);
                             }
                         }
-                    } else {
+                    } else { // moving down
                         String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(pre.charAt(2)), col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)));
                         supporter_lst[i].add(target);
                         for (String elem : setLst) {
@@ -788,13 +790,13 @@ public class WarringStatesGame {
                         }
                     }
                 }
-            }
+            } // delete the card after each movement ( to avoid getting replicate supporters after each movement
             for (String elem : supporter_lst[i]) {
                 setLst.remove(elem);
             }
 
         }
-        if (numPlayers == 2) {
+        if (numPlayers == 2) { // if 2 players are playing
             for (int i = 0; i < supporter_lst.length - 1; i = i + 2) {
                 for (String elem : supporter_lst[i]) {
                     ID_0.add(elem.substring(0, 2));
@@ -804,7 +806,7 @@ public class WarringStatesGame {
                 }
             }
         }
-        if (numPlayers == 3) {
+        if (numPlayers == 3) { // if 3 players are playing
             for (int i = 0; i < supporter_lst.length - 2; i = i + 3) {
                 for (String elem : supporter_lst[i]) {
                     ID_0.add(elem.substring(0, 2));
@@ -817,7 +819,7 @@ public class WarringStatesGame {
                 }
             }
         }
-        if (numPlayers == 4) {
+        if (numPlayers == 4) { // if 4 players are playing
             for (int i = 0; i < supporter_lst.length - 3; i = i + 4) {
                 for (String elem : supporter_lst[i]) {
                     ID_0.add(elem.substring(0, 2));
@@ -833,6 +835,7 @@ public class WarringStatesGame {
                 }
             }
         }
+        // sort the list base on charAt(0) which is the kingdom, and charAtcharAt(1) which is the number in each kingdom
 
         java.util.Collections.sort(ID_0, new java.util.Comparator<String>() {
             @Override
@@ -874,6 +877,7 @@ public class WarringStatesGame {
                 }
             }
         });
+        
         if (numPlayers == 2) {
             if (playerId == 0) {
                 return String.join("", ID_0);
