@@ -557,7 +557,7 @@ public class WarringStatesGame {
     }
 
     //generates a string of cards which are collected as Zhang moves to a certain location
-    //MAY BE AN ISSUE IN THIS FUNCTION
+    //MAY BE AN ISSUE IN THIS FUNCTION 
     public static Pair<String, String> possibleCollect(String setup, String moveSequence, int i) {
         String possibleC = "";
         String supporters = "";
@@ -905,40 +905,40 @@ public class WarringStatesGame {
 
 
     //count the number of cards collected in the specific kingdom
-    public static int qinCards (String supporters){
+public static int qinCards (String supporters){
         int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
+    String[] a = supporters.split("(?<=\\G..)");
         return 0;
-    }
-    public static int qiCards (String supporters){
-        int counter = 0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0;
-    }
-    public static int chuCards (String supporters){
-        int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0;
-    }
-    public static int zhaoCards (String supporters){
-        int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0;
-    }
-    public static int hanCards (String supporters){
-        int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0;
-    }
-    public static int weiCards (String supporters){
-        int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0;
-    }
-    public static int yanCards (String supporters){
-        int counter =0;
-        String[] a = supporters.split("(?<=\\G..)");
-        return 0; }
+}
+public static int qiCards (String supporters){
+    int counter = 0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int chuCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int zhaoCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int hanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int weiCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int yanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0; }
 
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
@@ -971,16 +971,16 @@ public class WarringStatesGame {
             String id_3 = getSupporters(setup, moveSequence, numPlayers, 3);
         }
         else
-        if (numPlayers==3){
+            if (numPlayers==3){
             String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
             String id_1 = getSupporters(setup, moveSequence, numPlayers, 1);
             String is_2 = getSupporters(setup, moveSequence, numPlayers, 2);
-        }
+            }
         else
-        if (numPlayers==2){
-            String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
-            String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
-        }
+            if (numPlayers==2){
+                String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
+                String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
+            }
 
 //return the array of flags
         return null;
