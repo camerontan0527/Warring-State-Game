@@ -877,7 +877,7 @@ public class WarringStatesGame {
                 }
             }
         });
-        
+
         if (numPlayers == 2) {
             if (playerId == 0) {
                 return String.join("", ID_0);
@@ -906,7 +906,7 @@ public class WarringStatesGame {
             }
         }
     }
-
+// below is task8
 
     //count the number of cards collected in the specific kingdom
 public static int qinCards (String supporters){
