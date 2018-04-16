@@ -908,6 +908,42 @@ public class WarringStatesGame {
     }
 
 
+    //count the number of cards collected in the specific kingdom
+public static int qinCards (String supporters){
+        int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+        return 0;
+}
+public static int qiCards (String supporters){
+    int counter = 0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int chuCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int zhaoCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int hanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int weiCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0;
+}
+public static int yanCards (String supporters){
+    int counter =0;
+    String[] a = supporters.split("(?<=\\G..)");
+    return 0; }
+
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
      * after all the moves in the sequence have been played.
@@ -928,7 +964,29 @@ public class WarringStatesGame {
     public static int[] getFlags(String setup, String moveSequence, int numPlayers) {
         // FIXME Task 8: determine which player controls the flag of each kingdom after a given sequence of moves
         // check if the number of holding cards is equal or greater than other player
+        //need to call task 7 to check which supporters the player has
 
+        // can use compareTo to code this function
+        Integer flags [] = new Integer[7];
+        if (numPlayers==4){
+            String id_0= getSupporters(setup, moveSequence, numPlayers, 0);
+            String id_1=  getSupporters(setup, moveSequence, numPlayers, 1);
+            String id_2= getSupporters(setup, moveSequence, numPlayers, 2);
+            String id_3 = getSupporters(setup, moveSequence, numPlayers, 3);
+        }
+        else
+            if (numPlayers==3){
+            String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
+            String id_1 = getSupporters(setup, moveSequence, numPlayers, 1);
+            String is_2 = getSupporters(setup, moveSequence, numPlayers, 2);
+            }
+        else
+            if (numPlayers==2){
+                String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
+                String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
+            }
+
+//return the array of flags
         return null;
     }
 
