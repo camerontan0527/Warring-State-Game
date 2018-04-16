@@ -42,11 +42,11 @@ public class Viewer extends Application {
             {'9', '3', 'X', 'R', 'L', 'F'}};
     static char[][] column =
             {{'4', '5', '6', '7', '8', '9'},
-            {'Y', 'Z', '0', '1', '2', '3'},
-            {'S', 'T', 'U', 'V', 'W', 'X'},
-            {'M', 'N', 'O', 'P', 'Q', 'R'},
-            {'G', 'H', 'I', 'J', 'K', 'L'},
-            {'A', 'B', 'C', 'D', 'E', 'F'}};
+                    {'Y', 'Z', '0', '1', '2', '3'},
+                    {'S', 'T', 'U', 'V', 'W', 'X'},
+                    {'M', 'N', 'O', 'P', 'Q', 'R'},
+                    {'G', 'H', 'I', 'J', 'K', 'L'},
+                    {'A', 'B', 'C', 'D', 'E', 'F'}};
 
 
     private static final int VIEWER_WIDTH = 933;
