@@ -909,40 +909,25 @@ public class WarringStatesGame {
 // below is task8
 
     //count the number of cards collected in the specific kingdom
-public static int qinCards (String supporters){
-        int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
+
+public static int qinCards (String supporters,int playerID)
+{
+ //       int counter =0;
+//    HashMap<Integer,ArrayList<CardInfo>> player1_qin_list=new HashMap<>();
+    //<1, 0> <1, 4>
+
+//    String[] a = supporters.split("(?<=\\G..)");
+ //   ArrayList<String> supporterList= (ArrayList<String>)Arrays.asList(a);
+ //   for(int i=0;i<supporterList.size();i++) {
+        // Checking Qin kingdom
+//        if (supporterList.get(i).charAt(0) == 'a') {
+
+  //      } else if () {
+    //    }
         return 0;
+
 }
-public static int qiCards (String supporters){
-    int counter = 0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0;
-}
-public static int chuCards (String supporters){
-    int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0;
-}
-public static int zhaoCards (String supporters){
-    int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0;
-}
-public static int hanCards (String supporters){
-    int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0;
-}
-public static int weiCards (String supporters){
-    int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0;
-}
-public static int yanCards (String supporters){
-    int counter =0;
-    String[] a = supporters.split("(?<=\\G..)");
-    return 0; }
+
 
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
