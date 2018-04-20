@@ -909,22 +909,49 @@ public class WarringStatesGame {
 // below is task8
 
     //count the number of cards collected in the specific kingdom
+    //hashmap generated which has the player id as the key and the value is an array list which contains the number of cards collected for each kingdom
+    //index 0=Qin cards, index1=Qi cards, index2=Chu cards, index3=Zhao cards, index4=Han cards, index5=wei cards, index6= Yan cards
 
-public static int qinCards (String supporters,int playerID)
+public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (String supporters,int playerID)
 {
- //       int counter =0;
-//    HashMap<Integer,ArrayList<CardInfo>> player1_qin_list=new HashMap<>();
-    //<1, 0> <1, 4>
+    String[] a = supporters.split("(?<=\\G..)");
+    ArrayList<String> supporterList= (ArrayList<String>)Arrays.asList(a);
+    HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer=new HashMap<>();
+    ArrayList<Integer> numberInKingdom = new ArrayList<>();
+    int counterQin =0;
+    int counterQi=0;
+    int counterChu=0;
+    int counterZhao=0;
+    int counterHan=0;
+    int counterWei =0;
+    int counterYan=0;
+    for (int i=0; i<supporterList.size(); i++){
+        if (supporterList.get(i).charAt(0) == 'a'){
+            counterQin++;
+        } else if (supporterList.get(i).charAt(0) == 'b'){
+            counterQi++;
+        } else  if (supporterList.get(i).charAt(0) == 'c'){
+            counterChu++;
+        } else  if (supporterList.get(i).charAt(0) == 'd'){
+            counterZhao++;
+        } else  if (supporterList.get(i).charAt(0) == 'e'){
+            counterHan++;
+        } else  if (supporterList.get(i).charAt(0) == 'f'){
+            counterWei++;
+        } else  if (supporterList.get(i).charAt(0) == 'g'){
+            counterYan++;
+        }
+    }
+    numberInKingdom.add(0, counterQin);
+    numberInKingdom.add(1, counterQi);
+    numberInKingdom.add(2, counterChu);
+    numberInKingdom.add(3,counterZhao);
+    numberInKingdom.add(4, counterHan);
+    numberInKingdom.add(5,counterWei);
+    numberInKingdom.add(6,counterYan);
+    numberOfCardsForPlayer.put(playerID,numberInKingdom);
 
-//    String[] a = supporters.split("(?<=\\G..)");
- //   ArrayList<String> supporterList= (ArrayList<String>)Arrays.asList(a);
- //   for(int i=0;i<supporterList.size();i++) {
-        // Checking Qin kingdom
-//        if (supporterList.get(i).charAt(0) == 'a') {
-
-  //      } else if () {
-    //    }
-        return 0;
+        return numberOfCardsForPlayer;
 
 }
 
@@ -954,21 +981,30 @@ public static int qinCards (String supporters,int playerID)
         // can use compareTo to code this function
         Integer flags [] = new Integer[7];
         if (numPlayers==4){
-            String id_0= getSupporters(setup, moveSequence, numPlayers, 0);
-            String id_1=  getSupporters(setup, moveSequence, numPlayers, 1);
-            String id_2= getSupporters(setup, moveSequence, numPlayers, 2);
-            String id_3 = getSupporters(setup, moveSequence, numPlayers, 3);
+            String id0= getSupporters(setup, moveSequence, numPlayers, 0);
+            String id1=  getSupporters(setup, moveSequence, numPlayers, 1);
+            String id2= getSupporters(setup, moveSequence, numPlayers, 2);
+            String id3 = getSupporters(setup, moveSequence, numPlayers, 3);
+            numberOfCardsForEachKingdom(id0,0);
+            numberOfCardsForEachKingdom(id1,1);
+            numberOfCardsForEachKingdom(id2,2);
+            numberOfCardsForEachKingdom(id3, 3);
         }
         else
             if (numPlayers==3){
-            String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
-            String id_1 = getSupporters(setup, moveSequence, numPlayers, 1);
-            String is_2 = getSupporters(setup, moveSequence, numPlayers, 2);
+            String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
+            String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
+            String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
+            numberOfCardsForEachKingdom(id0, 0);
+            numberOfCardsForEachKingdom(id1,1);
+            numberOfCardsForEachKingdom(id2, 2);
             }
         else
             if (numPlayers==2){
-                String id_0 = getSupporters(setup, moveSequence, numPlayers, 0);
-                String id_1 =getSupporters(setup, moveSequence, numPlayers, 1);
+                String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
+                String id1 =getSupporters(setup, moveSequence, numPlayers, 1);
+                numberOfCardsForEachKingdom(id0,0);
+                numberOfCardsForEachKingdom(id1,1);
             }
 
 //return the array of flags
