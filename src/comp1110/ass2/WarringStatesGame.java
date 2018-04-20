@@ -989,6 +989,23 @@ public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (
             numberOfCardsForEachKingdom(id1,1);
             numberOfCardsForEachKingdom(id2,2);
             numberOfCardsForEachKingdom(id3, 3);
+
+//            String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
+//            ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
+//            for (String elem : set) {
+//                setLst.add(elem);
+//            }
+//            for(int i=0;i<moveSequence.length();i++)
+//            {
+//                String target = ""; // the card we are moving to (three character)
+//                for (String elem : set) {
+//                    if (elem.charAt(2) == moveSequence.charAt(i)) {
+//                        target = elem;
+//                        if(i)
+//                        break;
+//                    }
+//                }
+//            }
         }
         else
             if (numPlayers==3){
