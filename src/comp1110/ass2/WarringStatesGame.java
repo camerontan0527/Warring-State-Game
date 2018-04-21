@@ -3,6 +3,7 @@ package comp1110.ass2;
 import javafx.util.Pair;
 
 import javax.print.DocFlavor;
+import java.net.Inet4Address;
 import java.util.*;
 
 /**
@@ -955,6 +956,21 @@ public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (
 
 }
 
+public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Integer>> p1, HashMap<Integer, ArrayList<Integer>> p2, HashMap<Integer, ArrayList<Integer>> p3, HashMap<Integer, ArrayList<Integer>> p4, int i){
+        ArrayList<Integer> numberOfCardsInKingdom = new ArrayList<>();
+        Integer plInt = p1.get(0).get(i);
+        Integer p2Int = p2.get(1).get(i);
+        Integer p3Int = p3.get(2).get(i);
+        Integer p4Int = p4.get(3).get(i);
+        numberOfCardsInKingdom.add(0, plInt);
+        numberOfCardsInKingdom.add(1,p2Int);
+        numberOfCardsInKingdom.add(2,p3Int);
+        numberOfCardsInKingdom.add(3,p4Int);
+
+    return numberOfCardsInKingdom;
+
+}
+
 
     /**
      * Given a setup and move sequence, determine which player controls the flag of each kingdom
@@ -980,15 +996,138 @@ public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (
 
         // can use compareTo to code this function
         Integer flags [] = new Integer[7];
+        Integer maxQin;
+        Integer maxQi;
+        Integer maxChu;
+        Integer maxZhao;
+        Integer maxHan;
+        Integer maxWei;
+        Integer maxYan;
+        Integer flagQin; Integer flagQi; Integer flagChu; Integer flagZhao; Integer flagHan; Integer flagWei; Integer flagYan;
         if (numPlayers==4){
             String id0= getSupporters(setup, moveSequence, numPlayers, 0);
             String id1=  getSupporters(setup, moveSequence, numPlayers, 1);
             String id2= getSupporters(setup, moveSequence, numPlayers, 2);
             String id3 = getSupporters(setup, moveSequence, numPlayers, 3);
-            numberOfCardsForEachKingdom(id0,0);
-            numberOfCardsForEachKingdom(id1,1);
-            numberOfCardsForEachKingdom(id2,2);
-            numberOfCardsForEachKingdom(id3, 3);
+            //creat hashmaps for the number of cards collected for each player
+            HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0,0);
+            HashMap<Integer, ArrayList<Integer>> player2 =numberOfCardsForEachKingdom(id1,1);
+            HashMap<Integer, ArrayList<Integer>> player3 =numberOfCardsForEachKingdom(id2,2);
+            HashMap<Integer, ArrayList<Integer>> player4 =numberOfCardsForEachKingdom(id3, 3);
+
+
+
+
+                ArrayList<Integer> player1CardList=player1.get(0);
+                ArrayList<Integer> player2CardList=player2.get(1);
+                ArrayList<Integer> player3CardList=player3.get(2);
+                ArrayList<Integer> player4CardList=player4.get(3);
+
+                for(int j=0;j<player1CardList.size();j++)
+                {
+                    ArrayList<Integer> allCardsOfOneKindom=new ArrayList<>();
+                    allCardsOfOneKindom.add(player1CardList.get(j));
+                    allCardsOfOneKindom.add(player2CardList.get(j));
+                    allCardsOfOneKindom.add(player3CardList.get(j));
+                    allCardsOfOneKindom.add(player4CardList.get(j));
+
+                    int maximumNumberOfCards=Collections.max(allCardsOfOneKindom);
+                    boolean checkTwoOrMorePLayersHaveSameCard=false;
+                    int playerWhoHoldMaxCard=-1;
+                                        int tempCounter=0;
+                    for(int k=0;k<allCardsOfOneKindom.size();k++)
+                    {
+                        if(allCardsOfOneKindom.get(k)==maximumNumberOfCards)
+                        {
+                            if(tempCounter==0)
+                            {
+                                playerWhoHoldMaxCard=k;
+                            }
+                            tempCounter++;
+                        }
+                    }
+                    if(tempCounter>1)
+                    {
+                        checkTwoOrMorePLayersHaveSameCard=true;
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+
+
+
+
+
+
+
+            //create an array with number of cards collected for a particular kingdom
+            //index0=p1, index1=p2, index2=p3, index3=p4
+            ArrayList<Integer> arrayNumCardsQin = oneKingdomList(player1, player2, player3, player4, 0);
+            ArrayList<Integer> arrayNumCardsQi = oneKingdomList(player1, player2, player3, player4, 1);
+            ArrayList<Integer> arrayNumCardsChu = oneKingdomList(player1, player2, player3, player4, 2);
+            ArrayList<Integer> arrayNumCardsZhao = oneKingdomList(player1, player2, player3, player4, 3);
+            ArrayList<Integer> arrayNumCardsHan = oneKingdomList(player1, player2, player3, player4, 4);
+            ArrayList<Integer> arrayNumCardsWei = oneKingdomList(player1, player2, player3, player4, 5);
+            ArrayList<Integer> arrayNumCardsYan = oneKingdomList(player1, player2, player3, player4, 6);
+            //find the max of the kingdom
+            maxQin= Collections.max(arrayNumCardsQin);
+            maxQi = Collections.max(arrayNumCardsQi);
+            maxChu = Collections.max(arrayNumCardsChu);
+            maxZhao = Collections.max(arrayNumCardsZhao);
+            maxHan = Collections.max(arrayNumCardsHan);
+            maxWei = Collections.max(arrayNumCardsWei);
+            maxYan = Collections.max(arrayNumCardsYan);
+            //find the player which collected the max number of cards
+            flagQin = arrayNumCardsQin.toString().indexOf(maxQin);
+            flagQi = arrayNumCardsQi.toString().indexOf(maxQi);
+            flagChu = arrayNumCardsChu.toString().indexOf(maxChu);
+            flagZhao = arrayNumCardsZhao.toString().indexOf(maxZhao);
+            flagHan = arrayNumCardsHan.toString().indexOf(maxHan);
+            flagWei = arrayNumCardsWei.toString().indexOf(maxWei);
+            flagYan = arrayNumCardsYan.toString().indexOf(maxYan);
+
+            //find if more than one person has the max number of cards
+            Integer numMaxQin = Collections.frequency(arrayNumCardsQin, maxQin);
+            Integer numMaxQi = Collections.frequency(arrayNumCardsQi, maxQi);
+            Integer numMaxChu = Collections.frequency(arrayNumCardsChu, maxChu);
+            Integer numMaxZhao = Collections.frequency(arrayNumCardsZhao, maxZhao);
+            Integer numMaxHan = Collections.frequency(arrayNumCardsHan, maxHan);
+            Integer numMaxWei = Collections.frequency(arrayNumCardsWei, maxWei);
+            Integer numMaxYan = Collections.frequency(arrayNumCardsYan, maxYan);
+      //      https://stackoverflow.com/questions/36428439/how-do-i-collect-multiple-maximum-values-from-a-list
+
+            //determine who constrols flag
+            if (maxQin==0){
+                flags[0]=-1;
+            } else flags[0]=flagQin;
+
+            if (maxQi==0){
+                flags[1]=-1;
+            } else flags[1]=flagQi;
+            if (maxChu==0){
+                flags[2]=-1;
+            } else flags[2]=flagChu;
+
+            if (maxHan==0){
+                flags[4]=-1;
+            } else flags[4]=flagHan;
+
+            if (maxWei==0){
+                flags[5]=-1;
+            } else flags[5]=flagWei;
+
+            if (maxYan==0){
+                flags[6]=-1;
+            } else flags[6]=flagYan;
+            if (maxZhao==0){
+                flags[3]=-1;
+            } else flags[3]=flagZhao;
+
+
+
 
 //            String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
 //            ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
