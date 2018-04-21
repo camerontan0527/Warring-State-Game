@@ -995,7 +995,7 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
         //need to call task 7 to check which supporters the player has
 
         // can use compareTo to code this function
-        Integer flags [] = new Integer[7];
+        Integer flags [] = new Integer[6];
         Integer maxQin;
         Integer maxQi;
         Integer maxChu;
@@ -1049,84 +1049,16 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
                     if(tempCounter>1)
                     {
                         checkTwoOrMorePLayersHaveSameCard=true;
+
+
                     }
                     else
                     {
-
+                        flags[j]=playerWhoHoldMaxCard;
                     }
 
                 }
-
-
-
-
-
-
-
-            //create an array with number of cards collected for a particular kingdom
-            //index0=p1, index1=p2, index2=p3, index3=p4
-            ArrayList<Integer> arrayNumCardsQin = oneKingdomList(player1, player2, player3, player4, 0);
-            ArrayList<Integer> arrayNumCardsQi = oneKingdomList(player1, player2, player3, player4, 1);
-            ArrayList<Integer> arrayNumCardsChu = oneKingdomList(player1, player2, player3, player4, 2);
-            ArrayList<Integer> arrayNumCardsZhao = oneKingdomList(player1, player2, player3, player4, 3);
-            ArrayList<Integer> arrayNumCardsHan = oneKingdomList(player1, player2, player3, player4, 4);
-            ArrayList<Integer> arrayNumCardsWei = oneKingdomList(player1, player2, player3, player4, 5);
-            ArrayList<Integer> arrayNumCardsYan = oneKingdomList(player1, player2, player3, player4, 6);
-            //find the max of the kingdom
-            maxQin= Collections.max(arrayNumCardsQin);
-            maxQi = Collections.max(arrayNumCardsQi);
-            maxChu = Collections.max(arrayNumCardsChu);
-            maxZhao = Collections.max(arrayNumCardsZhao);
-            maxHan = Collections.max(arrayNumCardsHan);
-            maxWei = Collections.max(arrayNumCardsWei);
-            maxYan = Collections.max(arrayNumCardsYan);
-            //find the player which collected the max number of cards
-            flagQin = arrayNumCardsQin.toString().indexOf(maxQin);
-            flagQi = arrayNumCardsQi.toString().indexOf(maxQi);
-            flagChu = arrayNumCardsChu.toString().indexOf(maxChu);
-            flagZhao = arrayNumCardsZhao.toString().indexOf(maxZhao);
-            flagHan = arrayNumCardsHan.toString().indexOf(maxHan);
-            flagWei = arrayNumCardsWei.toString().indexOf(maxWei);
-            flagYan = arrayNumCardsYan.toString().indexOf(maxYan);
-
-            //find if more than one person has the max number of cards
-            Integer numMaxQin = Collections.frequency(arrayNumCardsQin, maxQin);
-            Integer numMaxQi = Collections.frequency(arrayNumCardsQi, maxQi);
-            Integer numMaxChu = Collections.frequency(arrayNumCardsChu, maxChu);
-            Integer numMaxZhao = Collections.frequency(arrayNumCardsZhao, maxZhao);
-            Integer numMaxHan = Collections.frequency(arrayNumCardsHan, maxHan);
-            Integer numMaxWei = Collections.frequency(arrayNumCardsWei, maxWei);
-            Integer numMaxYan = Collections.frequency(arrayNumCardsYan, maxYan);
-      //      https://stackoverflow.com/questions/36428439/how-do-i-collect-multiple-maximum-values-from-a-list
-
-            //determine who constrols flag
-            if (maxQin==0){
-                flags[0]=-1;
-            } else flags[0]=flagQin;
-
-            if (maxQi==0){
-                flags[1]=-1;
-            } else flags[1]=flagQi;
-            if (maxChu==0){
-                flags[2]=-1;
-            } else flags[2]=flagChu;
-
-            if (maxHan==0){
-                flags[4]=-1;
-            } else flags[4]=flagHan;
-
-            if (maxWei==0){
-                flags[5]=-1;
-            } else flags[5]=flagWei;
-
-            if (maxYan==0){
-                flags[6]=-1;
-            } else flags[6]=flagYan;
-            if (maxZhao==0){
-                flags[3]=-1;
-            } else flags[3]=flagZhao;
-
-
+            
 
 
 //            String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
