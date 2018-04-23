@@ -1001,8 +1001,9 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
         //need to call task 7 to check which supporters the player has
 
         // can use compareTo to code this function
-        int flags [] = new int[6];
-        if (numPlayers==4) {
+        int flags [] = new int[7];
+        if (numPlayers==4)
+        {
             String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
             String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
             String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
@@ -1088,19 +1089,149 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
 
         else
             if (numPlayers==3){
-            String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
-            String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
-            String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
-            numberOfCardsForEachKingdom(id0, 0);
-            numberOfCardsForEachKingdom(id1,1);
-            numberOfCardsForEachKingdom(id2, 2);
-            }
+                String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
+                String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
+                String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
+
+                //creat hashmaps for the number of cards collected for each player
+                HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
+                HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
+                HashMap<Integer, ArrayList<Integer>> player3 = numberOfCardsForEachKingdom(id2, 2);
+
+                //extract value of hashmap
+                ArrayList<Integer> player1CardList = player1.get(0);
+                ArrayList<Integer> player2CardList = player2.get(1);
+                ArrayList<Integer> player3CardList = player3.get(2);
+
+
+                for (int j = 0; j < player1CardList.size(); j++) {
+                    ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
+                    allCardsOfOneKindom.add(player1CardList.get(j));
+                    allCardsOfOneKindom.add(player2CardList.get(j));
+                    allCardsOfOneKindom.add(player3CardList.get(j));
+
+
+                    int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                    boolean checkTwoOrMorePLayersHaveSameCard = false;
+                    String playerIDsWhoHoldSameCard = "";
+                    int playerWhoHoldMaxCard = -1;
+                    int tempCounter = 0;
+                    for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
+                        if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
+                            if (tempCounter == 0) {
+                                playerWhoHoldMaxCard = k;
+                            }
+                            if (playerIDsWhoHoldSameCard.equals("")) {
+                                playerIDsWhoHoldSameCard = "" + k;
+                            }
+                            playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
+
+                            tempCounter++;
+                        }
+                    }
+                    //if more than one player hols the max number of cards
+                    if (tempCounter > 1) {
+                        checkTwoOrMorePLayersHaveSameCard = true;
+                        String currentKingdom = "";
+                        if (j == 0) {
+                            currentKingdom = "a";
+                        } else if (j == 1) {
+                            currentKingdom = "b";
+                        } else if (j == 2) {
+                            currentKingdom = "c";
+                        } else if (j == 3) {
+                            currentKingdom = "d";
+                        } else if (j == 4) {
+                            currentKingdom = "e";
+                        } else if (j == 5) {
+                            currentKingdom = "f";
+                        } else if (j == 6) {
+                            currentKingdom = "g";
+                        }
+                        flags[j] = checkLastCardInfo(setup, moveSequence, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
+
+
+                    } else {
+                        flags[j] = playerWhoHoldMaxCard;
+                    }
+                }
+
+        }
         else
             if (numPlayers==2){
                 String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
-                String id1 =getSupporters(setup, moveSequence, numPlayers, 1);
-                numberOfCardsForEachKingdom(id0,0);
-                numberOfCardsForEachKingdom(id1,1);
+                String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
+
+                //creat hashmaps for the number of cards collected for each player
+                HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
+                HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
+
+                //extract value of hashmap
+                ArrayList<Integer> player1CardList = player1.get(0);
+                ArrayList<Integer> player2CardList = player2.get(1);
+
+
+                for (int j = 0; j < player1CardList.size(); j++) {
+                    ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
+                    allCardsOfOneKindom.add(player1CardList.get(j));
+                    allCardsOfOneKindom.add(player2CardList.get(j));
+
+
+                    int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                    boolean checkTwoOrMorePLayersHaveSameCard = false;
+                    String playerIDsWhoHoldSameCard = "";
+                    int playerWhoHoldMaxCard = -1;
+                    if(maximumNumberOfCards!=0)
+                    {
+                        int tempCounter = 0;
+                        for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
+                            if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
+                                if (tempCounter == 0) {
+                                    playerWhoHoldMaxCard = k;
+                                }
+                                if (playerIDsWhoHoldSameCard.equals("")) {
+                                    playerIDsWhoHoldSameCard = "" + k;
+                                }
+                                playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
+
+                                tempCounter++;
+                            }
+                        }
+                        //if more than one player hols the max number of cards
+                        if (tempCounter > 1) {
+                            String currentKingdom = "";
+                            try {
+                                checkTwoOrMorePLayersHaveSameCard = true;
+                                if (j == 0) {
+                                    currentKingdom = "a";
+                                } else if (j == 1) {
+                                    currentKingdom = "b";
+                                } else if (j == 2) {
+                                    currentKingdom = "c";
+                                } else if (j == 3) {
+                                    currentKingdom = "d";
+                                } else if (j == 4) {
+                                    currentKingdom = "e";
+                                } else if (j == 5) {
+                                    currentKingdom = "f";
+                                } else if (j == 6) {
+                                    currentKingdom = "g";
+                                }
+                                flags[j] = checkLastCardInfo(setup, moveSequence, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
+                            }
+                            catch(Exception e)
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+                        else {
+                            flags[j] = playerWhoHoldMaxCard;
+                        }
+
+                    } else {
+                        flags[j] = playerWhoHoldMaxCard;
+                    }
+                }
             }
 
 //return the array of flags
@@ -1261,20 +1392,22 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
                     }
                 }
             }
-
-            for(int k=0;k<supporter_lst.length;k++)
-            {
-                ArrayList<String> tempSupportList=supporter_lst[k];
-                for(int l=0;l<tempSupportList.size();l++)
-                {
-                    if((""+tempSupportList.get(l).charAt(0)).equals(checkKingdom))
-                    {
-                        int playerIndex=k%numOfPlayers;
-                        if(playerIdsWhoHoldSameCard.contains(""+playerIndex)) {
-                            playerWhoholdLastCard = playerIndex;
+            try {
+                for (int k = 0; k < supporter_lst.length; k++) {
+                    ArrayList<String> tempSupportList = supporter_lst[k];
+                    for (int l = 0; l < tempSupportList.size(); l++) {
+                        if (("" + tempSupportList.get(l).charAt(0)).equals(checkKingdom)) {
+                            int playerIndex = k % numOfPlayers;
+                            if (playerIdsWhoHoldSameCard.contains("" + playerIndex)) {
+                                playerWhoholdLastCard = playerIndex;
+                            }
                         }
                     }
                 }
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
             }
         }
         catch(Exception e)
