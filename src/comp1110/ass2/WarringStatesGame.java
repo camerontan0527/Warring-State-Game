@@ -916,7 +916,7 @@ public class WarringStatesGame {
 public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (String supporters,int playerID)
 {
     String[] a = supporters.split("(?<=\\G..)");
-    ArrayList<String> supporterList= (ArrayList<String>)Arrays.asList(a);
+    List<String> supporterList= Arrays.asList(a);
     HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer=new HashMap<>();
     ArrayList<Integer> numberInKingdom = new ArrayList<>();
     int counterQin =0;
@@ -970,6 +970,12 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
     return numberOfCardsInKingdom;
 
 }
+public static HashMap<String, Integer> trackLastMove (String moveSequence, Integer playerId, String setup, Integer numPlayer){
+    String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
+    HashMap<String, Integer> lastMoves = new HashMap<>();
+
+    return lastMoves;
+}
 
 
     /**
@@ -995,89 +1001,91 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
         //need to call task 7 to check which supporters the player has
 
         // can use compareTo to code this function
-        Integer flags [] = new Integer[6];
-        Integer maxQin;
-        Integer maxQi;
-        Integer maxChu;
-        Integer maxZhao;
-        Integer maxHan;
-        Integer maxWei;
-        Integer maxYan;
-        Integer flagQin; Integer flagQi; Integer flagChu; Integer flagZhao; Integer flagHan; Integer flagWei; Integer flagYan;
-        if (numPlayers==4){
-            String id0= getSupporters(setup, moveSequence, numPlayers, 0);
-            String id1=  getSupporters(setup, moveSequence, numPlayers, 1);
-            String id2= getSupporters(setup, moveSequence, numPlayers, 2);
+        int flags [] = new int[6];
+        if (numPlayers==4) {
+            String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
+            String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
+            String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
             String id3 = getSupporters(setup, moveSequence, numPlayers, 3);
             //creat hashmaps for the number of cards collected for each player
-            HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0,0);
-            HashMap<Integer, ArrayList<Integer>> player2 =numberOfCardsForEachKingdom(id1,1);
-            HashMap<Integer, ArrayList<Integer>> player3 =numberOfCardsForEachKingdom(id2,2);
-            HashMap<Integer, ArrayList<Integer>> player4 =numberOfCardsForEachKingdom(id3, 3);
+            HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
+            HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
+            HashMap<Integer, ArrayList<Integer>> player3 = numberOfCardsForEachKingdom(id2, 2);
+            HashMap<Integer, ArrayList<Integer>> player4 = numberOfCardsForEachKingdom(id3, 3);
+            //extract value of hashmap
+            ArrayList<Integer> player1CardList = player1.get(0);
+            ArrayList<Integer> player2CardList = player2.get(1);
+            ArrayList<Integer> player3CardList = player3.get(2);
+            ArrayList<Integer> player4CardList = player4.get(3);
 
+            for (int j = 0; j < player1CardList.size(); j++) {
+                ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
+                allCardsOfOneKindom.add(player1CardList.get(j));
+                allCardsOfOneKindom.add(player2CardList.get(j));
+                allCardsOfOneKindom.add(player3CardList.get(j));
+                allCardsOfOneKindom.add(player4CardList.get(j));
 
-
-
-                ArrayList<Integer> player1CardList=player1.get(0);
-                ArrayList<Integer> player2CardList=player2.get(1);
-                ArrayList<Integer> player3CardList=player3.get(2);
-                ArrayList<Integer> player4CardList=player4.get(3);
-
-                for(int j=0;j<player1CardList.size();j++)
-                {
-                    ArrayList<Integer> allCardsOfOneKindom=new ArrayList<>();
-                    allCardsOfOneKindom.add(player1CardList.get(j));
-                    allCardsOfOneKindom.add(player2CardList.get(j));
-                    allCardsOfOneKindom.add(player3CardList.get(j));
-                    allCardsOfOneKindom.add(player4CardList.get(j));
-
-                    int maximumNumberOfCards=Collections.max(allCardsOfOneKindom);
-                    boolean checkTwoOrMorePLayersHaveSameCard=false;
-                    int playerWhoHoldMaxCard=-1;
-                                        int tempCounter=0;
-                    for(int k=0;k<allCardsOfOneKindom.size();k++)
-                    {
-                        if(allCardsOfOneKindom.get(k)==maximumNumberOfCards)
-                        {
-                            if(tempCounter==0)
-                            {
-                                playerWhoHoldMaxCard=k;
-                            }
-                            tempCounter++;
+                int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                boolean checkTwoOrMorePLayersHaveSameCard = false;
+                String playerIDsWhoHoldSameCard="";
+                int playerWhoHoldMaxCard = -1;
+                int tempCounter = 0;
+                for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
+                    if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
+                        if (tempCounter == 0) {
+                            playerWhoHoldMaxCard = k;
                         }
-                    }
-                    if(tempCounter>1)
-                    {
-                        checkTwoOrMorePLayersHaveSameCard=true;
+                        if(playerIDsWhoHoldSameCard.equals(""))
+                        {
+                            playerIDsWhoHoldSameCard=""+k;
+                        }
+                        playerIDsWhoHoldSameCard=playerIDsWhoHoldSameCard+(","+k);
 
-
+                        tempCounter++;
                     }
-                    else
-                    {
-                        flags[j]=playerWhoHoldMaxCard;
-                    }
-
                 }
-            
+                //if more than one player hols the max number of cards
+                if (tempCounter > 1) {
+                    checkTwoOrMorePLayersHaveSameCard = true;
+                    String currentKingdom="";
+                    if(j==0)
+                    {
+                        currentKingdom="a";
+                    }
+                    else if(j==1)
+                    {
+                        currentKingdom="b";
+                    }
+                    else if(j==2)
+                    {
+                        currentKingdom="c";
+                    }
+                    else if(j==3)
+                    {
+                        currentKingdom="d";
+                    }
+                    else if(j==4)
+                    {
+                        currentKingdom="e";
+                    }
+                    else if(j==5)
+                    {
+                        currentKingdom="f";
+                    }
+                    else if(j==6)
+                    {
+                        currentKingdom="g";
+                    }
+                    flags[j]=checkLastCardInfo(setup,moveSequence,currentKingdom,numPlayers,playerIDsWhoHoldSameCard);
 
 
-//            String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
-//            ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
-//            for (String elem : set) {
-//                setLst.add(elem);
-//            }
-//            for(int i=0;i<moveSequence.length();i++)
-//            {
-//                String target = ""; // the card we are moving to (three character)
-//                for (String elem : set) {
-//                    if (elem.charAt(2) == moveSequence.charAt(i)) {
-//                        target = elem;
-//                        if(i)
-//                        break;
-//                    }
-//                }
-//            }
+                } else {
+                    flags[j] = playerWhoHoldMaxCard;
+                }
+
+            }
         }
+
         else
             if (numPlayers==3){
             String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
@@ -1096,9 +1104,185 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
             }
 
 //return the array of flags
-        return null;
+        return flags;
     }
 
+    public static int checkLastCardInfo(String setup,String moveSequence,String checkKingdom,int numOfPlayers,String playerIdsWhoHoldSameCard)
+    {
+        int playerWhoholdLastCard=-1;
+        try {
+            String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
+            ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
+            for (String elem : set) {
+                setLst.add(elem);
+            }
+
+
+            char zhang_initial = 0; // return the initial position of zhang (one character)
+            for (String elem : set) {
+                if (elem.charAt(0) == 'z') {
+                    zhang_initial = elem.charAt(2);
+                }
+            }
+            int zhang_initial_column = 0;
+            int zhang_initial_row = 0;
+            for (char[] elem : row) { // return zhang initial row index
+                if (new String(elem).contains(String.valueOf(zhang_initial))) {
+                    zhang_initial_row = Arrays.asList(row).indexOf(elem);
+                }
+            }
+            for (char[] elem : column) { // return zhang initial column index
+                if (new String(elem).contains(String.valueOf(zhang_initial))) {
+                    zhang_initial_column = Arrays.asList(column).indexOf(elem);
+                }
+            }
+
+
+            int rowIndex_mov = 0;
+            int columnIndex_mov = 0;
+            int rowIndex_pre = 0;
+            int columnIndex_pre = 0;
+
+            ArrayList<String>[] supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
+            for (int i = 0; i < supporter_lst.length; i++) { // each element in array is an arrayList
+                supporter_lst[i] = new ArrayList<String>();
+            }
+            for (int i = 0; i < moveSequence.length(); i++) { // go through every move
+                String target = ""; // the card we are moving to (three character)
+                for (String elem : set) {
+                    if (elem.charAt(2) == moveSequence.charAt(i)) {
+                        target = elem;
+                    }
+                }
+
+                for (char[] elem : row) { // the row index of target
+                    if (new String(elem).contains(String.valueOf(moveSequence.charAt(i)))) {
+                        rowIndex_mov = Arrays.asList(row).indexOf(elem);
+                    }
+                }
+
+                for (char[] elem : column) { // the column index of target
+                    if (new String(elem).contains(String.valueOf(moveSequence.charAt(i)))) {
+                        columnIndex_mov = Arrays.asList(column).indexOf(elem);
+                    }
+                }
+
+
+                if (i == 0) { // the first move, so we need to compare the move position with the zhang's initial position
+                    if (rowIndex_mov == zhang_initial_row) { // on the same row
+                        if (row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)) < row_str[rowIndex_mov].indexOf(zhang_initial)) { // moving right
+                            // the row range between zhang's position and target position
+                            String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)), row_str[rowIndex_mov].indexOf(zhang_initial));
+                            for (String elem : setLst) { // check if there's any other card with the same kingdom between zhang's position and target positoin
+                                if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem); // add all the cards, between row range, with the same kingdom as target into supporter list
+                                }
+                            }
+                        } else { //moving left
+                            String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(zhang_initial), row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)));
+                            supporter_lst[i].add(target); // add the target into the supporter_lst first, because it's moving left, and the substring (zhang's initial, target) doesn't include target
+                            for (String elem : setLst) {// check if there's any other card with the same kingdom between zhang's position and target positoin
+                                if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);// add all the cards, between row range, with the same kingdom as target into supporter list
+                                }
+                            }
+                        }
+                    } else { // on the same column
+                        if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(zhang_initial)) { // moving up
+                            String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)), col_str[columnIndex_mov].indexOf(zhang_initial));
+                            for (String elem : setLst) {
+                                if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        } else {// moving down
+                            String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(zhang_initial), col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)));
+                            supporter_lst[i].add(target);
+                            for (String elem : setLst) {
+                                if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        }
+                    }
+                } else {// other than first move, compare the target move position with the previous move position
+                    String pre = "";
+                    for (String elem : set) { // the position of the previous movement
+                        if (elem.charAt(2) == moveSequence.charAt(i - 1)) {
+                            pre = elem;
+                        }
+                    }
+                    for (char[] elem : row) { // the row index of previous movement
+                        if (new String(elem).contains(String.valueOf(moveSequence.charAt(i - 1)))) {
+                            rowIndex_pre = Arrays.asList(row).indexOf(elem);
+                        }
+                    }
+                    for (char[] elem : column) { // the column index of previous movement
+                        if (new String(elem).contains(String.valueOf(moveSequence.charAt(i - 1)))) {
+                            columnIndex_pre = Arrays.asList(column).indexOf(elem);
+                        }
+                    }
+
+
+                    if (rowIndex_mov == rowIndex_pre) { // on same row
+                        if (row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)) < row_str[rowIndex_mov].indexOf(pre.charAt(2))) {
+                            String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)), row_str[rowIndex_mov].indexOf(pre.charAt(2)));
+                            for (String elem : setLst) {
+                                if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        } else {
+                            String row_range = row_str[rowIndex_mov].substring(row_str[rowIndex_mov].indexOf(pre.charAt(2)), row_str[rowIndex_mov].indexOf(moveSequence.charAt(i)));
+                            supporter_lst[i].add(target);
+                            for (String elem : setLst) {
+                                if (row_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        }
+                    } else { // on same column
+                        if (col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)) < col_str[columnIndex_mov].indexOf(pre.charAt(2))) { // moving up
+                            String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)), col_str[columnIndex_mov].indexOf(pre.charAt(2)));
+                            for (String elem : setLst) {
+                                if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        } else { // moving down
+                            String column_range = col_str[columnIndex_mov].substring(col_str[columnIndex_mov].indexOf(pre.charAt(2)), col_str[columnIndex_mov].indexOf(moveSequence.charAt(i)));
+                            supporter_lst[i].add(target);
+                            for (String elem : setLst) {
+                                if (column_range.contains(elem.charAt(2) + "") && elem.charAt(0) == target.charAt(0)) {
+                                    supporter_lst[i].add(elem);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            for(int k=0;k<supporter_lst.length;k++)
+            {
+                ArrayList<String> tempSupportList=supporter_lst[k];
+                for(int l=0;l<tempSupportList.size();l++)
+                {
+                    if((""+tempSupportList.get(l).charAt(0)).equals(checkKingdom))
+                    {
+                        int playerIndex=k%numOfPlayers;
+                        if(playerIdsWhoHoldSameCard.contains(""+playerIndex)) {
+                            playerWhoholdLastCard = playerIndex;
+                        }
+                    }
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return playerWhoholdLastCard;
+    }
     /**
      * Generate a legal move, given the provided placement string.
      * A move is valid if:
