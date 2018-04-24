@@ -32,6 +32,7 @@ public class WarringStatesGame {
         this.column = column;
         this.row = row;
     }
+    static ArrayList<String>[] supporter_lst=new ArrayList[36];
 
     static ArrayList<Character> possible_move =
             new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
@@ -558,7 +559,7 @@ public class WarringStatesGame {
     }
 
     //generates a string of cards which are collected as Zhang moves to a certain location
-    //MAY BE AN ISSUE IN THIS FUNCTION 
+    //MAY BE AN ISSUE IN THIS FUNCTION
     public static Pair<String, String> possibleCollect(String setup, String moveSequence, int i) {
         String possibleC = "";
         String supporters = "";
@@ -674,8 +675,9 @@ public class WarringStatesGame {
         int columnIndex_mov = 0;
         int rowIndex_pre = 0;
         int columnIndex_pre = 0;
+        //initialize supporters list again
 
-        ArrayList<String>[] supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
+       // supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
         for (int i = 0; i < supporter_lst.length; i++) { // each element in array is an arrayList
             supporter_lst[i] = new ArrayList<String>();
         }
@@ -913,50 +915,50 @@ public class WarringStatesGame {
     //hashmap generated which has the player id as the key and the value is an array list which contains the number of cards collected for each kingdom
     //index 0=Qin cards, index1=Qi cards, index2=Chu cards, index3=Zhao cards, index4=Han cards, index5=wei cards, index6= Yan cards
 
-public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (String supporters,int playerID)
-{
-    String[] a = supporters.split("(?<=\\G..)");
-    List<String> supporterList= Arrays.asList(a);
-    HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer=new HashMap<>();
-    ArrayList<Integer> numberInKingdom = new ArrayList<>();
-    int counterQin =0;
-    int counterQi=0;
-    int counterChu=0;
-    int counterZhao=0;
-    int counterHan=0;
-    int counterWei =0;
-    int counterYan=0;
-    for (int i=0; i<supporterList.size(); i++){
-        if (supporterList.get(i).charAt(0) == 'a'){
-            counterQin++;
-        } else if (supporterList.get(i).charAt(0) == 'b'){
-            counterQi++;
-        } else  if (supporterList.get(i).charAt(0) == 'c'){
-            counterChu++;
-        } else  if (supporterList.get(i).charAt(0) == 'd'){
-            counterZhao++;
-        } else  if (supporterList.get(i).charAt(0) == 'e'){
-            counterHan++;
-        } else  if (supporterList.get(i).charAt(0) == 'f'){
-            counterWei++;
-        } else  if (supporterList.get(i).charAt(0) == 'g'){
-            counterYan++;
+    public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (String supporters,int playerID)
+    {
+        String[] a = supporters.split("(?<=\\G..)");
+        List<String> supporterList= Arrays.asList(a);
+        HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer=new HashMap<>();
+        ArrayList<Integer> numberInKingdom = new ArrayList<>();
+        int counterQin =0;
+        int counterQi=0;
+        int counterChu=0;
+        int counterZhao=0;
+        int counterHan=0;
+        int counterWei =0;
+        int counterYan=0;
+        for (int i=0; i<supporterList.size(); i++){
+            if (supporterList.get(i).charAt(0) == 'a'){
+                counterQin++;
+            } else if (supporterList.get(i).charAt(0) == 'b'){
+                counterQi++;
+            } else  if (supporterList.get(i).charAt(0) == 'c'){
+                counterChu++;
+            } else  if (supporterList.get(i).charAt(0) == 'd'){
+                counterZhao++;
+            } else  if (supporterList.get(i).charAt(0) == 'e'){
+                counterHan++;
+            } else  if (supporterList.get(i).charAt(0) == 'f'){
+                counterWei++;
+            } else  if (supporterList.get(i).charAt(0) == 'g'){
+                counterYan++;
+            }
         }
-    }
-    numberInKingdom.add(0, counterQin);
-    numberInKingdom.add(1, counterQi);
-    numberInKingdom.add(2, counterChu);
-    numberInKingdom.add(3,counterZhao);
-    numberInKingdom.add(4, counterHan);
-    numberInKingdom.add(5,counterWei);
-    numberInKingdom.add(6,counterYan);
-    numberOfCardsForPlayer.put(playerID,numberInKingdom);
+        numberInKingdom.add(0, counterQin);
+        numberInKingdom.add(1, counterQi);
+        numberInKingdom.add(2, counterChu);
+        numberInKingdom.add(3,counterZhao);
+        numberInKingdom.add(4, counterHan);
+        numberInKingdom.add(5,counterWei);
+        numberInKingdom.add(6,counterYan);
+        numberOfCardsForPlayer.put(playerID,numberInKingdom);
 
         return numberOfCardsForPlayer;
 
-}
+    }
 
-public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Integer>> p1, HashMap<Integer, ArrayList<Integer>> p2, HashMap<Integer, ArrayList<Integer>> p3, HashMap<Integer, ArrayList<Integer>> p4, int i){
+    public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Integer>> p1, HashMap<Integer, ArrayList<Integer>> p2, HashMap<Integer, ArrayList<Integer>> p3, HashMap<Integer, ArrayList<Integer>> p4, int i){
         ArrayList<Integer> numberOfCardsInKingdom = new ArrayList<>();
         Integer plInt = p1.get(0).get(i);
         Integer p2Int = p2.get(1).get(i);
@@ -967,15 +969,15 @@ public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Inte
         numberOfCardsInKingdom.add(2,p3Int);
         numberOfCardsInKingdom.add(3,p4Int);
 
-    return numberOfCardsInKingdom;
+        return numberOfCardsInKingdom;
 
-}
-public static HashMap<String, Integer> trackLastMove (String moveSequence, Integer playerId, String setup, Integer numPlayer){
-    String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
-    HashMap<String, Integer> lastMoves = new HashMap<>();
+    }
+    public static HashMap<String, Integer> trackLastMove (String moveSequence, Integer playerId, String setup, Integer numPlayer){
+        String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
+        HashMap<String, Integer> lastMoves = new HashMap<>();
 
-    return lastMoves;
-}
+        return lastMoves;
+    }
 
 
     /**
@@ -1002,12 +1004,11 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
 
         // can use compareTo to code this function
         int flags [] = new int[7];
-        if (numPlayers==4)
-        {
-            String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
-            String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
-            String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
-            String id3 = getSupporters(setup, moveSequence, numPlayers, 3);
+        if (numPlayers==4) {
+            String id0 = getSupportersUnsorted(setup, moveSequence, numPlayers, 0);
+            String id1 = getSupportersUnsorted(setup, moveSequence, numPlayers, 1);
+            String id2 = getSupportersUnsorted(setup, moveSequence, numPlayers, 2);
+            String id3 = getSupportersUnsorted(setup, moveSequence, numPlayers, 3);
             //creat hashmaps for the number of cards collected for each player
             HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
             HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
@@ -1031,6 +1032,7 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
                 String playerIDsWhoHoldSameCard="";
                 int playerWhoHoldMaxCard = -1;
                 int tempCounter = 0;
+             //   ArrayList<Integer>
                 for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
                     if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
                         if (tempCounter == 0) {
@@ -1040,7 +1042,9 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
                         {
                             playerIDsWhoHoldSameCard=""+k;
                         }
-                        playerIDsWhoHoldSameCard=playerIDsWhoHoldSameCard+(","+k);
+                        else {
+                            playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
+                        }
 
                         tempCounter++;
                     }
@@ -1077,7 +1081,65 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
                     {
                         currentKingdom="g";
                     }
-                    flags[j]=checkLastCardInfo(setup,moveSequence,currentKingdom,numPlayers,playerIDsWhoHoldSameCard);
+                    String a[]=id0.split("(?<=\\G..)");
+                    String b[]=id1.split("(?<=\\G..)");
+                    String c[]=id2.split("(?<=\\G..)");
+                    String d[]=id3.split("(?<=\\G..)");
+
+                    for(int k=0;k<a.length;k++)
+                    {
+                        String tempSupportList=a[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<b.length;k++)
+                    {
+                        String tempSupportList=b[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<c.length;k++)
+                    {
+                        String tempSupportList=c[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<d.length;k++)
+                    {
+                        String tempSupportList=d[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+
+                    flags[j]=playerWhoHoldMaxCard;
 
 
                 } else {
@@ -1088,160 +1150,262 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
         }
 
         else
-            if (numPlayers==3){
-                String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
-                String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
-                String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
+        if (numPlayers==3){
+            String id0 = getSupportersUnsorted(setup, moveSequence, numPlayers, 0);
+            String id1 = getSupportersUnsorted(setup, moveSequence, numPlayers, 1);
+            String id2 = getSupportersUnsorted(setup, moveSequence, numPlayers, 2);
 
-                //creat hashmaps for the number of cards collected for each player
-                HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
-                HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
-                HashMap<Integer, ArrayList<Integer>> player3 = numberOfCardsForEachKingdom(id2, 2);
+            //creat hashmaps for the number of cards collected for each player
+            HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
+            HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
+            HashMap<Integer, ArrayList<Integer>> player3 = numberOfCardsForEachKingdom(id2, 2);
 
-                //extract value of hashmap
-                ArrayList<Integer> player1CardList = player1.get(0);
-                ArrayList<Integer> player2CardList = player2.get(1);
-                ArrayList<Integer> player3CardList = player3.get(2);
-
-
-                for (int j = 0; j < player1CardList.size(); j++) {
-                    ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
-                    allCardsOfOneKindom.add(player1CardList.get(j));
-                    allCardsOfOneKindom.add(player2CardList.get(j));
-                    allCardsOfOneKindom.add(player3CardList.get(j));
+            //extract value of hashmap
+            ArrayList<Integer> player1CardList = player1.get(0);
+            ArrayList<Integer> player2CardList = player2.get(1);
+            ArrayList<Integer> player3CardList = player3.get(2);
 
 
-                    int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
-                    boolean checkTwoOrMorePLayersHaveSameCard = false;
-                    String playerIDsWhoHoldSameCard = "";
-                    int playerWhoHoldMaxCard = -1;
-                    int tempCounter = 0;
-                    for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
-                        if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
-                            if (tempCounter == 0) {
-                                playerWhoHoldMaxCard = k;
-                            }
-                            if (playerIDsWhoHoldSameCard.equals("")) {
-                                playerIDsWhoHoldSameCard = "" + k;
-                            }
-                            playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
+            for (int j = 0; j < player1CardList.size(); j++) {
+                ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
+                allCardsOfOneKindom.add(player1CardList.get(j));
+                allCardsOfOneKindom.add(player2CardList.get(j));
+                allCardsOfOneKindom.add(player3CardList.get(j));
 
-                            tempCounter++;
+                int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                boolean checkTwoOrMorePLayersHaveSameCard = false;
+                String playerIDsWhoHoldSameCard="";
+                int playerWhoHoldMaxCard = -1;
+                int tempCounter = 0;
+                for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
+                    if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
+                        if (tempCounter == 0) {
+                            playerWhoHoldMaxCard = k;
                         }
-                    }
-                    //if more than one player hols the max number of cards
-                    if (tempCounter > 1) {
-                        checkTwoOrMorePLayersHaveSameCard = true;
-                        String currentKingdom = "";
-                        if (j == 0) {
-                            currentKingdom = "a";
-                        } else if (j == 1) {
-                            currentKingdom = "b";
-                        } else if (j == 2) {
-                            currentKingdom = "c";
-                        } else if (j == 3) {
-                            currentKingdom = "d";
-                        } else if (j == 4) {
-                            currentKingdom = "e";
-                        } else if (j == 5) {
-                            currentKingdom = "f";
-                        } else if (j == 6) {
-                            currentKingdom = "g";
-                        }
-                        flags[j] = checkLastCardInfo(setup, moveSequence, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
-
-
-                    } else {
-                        flags[j] = playerWhoHoldMaxCard;
-                    }
-                }
-
-        }
-        else
-            if (numPlayers==2){
-                String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
-                String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
-
-                //creat hashmaps for the number of cards collected for each player
-                HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
-                HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
-
-                //extract value of hashmap
-                ArrayList<Integer> player1CardList = player1.get(0);
-                ArrayList<Integer> player2CardList = player2.get(1);
-
-
-                for (int j = 0; j < player1CardList.size(); j++) {
-                    ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
-                    allCardsOfOneKindom.add(player1CardList.get(j));
-                    allCardsOfOneKindom.add(player2CardList.get(j));
-
-
-                    int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
-                    boolean checkTwoOrMorePLayersHaveSameCard = false;
-                    String playerIDsWhoHoldSameCard = "";
-                    int playerWhoHoldMaxCard = -1;
-                    if(maximumNumberOfCards!=0)
-                    {
-                        int tempCounter = 0;
-                        for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
-                            if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
-                                if (tempCounter == 0) {
-                                    playerWhoHoldMaxCard = k;
-                                }
-                                if (playerIDsWhoHoldSameCard.equals("")) {
-                                    playerIDsWhoHoldSameCard = "" + k;
-                                }
-                                playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
-
-                                tempCounter++;
-                            }
-                        }
-                        //if more than one player hols the max number of cards
-                        if (tempCounter > 1) {
-                            String currentKingdom = "";
-                            try {
-                                checkTwoOrMorePLayersHaveSameCard = true;
-                                if (j == 0) {
-                                    currentKingdom = "a";
-                                } else if (j == 1) {
-                                    currentKingdom = "b";
-                                } else if (j == 2) {
-                                    currentKingdom = "c";
-                                } else if (j == 3) {
-                                    currentKingdom = "d";
-                                } else if (j == 4) {
-                                    currentKingdom = "e";
-                                } else if (j == 5) {
-                                    currentKingdom = "f";
-                                } else if (j == 6) {
-                                    currentKingdom = "g";
-                                }
-                                flags[j] = checkLastCardInfo(setup, moveSequence, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
-                            }
-                            catch(Exception e)
-                            {
-                                e.printStackTrace();
-                            }
+                        if(playerIDsWhoHoldSameCard.equals(""))
+                        {
+                            playerIDsWhoHoldSameCard=""+k;
                         }
                         else {
-                            flags[j] = playerWhoHoldMaxCard;
+                            playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
                         }
 
-                    } else {
-                        flags[j] = playerWhoHoldMaxCard;
+                        tempCounter++;
                     }
                 }
+                //if more than one player hols the max number of cards
+                if (tempCounter > 1) {
+                    checkTwoOrMorePLayersHaveSameCard = true;
+                    String currentKingdom="";
+                    if(j==0)
+                    {
+                        currentKingdom="a";
+                    }
+                    else if(j==1)
+                    {
+                        currentKingdom="b";
+                    }
+                    else if(j==2)
+                    {
+                        currentKingdom="c";
+                    }
+                    else if(j==3)
+                    {
+                        currentKingdom="d";
+                    }
+                    else if(j==4)
+                    {
+                        currentKingdom="e";
+                    }
+                    else if(j==5)
+                    {
+                        currentKingdom="f";
+                    }
+                    else if(j==6)
+                    {
+                        currentKingdom="g";
+                    }
+                    String a[]=id0.split("(?<=\\G..)");
+                    String b[]=id1.split("(?<=\\G..)");
+                    String c[]=id2.split("(?<=\\G..)");
+
+
+                    for(int k=0;k<a.length;k++)
+                    {
+                        String tempSupportList=a[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<b.length;k++)
+                    {
+                        String tempSupportList=b[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<c.length;k++)
+                    {
+                        String tempSupportList=c[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+
+
+                    flags[j]=playerWhoHoldMaxCard;
+
+
+                } else {
+                    flags[j] = playerWhoHoldMaxCard;
+                }
+
             }
+        }
+        else
+        if (numPlayers==2){
+            String id0 = getSupportersUnsorted(setup, moveSequence, numPlayers, 0);
+            String id1 = getSupportersUnsorted(setup, moveSequence, numPlayers, 1);
+
+            //creat hashmaps for the number of cards collected for each player
+            HashMap<Integer, ArrayList<Integer>> player1 = numberOfCardsForEachKingdom(id0, 0);
+            HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
+
+            //extract value of hashmap
+            ArrayList<Integer> player1CardList = player1.get(0);
+            ArrayList<Integer> player2CardList = player2.get(1);
+
+
+            for (int j = 0; j < player1CardList.size(); j++) {
+                ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
+                allCardsOfOneKindom.add(player1CardList.get(j));
+                allCardsOfOneKindom.add(player2CardList.get(j));
+
+
+                int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                boolean checkTwoOrMorePLayersHaveSameCard = false;
+                String playerIDsWhoHoldSameCard="";
+                int playerWhoHoldMaxCard = -1;
+                int tempCounter = 0;
+                for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
+                    if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
+                        if (tempCounter == 0) {
+                            playerWhoHoldMaxCard = k;
+                        }
+                        if(playerIDsWhoHoldSameCard.equals(""))
+                        {
+                            playerIDsWhoHoldSameCard=""+k;
+                        }
+                        else {
+                            playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
+                        }
+
+                        tempCounter++;
+                    }
+                }
+                //if more than one player hols the max number of cards
+                if (tempCounter > 1) {
+                    checkTwoOrMorePLayersHaveSameCard = true;
+                    String currentKingdom="";
+                    if(j==0)
+                    {
+                        currentKingdom="a";
+                    }
+                    else if(j==1)
+                    {
+                        currentKingdom="b";
+                    }
+                    else if(j==2)
+                    {
+                        currentKingdom="c";
+                    }
+                    else if(j==3)
+                    {
+                        currentKingdom="d";
+                    }
+                    else if(j==4)
+                    {
+                        currentKingdom="e";
+                    }
+                    else if(j==5)
+                    {
+                        currentKingdom="f";
+                    }
+                    else if(j==6)
+                    {
+                        currentKingdom="g";
+                    }
+                    String a[]=id0.split("(?<=\\G..)");
+                    String b[]=id1.split("(?<=\\G..)");
+
+
+                    for(int k=0;k<a.length;k++)
+                    {
+                        String tempSupportList=a[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+                    for(int k=0;k<b.length;k++)
+                    {
+                        String tempSupportList=b[k];
+
+                        if((""+tempSupportList.charAt(0)).equals(currentKingdom))
+                        {
+                            int playerIndex=k%numPlayers;
+                            if(playerIDsWhoHoldSameCard.contains(""+playerIndex)) {
+                                playerWhoHoldMaxCard = playerIndex;
+                            }
+                        }
+
+                    }
+
+
+                    flags[j]=playerWhoHoldMaxCard;
+
+
+                } else {
+                    flags[j] = playerWhoHoldMaxCard;
+                }
+
+            }
+        }
 
 //return the array of flags
         return flags;
     }
 
-    public static int checkLastCardInfo(String setup,String moveSequence,String checkKingdom,int numOfPlayers,String playerIdsWhoHoldSameCard)
+    public static String getSupportersUnsorted(String setup,String moveSequence,int numPlayers,int playerId)
     {
-        int playerWhoholdLastCard=-1;
-        try {
+        ArrayList<String> ID_0 = new ArrayList<>();
+        ArrayList<String> ID_1 = new ArrayList<>();
+        ArrayList<String> ID_2 = new ArrayList<>();
+        ArrayList<String> ID_3 = new ArrayList<>();
+
             String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
             ArrayList<String> setLst = new ArrayList<>(); // change the setup String array into arrayList
             for (String elem : set) {
@@ -1391,30 +1555,84 @@ public static HashMap<String, Integer> trackLastMove (String moveSequence, Integ
                         }
                     }
                 }
-            }
-            try {
-                for (int k = 0; k < supporter_lst.length; k++) {
-                    ArrayList<String> tempSupportList = supporter_lst[k];
-                    for (int l = 0; l < tempSupportList.size(); l++) {
-                        if (("" + tempSupportList.get(l).charAt(0)).equals(checkKingdom)) {
-                            int playerIndex = k % numOfPlayers;
-                            if (playerIdsWhoHoldSameCard.contains("" + playerIndex)) {
-                                playerWhoholdLastCard = playerIndex;
-                            }
+                for (String elem : supporter_lst[i]) {
+                    setLst.remove(elem);
+                }
+                if (numPlayers == 2) { // if 2 players are playing
+                    for (int j = 0; j < supporter_lst.length - 1; j = j + 2) {
+                        for (String elem : supporter_lst[j]) {
+                            ID_0.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 1]) {
+                            ID_1.add(elem.substring(0, 2));
                         }
                     }
                 }
+                if (numPlayers == 3) { // if 3 players are playing
+                    for (int j = 0; j < supporter_lst.length - 2; j = j + 3) {
+                        for (String elem : supporter_lst[j]) {
+                            ID_0.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 1]) {
+                            ID_1.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 2]) {
+                            ID_2.add(elem.substring(0, 2));
+                        }
+                    }
+                }
+                if (numPlayers == 4) { // if 4 players are playing
+                    for (int j = 0; j < supporter_lst.length - 3; j = j + 4) {
+                        for (String elem : supporter_lst[j]) {
+                            ID_0.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 1]) {
+                            ID_1.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 2]) {
+                            ID_2.add(elem.substring(0, 2));
+                        }
+                        for (String elem : supporter_lst[j + 3]) {
+                            ID_3.add(elem.substring(0, 2));
+                        }
+                    }
+                }
+
+
+
+
+
             }
-            catch(Exception e)
-            {
-                e.printStackTrace();
+        if (numPlayers == 2) {
+            if (playerId == 0) {
+                return String.join("",ID_0);
+            } else {
+                return String.join("",ID_1);
             }
         }
-        catch(Exception e)
-        {
-            e.printStackTrace();
+        if (numPlayers == 3) {
+            if (playerId == 0) {
+                return String.join("",ID_0);
+            } else if (playerId == 1) {
+                return String.join("",ID_1);
+            } else {
+                return String.join("",ID_2);
+
+            }
+        } else {
+            if (playerId == 0) {
+                return String.join("",ID_0);
+            } else if (playerId == 1) {
+                return String.join("",ID_1);
+            } else if (playerId == 2) {
+                return String.join(",",ID_2);
+            } else {
+                return String.join("",ID_3);
+            }
         }
-        return playerWhoholdLastCard;
+
+
+
     }
     /**
      * Generate a legal move, given the provided placement string.
