@@ -1,6 +1,7 @@
 package comp1110.ass2;
 
 import javafx.util.Pair;
+import org.junit.jupiter.api.Test;
 
 import javax.print.DocFlavor;
 import java.net.Inet4Address;
@@ -926,21 +927,23 @@ public class WarringStatesGame {
         int counterHan=0;
         int counterWei =0;
         int counterYan=0;
-        for (int i=0; i<supporterList.size(); i++){
-            if (supporterList.get(i).charAt(0) == 'a'){
-                counterQin++;
-            } else if (supporterList.get(i).charAt(0) == 'b'){
-                counterQi++;
-            } else  if (supporterList.get(i).charAt(0) == 'c'){
-                counterChu++;
-            } else  if (supporterList.get(i).charAt(0) == 'd'){
-                counterZhao++;
-            } else  if (supporterList.get(i).charAt(0) == 'e'){
-                counterHan++;
-            } else  if (supporterList.get(i).charAt(0) == 'f'){
-                counterWei++;
-            } else  if (supporterList.get(i).charAt(0) == 'g'){
-                counterYan++;
+        if (supporters!="") {
+            for (int i = 0; i < supporterList.size(); i++) {
+                if (supporterList.get(i).charAt(0) == 'a') {
+                    counterQin++;
+                } else if (supporterList.get(i).charAt(0) == 'b') {
+                    counterQi++;
+                } else if (supporterList.get(i).charAt(0) == 'c') {
+                    counterChu++;
+                } else if (supporterList.get(i).charAt(0) == 'd') {
+                    counterZhao++;
+                } else if (supporterList.get(i).charAt(0) == 'e') {
+                    counterHan++;
+                } else if (supporterList.get(i).charAt(0) == 'f') {
+                    counterWei++;
+                } else if (supporterList.get(i).charAt(0) == 'g') {
+                    counterYan++;
+                }
             }
         }
         numberInKingdom.add(0, counterQin);
@@ -954,27 +957,6 @@ public class WarringStatesGame {
 
         return numberOfCardsForPlayer;
 
-    }
-
-    public static ArrayList<Integer> oneKingdomList (HashMap<Integer, ArrayList<Integer>> p1, HashMap<Integer, ArrayList<Integer>> p2, HashMap<Integer, ArrayList<Integer>> p3, HashMap<Integer, ArrayList<Integer>> p4, int i){
-        ArrayList<Integer> numberOfCardsInKingdom = new ArrayList<>();
-        Integer plInt = p1.get(0).get(i);
-        Integer p2Int = p2.get(1).get(i);
-        Integer p3Int = p3.get(2).get(i);
-        Integer p4Int = p4.get(3).get(i);
-        numberOfCardsInKingdom.add(0, plInt);
-        numberOfCardsInKingdom.add(1,p2Int);
-        numberOfCardsInKingdom.add(2,p3Int);
-        numberOfCardsInKingdom.add(3,p4Int);
-
-        return numberOfCardsInKingdom;
-
-    }
-    public static HashMap<String, Integer> trackLastMove (String moveSequence, Integer playerId, String setup, Integer numPlayer){
-        String[] set = setup.split("(?<=\\G...)"); //separate setup String into array of (every three char)
-        HashMap<String, Integer> lastMoves = new HashMap<>();
-
-        return lastMoves;
     }
 
 
