@@ -2,6 +2,6 @@ I declare that the work I have submitted for Stage D of this assignment and all 
 
 * The idea of <...> came from a discussion with <...>
 
-* The code in class <...> uses an idea suggested by <...>
+* The code in class <...> uses an idea <...>.
 
-Signed: Mary Jones (u23445678)
+Signed: Lucy Chang (u6296127)
