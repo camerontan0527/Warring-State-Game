@@ -1,11 +1,17 @@
 package comp1110.ass2;
 
+
 import javafx.util.Pair;
-import org.junit.jupiter.api.Test;
 
 import javax.print.DocFlavor;
 import java.net.Inet4Address;
 import java.util.*;
+
+import org.junit.Test;
+import org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * This class provides the text interface for the Warring States game
@@ -33,7 +39,8 @@ public class WarringStatesGame {
         this.column = column;
         this.row = row;
     }
-    static ArrayList<String>[] supporter_lst=new ArrayList[36];
+
+    static ArrayList<String>[] supporter_lst = new ArrayList[36];
     static ArrayList<Character> possible_move =
             new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
                     'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3',
@@ -105,7 +112,7 @@ public class WarringStatesGame {
         if (placement == null || placement == "") {
             return false;
         }
-        String[] ar = placement.split("(?<=\\G...)");
+        String[] ar = placementArray(placement);
         if ((placement.length()) % 3 != 0) { //checks if there are three pairs of char for each char
             return false;
         }
@@ -138,6 +145,22 @@ public class WarringStatesGame {
         return true;
     }
 
+    // below is task 5
+    static String zhangLocation(String placement) {
+        String[] ar = placement.split("(?<=\\G...)");
+        String zhangLocation = "";
+        for (String elem : ar) {
+            if (elem.charAt(0) == 'z' && elem.charAt(1) == '9') {
+                zhangLocation = elem; // Zhang's current card (Z9_)
+            }
+        }
+        return zhangLocation;
+    }
+    static String[] placementArray (String placement){
+        String[] ar = placement.split("(?<=\\G...)");
+        return ar;
+    }
+
     /**
      * Determine whether a given move is legal given a provided valid placement:
      * - the location char is in the range A .. Z or 0..9
@@ -162,7 +185,7 @@ public class WarringStatesGame {
         //check if the location char is in the placement string (use for statements)
         //check if the location is in the column/row ( as z9)
         // need to look at the current location and check if the location fo r Zhang yi to move to is in the same colum/row
-        String[] ar = placement.split("(?<=\\G...)");
+        String[] ar = placementArray(placement);
         if (locationChar < '0' || (locationChar > '9' && locationChar < 'A') || locationChar > 'Z') {
             return false;
         }
@@ -173,12 +196,6 @@ public class WarringStatesGame {
         if ((Arrays.asList(thirdChar).contains(locationChar)) == false) {
             return false;
         }
-        String zhangLocation = "";
-        for (String elem : ar) {
-            if (elem.charAt(0) == 'z' && elem.charAt(1) == '9') {
-                zhangLocation = elem; // Zhang's current card (Z9_)
-            }
-        }
         String locationCard = "";
         for (String elem : ar) {
             if (elem.charAt(2) == locationChar) {
@@ -187,13 +204,13 @@ public class WarringStatesGame {
         }
         int rowIndex = 0;  // return the row where zhang is
         for (char[] elem : row) {
-            if (new String(elem).contains(String.valueOf(zhangLocation.charAt(2)))) {
+            if (new String(elem).contains(String.valueOf(zhangLocation(placement).charAt(2)))) {
                 rowIndex = Arrays.asList(row).indexOf(elem);
             }
         }
         int columnIndex = 0;  // return the column where zhang is
         for (char[] elem : column) {
-            if (new String(elem).contains(String.valueOf(zhangLocation.charAt(2)))) {
+            if (new String(elem).contains(String.valueOf(zhangLocation(placement).charAt(2)))) {
                 columnIndex = Arrays.asList(column).indexOf(elem);
             }
         }
@@ -258,7 +275,7 @@ public class WarringStatesGame {
         if (rowIndex == rowLocationIndex) { // they're in the same row
             if (sameRowKingdom.size() == 1) {
                 return true;
-            } else if ((Arrays.asList(cardAtsameRow).get(0).indexOf(zhangLocation)) < ((Arrays.asList(cardAtsameRow)).get(0).indexOf(locationCard))) {
+            } else if ((Arrays.asList(cardAtsameRow).get(0).indexOf(zhangLocation(placement))) < ((Arrays.asList(cardAtsameRow)).get(0).indexOf(locationCard))) {
                 for (int i = 0; i < sameRowKingdom.size(); i++) {
                     if (locationCard != sameRowKingdom.get(sameRowKingdom.size() - 1)) {
                         return false;
@@ -277,7 +294,7 @@ public class WarringStatesGame {
             if (columnIndex == columnLocationIndex) { // they're in the same row
                 if (sameColumnKingdom.size() == 1) {
                     return true;
-                } else if ((Arrays.asList(cardAtsameColumn).get(0).indexOf(zhangLocation)) < ((Arrays.asList(cardAtsameColumn)).get(0).indexOf(locationCard))) {
+                } else if ((Arrays.asList(cardAtsameColumn).get(0).indexOf(zhangLocation(placement))) < ((Arrays.asList(cardAtsameColumn)).get(0).indexOf(locationCard))) {
                     for (int i = 0; i < sameColumnKingdom.size(); i++) {
                         if (locationCard != sameColumnKingdom.get(sameColumnKingdom.size() - 1)) {
                             return false;
@@ -318,7 +335,7 @@ public class WarringStatesGame {
         //  check if the next move is in the same column/row as the previous one
         //if one move passes, the current move for the next move will be the move which passed the is current location
         String placement = setup;
-        String[] ar = setup.split("(?<=\\G...)");
+        String[] ar = placementArray(placement);
         ArrayList<String> board = new ArrayList<>();
         char location = ' ';
         char kingdom = ' ';
@@ -676,7 +693,7 @@ public class WarringStatesGame {
         int rowIndex_pre = 0;
         int columnIndex_pre = 0;
 
-      //  ArrayList<String>[] supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
+        //  ArrayList<String>[] supporter_lst = new ArrayList[36]; // an array of arrayList (the supporters after each movement)
         for (int i = 0; i < supporter_lst.length; i++) { // each element in array is an arrayList
             supporter_lst[i] = new ArrayList<String>();
         }
@@ -914,20 +931,19 @@ public class WarringStatesGame {
     //hashmap generated which has the player id as the key and the value is an array list which contains the number of cards collected for each kingdom
     //index 0=Qin cards, index1=Qi cards, index2=Chu cards, index3=Zhao cards, index4=Han cards, index5=wei cards, index6= Yan cards
 
-    public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom (String supporters,int playerID)
-    {
+    public static HashMap<Integer, ArrayList<Integer>> numberOfCardsForEachKingdom(String supporters, int playerID) {
         String[] a = supporters.split("(?<=\\G..)");
-        List<String> supporterList= Arrays.asList(a);
-        HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer=new HashMap<>();
+        List<String> supporterList = Arrays.asList(a);
+        HashMap<Integer, ArrayList<Integer>> numberOfCardsForPlayer = new HashMap<>();
         ArrayList<Integer> numberInKingdom = new ArrayList<>();
-        int counterQin =0;
-        int counterQi=0;
-        int counterChu=0;
-        int counterZhao=0;
-        int counterHan=0;
-        int counterWei =0;
-        int counterYan=0;
-        if (supporters!="") {
+        int counterQin = 0;
+        int counterQi = 0;
+        int counterChu = 0;
+        int counterZhao = 0;
+        int counterHan = 0;
+        int counterWei = 0;
+        int counterYan = 0;
+        if (supporters != "") {
             for (int i = 0; i < supporterList.size(); i++) {
                 if (supporterList.get(i).charAt(0) == 'a') {
                     counterQin++;
@@ -949,11 +965,11 @@ public class WarringStatesGame {
         numberInKingdom.add(0, counterQin);
         numberInKingdom.add(1, counterQi);
         numberInKingdom.add(2, counterChu);
-        numberInKingdom.add(3,counterZhao);
+        numberInKingdom.add(3, counterZhao);
         numberInKingdom.add(4, counterHan);
-        numberInKingdom.add(5,counterWei);
-        numberInKingdom.add(6,counterYan);
-        numberOfCardsForPlayer.put(playerID,numberInKingdom);
+        numberInKingdom.add(5, counterWei);
+        numberInKingdom.add(6, counterYan);
+        numberOfCardsForPlayer.put(playerID, numberInKingdom);
 
         return numberOfCardsForPlayer;
 
@@ -983,10 +999,9 @@ public class WarringStatesGame {
         //need to call task 7 to check which supporters the player has
 
         // can use compareTo to code this function
-        int flags [] = new int[7];
-    //    ArrayList<String>[] supporters = arraySupporters(setup, moveSequence);
-        if (numPlayers==4)
-        {
+        int flags[] = new int[7];
+        //    ArrayList<String>[] supporters = arraySupporters(setup, moveSequence);
+        if (numPlayers == 4) {
             String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
             String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
             String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
@@ -1011,7 +1026,7 @@ public class WarringStatesGame {
 
                 int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
                 boolean checkTwoOrMorePLayersHaveSameCard = false;
-                String playerIDsWhoHoldSameCard="";
+                String playerIDsWhoHoldSameCard = "";
                 int playerWhoHoldMaxCard = -1;
                 int tempCounter = 0;
                 for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
@@ -1019,11 +1034,10 @@ public class WarringStatesGame {
                         if (tempCounter == 0) {
                             playerWhoHoldMaxCard = k;
                         }
-                        if(playerIDsWhoHoldSameCard.equals(""))
-                        {
-                            playerIDsWhoHoldSameCard=""+k;
+                        if (playerIDsWhoHoldSameCard.equals("")) {
+                            playerIDsWhoHoldSameCard = "" + k;
                         }
-                        playerIDsWhoHoldSameCard=playerIDsWhoHoldSameCard+(","+k);
+                        playerIDsWhoHoldSameCard = playerIDsWhoHoldSameCard + ("," + k);
 
                         tempCounter++;
                     }
@@ -1031,36 +1045,23 @@ public class WarringStatesGame {
                 //if more than one player hols the max number of cards
                 if (tempCounter > 1) {
                     checkTwoOrMorePLayersHaveSameCard = true;
-                    String currentKingdom="";
-                    if(j==0)
-                    {
-                        currentKingdom="a";
+                    String currentKingdom = "";
+                    if (j == 0) {
+                        currentKingdom = "a";
+                    } else if (j == 1) {
+                        currentKingdom = "b";
+                    } else if (j == 2) {
+                        currentKingdom = "c";
+                    } else if (j == 3) {
+                        currentKingdom = "d";
+                    } else if (j == 4) {
+                        currentKingdom = "e";
+                    } else if (j == 5) {
+                        currentKingdom = "f";
+                    } else if (j == 6) {
+                        currentKingdom = "g";
                     }
-                    else if(j==1)
-                    {
-                        currentKingdom="b";
-                    }
-                    else if(j==2)
-                    {
-                        currentKingdom="c";
-                    }
-                    else if(j==3)
-                    {
-                        currentKingdom="d";
-                    }
-                    else if(j==4)
-                    {
-                        currentKingdom="e";
-                    }
-                    else if(j==5)
-                    {
-                        currentKingdom="f";
-                    }
-                    else if(j==6)
-                    {
-                        currentKingdom="g";
-                    }
-                    flags[j]=checkLastCardInfo(supporter_lst, currentKingdom,numPlayers,playerIDsWhoHoldSameCard);
+                    flags[j] = checkLastCardInfo(supporter_lst, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
 
 
                 } else {
@@ -1068,10 +1069,7 @@ public class WarringStatesGame {
                 }
 
             }
-        }
-
-        else
-        if (numPlayers==3){
+        } else if (numPlayers == 3) {
             String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
             String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
             String id2 = getSupporters(setup, moveSequence, numPlayers, 2);
@@ -1139,9 +1137,7 @@ public class WarringStatesGame {
                 }
             }
 
-        }
-        else
-        if (numPlayers==2){
+        } else if (numPlayers == 2) {
             String id0 = getSupporters(setup, moveSequence, numPlayers, 0);
             String id1 = getSupporters(setup, moveSequence, numPlayers, 1);
 
@@ -1164,8 +1160,7 @@ public class WarringStatesGame {
                 boolean checkTwoOrMorePLayersHaveSameCard = false;
                 String playerIDsWhoHoldSameCard = "";
                 int playerWhoHoldMaxCard = -1;
-                if(maximumNumberOfCards!=0)
-                {
+                if (maximumNumberOfCards != 0) {
                     int tempCounter = 0;
                     for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
                         if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
@@ -1201,13 +1196,10 @@ public class WarringStatesGame {
                                 currentKingdom = "g";
                             }
                             flags[j] = checkLastCardInfo(supporter_lst, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
-                        }
-                        catch(Exception e)
-                        {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
-                    }
-                    else {
+                    } else {
                         flags[j] = playerWhoHoldMaxCard;
                     }
 
@@ -1222,9 +1214,8 @@ public class WarringStatesGame {
     }
 
 
-    public static int checkLastCardInfo(ArrayList<String>[] supporter,String checkKingdom,int numOfPlayers,String playerIdsWhoHoldSameCard)
-    {
-        int playerWhoholdLastCard=-1;
+    public static int checkLastCardInfo(ArrayList<String>[] supporter, String checkKingdom, int numOfPlayers, String playerIdsWhoHoldSameCard) {
+        int playerWhoholdLastCard = -1;
         try {
 
             try {
@@ -1239,18 +1230,15 @@ public class WarringStatesGame {
                         }
                     }
                 }
-            }
-            catch(Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return playerWhoholdLastCard;
     }
+
     /**
      * Generate a legal move, given the provided placement string.
      * A move is valid if:
@@ -1286,4 +1274,5 @@ public class WarringStatesGame {
 
 
     }
+
 }
