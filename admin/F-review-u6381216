@@ -1,0 +1,28 @@
+Reviewer: Harmanpreet Kaur (u6381216)
+Component: Task 7
+Author: YaYuan(Lucy) Chang (u6296127)
+
+Review Comments:
+What are the best features of this code?
+1. Use of a helper function (isCardAlreadyExistInOtherPLayer)
+2. Well implemented and logically thought through to insure the tests for task 7 pass.
+3. All cases considered so that the tests for task 7 can pass.
+
+Is the code well-documented?
+The comments are well written so any individual can understand what the purpose of specific lines in the code are doing (e.g. lines 721-736 which
+contains code for adding the supporters collected along a row/column for each move to an array).
+
+Is the program decomposition (class and method structure) appropriate?
+There are some sections within task 7 which can be moved to a separate method creating a helper function. This would potentially not affect the functionality of this
+task and will allow easy readability. For example, helper function can be created for the following sections of the code:
+    - adding the supporters collected along each row/column for each move to an array
+    - determining the initial position to zhang
+    -sorting the supporters list into ascending order
+
+Does it follow Java code conventions and is the style consistent throughout?
+Variables could be named according to java code conventions (e.g. possible_kingdom can be changed to possibleKingdom).
+
+Suggestions:
+If a helper function is used to sort the supporters into ascending order four blocks of code would possibly not be needed to obtain an output.
+This could be done through passing a supporters for any player string to this helper function to be sorted. 
+
