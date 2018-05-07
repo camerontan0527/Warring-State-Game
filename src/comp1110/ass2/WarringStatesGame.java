@@ -326,7 +326,7 @@ public class WarringStatesGame {
      * @param moveSequence a string of location characters representing moves
      * @return True if the placement sequence is valid
      */
-    static boolean isMoveSequenceValid(String setup, String moveSequence) {
+    public static boolean isMoveSequenceValid(String setup, String moveSequence) {
 
         // FIXME Task 6: determine whether a placement sequence is valid
         // check if the length of the set up = 36
