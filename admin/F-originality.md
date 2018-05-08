@@ -6,4 +6,4 @@ We declare that the work we have submitted for Stage F of this assignment and al
 
 * ....
 
-Signed: Mary Jones (u2345678), Bob Smith (u3456789), and Sue Black (u0123456)
+Signed: Lucy Chang (u6296127), Renhao Tan (u6211458), and Harmanpreet Kaur (u6381216)
