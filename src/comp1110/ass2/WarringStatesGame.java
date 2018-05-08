@@ -337,11 +337,11 @@ public class WarringStatesGame {
         String placement = setup;
         String[] ar = placementArray(placement);
         ArrayList<String> board = new ArrayList<>();
-        char location = ' ';
-        char kingdom = ' ';
+        char location = ' '; //initialise
+        char kingdom = ' '; // initialise
         String zhang_location = "";
-        int row_index = row.length;
-        int col_index = column.length;
+        int row_index = row.length; // inisitialise to 6
+        int col_index = column.length; // initialise to 6
         String new_character = "";
         String new_location = "";
 
@@ -353,13 +353,13 @@ public class WarringStatesGame {
             location = moveSequence.charAt(i);
 
             if (!(isMoveLegal(placement, location)))
-                return false;
+                return false; // if the move isn't legal then return false
 
-            for (String elem : array) {
+            for (String elem : array) { //extract out the zhangyi location
                 if (elem.charAt(0) == 'z' && elem.charAt(1) == '9')
                     zhang_location = elem;
             }
-            placement = placement.replace(zhang_location, "");
+            placement = placement.replace(zhang_location, ""); //update zhangyi location after every move
             for (String elem : array) { // put zhang yi at his next position
                 if (elem.charAt(2) == location) {
                     kingdom = elem.charAt(0);
@@ -367,7 +367,7 @@ public class WarringStatesGame {
                 }
             }
             new_location = "z9" + location;
-            placement = placement.replace(new_character, new_location);
+            placement = placement.replace(new_character, new_location); //update new placement string
             for (int m = 0; m < row.length; m++) {
                 for (int n = 0; n < row[m].length; n++) {
                     if (zhang_location.charAt(2) == row[m][n])
@@ -419,7 +419,7 @@ public class WarringStatesGame {
         return true;
     }
 
-    static boolean sameRow(char loc, int i) {
+    static boolean sameRow(char loc, int i) { // check if are on the same row
         for (int j = 0; j < row[i].length; j++) {
             if (row[i][j] == loc)
                 return true;
@@ -427,7 +427,7 @@ public class WarringStatesGame {
         return false;
     }
 
-    static boolean sameColumn(char loc, int i) {
+    static boolean sameColumn(char loc, int i) { // check if are on the same column
         for (int j = 0; j < column[i].length; j++) {
             if (column[i][j] == loc)
                 return true;
@@ -437,7 +437,7 @@ public class WarringStatesGame {
 
 
     //updates setup deleting card of move made
-    public static String updateSetup(String l, String setup) {
+    public static String updateSetup(String l, String setup) { // a function to update setUp string after every move
         String[] ar = setup.split("(?<=\\G...)");
         List<String> setupList = new ArrayList<>();
         Collections.addAll(setupList, ar);
@@ -456,7 +456,7 @@ public class WarringStatesGame {
 
 
     //finds the card at given location
-    public static String cardAtLocation(String l, String setup) {
+    public static String cardAtLocation(String l, String setup) { // function to finds the card (three character) based on specific location
         String[] ar = setup.split("(?<=\\G...)");
         String card = "";
         for (int i = 0; i < ar.length; i++) {
@@ -474,7 +474,7 @@ public class WarringStatesGame {
     }
 
     //sorts supporters into ascending order
-    public static String sortString(String s) {
+    public static String sortString(String s) { //sort
         String[] a = s.split("(?<=\\G..)");
         Arrays.sort(a);
         StringBuilder builder = new StringBuilder();
@@ -487,7 +487,7 @@ public class WarringStatesGame {
 
     //   https://stackoverflow.com/questions/17993729/split-a-string-after-each-two-characters
 //retruns true if Zhang is moving within a row
-    static boolean isMoveWithinRow(String l, String l2) {
+    static boolean isMoveWithinRow(String l, String l2) { // check if the next move is in the same row as zhang yi (game rules required)
         boolean x = false;
         for (int i = 0; i < row_str.length; i++) {
             if (row_str[i].contains(l) && row_str[i].contains(l2)) {
@@ -498,7 +498,7 @@ public class WarringStatesGame {
     }
 
     //returns true if Zhang is moving within a column
-    static boolean isMoveWithinCol(String l, String l2) {
+    static boolean isMoveWithinCol(String l, String l2) {// check if the next move is in the same row as zhang yi (game rules required)
         boolean x = false;
         for (int i = 0; i < col_str.length; i++) {
             if (col_str[i].contains(l) && col_str[i].contains(l2)) {
@@ -532,7 +532,7 @@ public class WarringStatesGame {
     //finds the locations Zhang passes by to get to location x
     //l=current location, l2=location Zhang moves to
 
-    public static String possibleCardsTaken(String l, String l2) {
+    public static String possibleCardsTaken(String l, String l2) { // return all the posibilitied
         String possibleCards = "";
         try {
             String rowOrCol = extractColOrRow(l, l2);
