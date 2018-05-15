@@ -185,11 +185,13 @@ public class Game extends Application {
         button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                moveSequence += textField2.getText().charAt(0);
+                char move = textField2.getText().charAt(0);
+                moveSequence += move;
                 if (WarringStatesGame.isMoveSequenceValid(setup_global, moveSequence)){
-                    placement = updatePlacement(placement, textField2.getText().charAt(0));
-                    boardGenerator(placement);
+                    placement = updatePlacement(placement, move);
+                    // System.out.println(placement);
                 }
+                boardGenerator(placement);
                 textField2.clear();
             }
         });
