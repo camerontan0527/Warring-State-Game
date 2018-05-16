@@ -1,6 +1,7 @@
 package comp1110.ass2.gui;
 
 
+import gittest.A;
 import gittest.C;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -97,56 +98,89 @@ public class Viewer extends Application {
                 Ac.setTranslateX(columnlst.get(i) * 100);
                 Ac.setTranslateY(rowlst.get(i) * 100);
                 Ac.setStroke(Color.WHITE);
-                root.getChildren().addAll(Ac);
+                Text t = new Text();
+                t.setText("Qin");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Ac, t);
+
             }else if(array[i].charAt(0)=='b'){
                 Rectangle Bc=new Rectangle(100,100);
                 Bc.setFill(Color.PINK);
                 Bc.setTranslateX(columnlst.get(i)*100);
                 Bc.setTranslateY(rowlst.get(i)*100);
                 Bc.setStroke(Color.WHITE);
-                root.getChildren().addAll(Bc);
+                Text t = new Text();
+                t.setText("Qi");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Bc, t);
             }else if(array[i].charAt(0)=='c'){
                 Rectangle Cc=new Rectangle(100,100);
                 Cc.setFill(Color.ORANGE);
                 Cc.setStroke(Color.WHITE);
                 Cc.setTranslateX(columnlst.get(i)*100);
                 Cc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Cc);
+                Text t = new Text();
+                t.setText("Chu");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Cc, t);
             }else if(array[i].charAt(0)=='d'){
                 Rectangle Dc=new Rectangle(100,100);
                 Dc.setFill(Color.YELLOW);
                 Dc.setStroke(Color.WHITE);
                 Dc.setTranslateX(columnlst.get(i)*100);
                 Dc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Dc);
+                Text t = new Text();
+                t.setText("Zhao");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Dc, t);
             }else if(array[i].charAt(0)=='e'){
                 Rectangle Ec=new Rectangle(100,100);
                 Ec.setFill(Color.GREEN);
                 Ec.setStroke(Color.WHITE);
                 Ec.setTranslateX(columnlst.get(i)*100);
                 Ec.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Ec);
+                Text t = new Text();
+                t.setText("Han");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Ec, t);
             }else if(array[i].charAt(0)=='f'){
                 Rectangle Fc=new Rectangle(100,100);
                 Fc.setFill(Color.BLUE);
                 Fc.setStroke(Color.WHITE);
                 Fc.setTranslateX(columnlst.get(i)*100);
                 Fc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Fc);
+                Text t = new Text();
+                t.setText("Wei");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Fc, t);
             }else if(array[i].charAt(0)=='g'){
                 Rectangle Gc=new Rectangle(100,100);
                 Gc.setFill(Color.PURPLE);
                 Gc.setStroke(Color.WHITE);
                 Gc.setTranslateX(columnlst.get(i)*100);
                 Gc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Gc);
+                Text t = new Text();
+                t.setText("Yan");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Gc, t);
             }else if(array[i].charAt(0)=='z'){
                 Rectangle Zc=new Rectangle(100,100);
                 Zc.setFill(Color.GRAY);
                 Zc.setStroke(Color.WHITE);
                 Zc.setTranslateX(columnlst.get(i)*100);
                 Zc.setTranslateY(rowlst.get(i)*100);
-                root.getChildren().addAll(Zc);
+                Text t = new Text();
+                t.setText("Zhang");
+                t.setFill(Color.BLACK);
+                t.setStroke(Color.BLACK);
+                root.getChildren().addAll(Zc, t);
             }
         }
     }
