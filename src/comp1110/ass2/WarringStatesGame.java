@@ -1011,24 +1011,26 @@ public class WarringStatesGame {
             HashMap<Integer, ArrayList<Integer>> player2 = numberOfCardsForEachKingdom(id1, 1);
             HashMap<Integer, ArrayList<Integer>> player3 = numberOfCardsForEachKingdom(id2, 2);
             HashMap<Integer, ArrayList<Integer>> player4 = numberOfCardsForEachKingdom(id3, 3);
-            //extract value of hashmap
+            //extract value of hashmap (index assigned to kingdom)
             ArrayList<Integer> player1CardList = player1.get(0);
             ArrayList<Integer> player2CardList = player2.get(1);
             ArrayList<Integer> player3CardList = player3.get(2);
             ArrayList<Integer> player4CardList = player4.get(3);
 
             for (int j = 0; j < player1CardList.size(); j++) {
+                //creats an array list of number of cards collected for one kingdom
                 ArrayList<Integer> allCardsOfOneKindom = new ArrayList<>();
-                allCardsOfOneKindom.add(player1CardList.get(j));
-                allCardsOfOneKindom.add(player2CardList.get(j));
-                allCardsOfOneKindom.add(player3CardList.get(j));
-                allCardsOfOneKindom.add(player4CardList.get(j));
+                allCardsOfOneKindom.add(player1CardList.get(j));//index 0 = number of cards collected by p1
+                allCardsOfOneKindom.add(player2CardList.get(j));//index 1 = number of cards collected by p2
+                allCardsOfOneKindom.add(player3CardList.get(j));//index 2 = number of cards collected by p3
+                allCardsOfOneKindom.add(player4CardList.get(j));//index 3 = number of cards collected by p4
 
-                int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);
+                int maximumNumberOfCards = Collections.max(allCardsOfOneKindom);//finds the max number of cards collected
                 boolean checkTwoOrMorePLayersHaveSameCard = false;
                 String playerIDsWhoHoldSameCard = "";
                 int playerWhoHoldMaxCard = -1;
                 int tempCounter = 0;
+                //for loop used to check which player collected the max number (note: index=player ID)
                 for (int k = 0; k < allCardsOfOneKindom.size(); k++) {
                     if (allCardsOfOneKindom.get(k) == maximumNumberOfCards) {
                         if (tempCounter == 0) {
@@ -1042,7 +1044,7 @@ public class WarringStatesGame {
                         tempCounter++;
                     }
                 }
-                //if more than one player hols the max number of cards
+                //if more than one player holds the max number of cards
                 if (tempCounter > 1) {
                     checkTwoOrMorePLayersHaveSameCard = true;
                     String currentKingdom = "";
@@ -1061,11 +1063,9 @@ public class WarringStatesGame {
                     } else if (j == 6) {
                         currentKingdom = "g";
                     }
-                    flags[j] = checkLastCardInfo(supporter_lst, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);
-
-
+                    flags[j] = checkLastCardInfo(supporter_lst, currentKingdom, numPlayers, playerIDsWhoHoldSameCard);//determine who picked last card from kingdom
                 } else {
-                    flags[j] = playerWhoHoldMaxCard;
+                    flags[j] = playerWhoHoldMaxCard;//assigns flag to player
                 }
 
             }
@@ -1217,15 +1217,15 @@ public class WarringStatesGame {
     public static int checkLastCardInfo(ArrayList<String>[] supporter, String checkKingdom, int numOfPlayers, String playerIdsWhoHoldSameCard) {
         int playerWhoholdLastCard = -1;
         try {
-
             try {
+                //supporters list contains the cards collected at each move
                 for (int k = 0; k < supporter.length; k++) {
-                    ArrayList<String> tempSupportList = supporter[k];
+                    ArrayList<String> tempSupportList = supporter[k];//creates an array list for the supporters at a particular move
                     for (int l = 0; l < tempSupportList.size(); l++) {
-                        if (("" + tempSupportList.get(l).charAt(0)).equals(checkKingdom)) {
-                            int playerIndex = k % numOfPlayers;
-                            if (playerIdsWhoHoldSameCard.contains("" + playerIndex)) {
-                                playerWhoholdLastCard = playerIndex;
+                        if (("" + tempSupportList.get(l).charAt(0)).equals(checkKingdom)) {//if card collected at move is from the kingdom which is being checked
+                            int playerIndex = k % numOfPlayers;//determines which players move it is
+                            if (playerIdsWhoHoldSameCard.contains("" + playerIndex)) {// if the player index is within the string playerIdsWhoHoldSameCard
+                                playerWhoholdLastCard = playerIndex; // the playerIndex is equal to the player who holds the last card
                             }
                         }
                     }

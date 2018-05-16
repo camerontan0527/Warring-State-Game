@@ -24,5 +24,5 @@ Variables could be named according to java code conventions (e.g. possible_kingd
 
 Suggestions:
 If a helper function is used to sort the supporters into ascending order four blocks of code would possibly not be needed to obtain an output.
-This could be done through passing a supporters for any player string to this helper function to be sorted. 
+This could be done through passing a supporters for any player string to this helper function to be sorted.
 
