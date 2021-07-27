@@ -1,4 +1,4 @@
-# COMP1110 Assignment 2
+# Warring State Game (From ANU COMP1110 Assignment 2)
 
 ## Problem Description
 
