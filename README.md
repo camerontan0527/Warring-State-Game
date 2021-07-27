@@ -1,25 +1,5 @@
 # COMP1110 Assignment 2
 
-## Academic Honesty and Integrity
-
-Honesty and integrity are of utmost importance. These goals are *not* at odds with being resourceful and working collaboratively. You *should* be resourceful, you should collaborate within your team, and you should discuss the assignment and other aspects of the course with others taking the class. However, *you must never misrepresent the work of others as your own*. If you have taken ideas from elsewhere or used code sourced from elsewhere, you must say so with *utmost clarity*. At each stage of the assignment you will be asked to submit a statement of originality, either as a group or as individuals. This statement is the place for you to declare which ideas or code contained in your submission were sourced from elsewhere.
-
-Please read the ANU's [official position](http://academichonesty.anu.edu.au/) on academic honesty. If you have any questions, please ask me.
-
-For each deliverable, please carefully review the statement of originality which you must complete.  As you complete each stage of the assignment, edit the corresponding statement of originality, ensuring that a truthful statement is committed and pushed to your repo.
-
-## Purpose
-
-In this assignment you will exercise a number of major themes of the course, including software design and implemention, using development tools such as Git and IntelliJ, using JavaFX to build a user interface.
-As an extension task, you may also explore strategies for writing agents that play games *(there is a special non-assessable lecture in week five that addresses this aspect of the assignment)*.
-Above all, this assignment will emphasize group work.
-
-## Assignment Deliverables
-
-The assignment is worth 25% of your total assessment, and it will be marked out of 25. So each mark in the assignment corresponds to a mark in your final assessment for the course. Note that for some stages of the assignment you will get a _group_ mark, and for others you will be _individually_ marked. The mark breakdown and the due dates are described on the [deliverables](https://cs.anu.edu.au/courses/comp1110/assessments/deliverables/) page.
-
-Your work will be marked via your tutor accessing git, so it is essential that you carefully follow instructions for setting up and maintaining your group repository. At each deadline you will be marked according to whatever is committed to your repository at the time of the deadline. You will be assessed on how effectively you use git as a development tool.
-
 ## Problem Description
 
 Your task is to implement in Java, using JavaFX, a card game called *Warring States: Joy Begets Sorrow*.
